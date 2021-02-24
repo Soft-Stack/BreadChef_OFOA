@@ -1,3 +1,4 @@
-# BreadChef_UMLs
+# BreadChef_OFOA
+# BreadChef Online Food Ordering Application
 
-All UML Diagrams will be placed here.
+
