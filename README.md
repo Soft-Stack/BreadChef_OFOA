@@ -1,4 +1,4 @@
 # BreadChef_OFOA
 ## BreadChef Online Food Ordering Application
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://cheetay-prod-media.s3.amazonaws.com/production/media/images/partners/2020/06/Bread_Chef_Cafe__Bakers_-_Cantt_peshawar_cheetay.pk_2n2QYMc.jpg" width="400"></a></p>
