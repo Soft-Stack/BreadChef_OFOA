@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/', function () {
+    return view('index');
 });
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/inner-page', function () {
+    return view('inner-page');
+});
+
+Route::get('/shared', function () {
+    return view('shared');
 });
