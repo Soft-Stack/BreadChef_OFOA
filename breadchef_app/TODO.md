@@ -6,6 +6,7 @@
 - check some websites for idea 
 - khaadi https://pk.khaadi.com/checkout/cart/
 - kfc https://www.kfcpakistan.com/cart
+- gourmet https://gourmetfoods.pk/
 
 2) Create Checkout View:
 - check some websites for idea (https://pk.khaadi.com/checkout/#shipping)

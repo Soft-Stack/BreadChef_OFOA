@@ -754,7 +754,7 @@
       </div>
 
       <div class="map">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13228.021637208178!2d71.5483533!3d34.0180721!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fc2056a8e10912b!2sBread%20Chef%20Caf%C3%A8%20And%20Bakers!5e0!3m2!1sen!2s!4v1614900186485!5m2!1sen!2s" frameborder="0" allowfullscreen></iframe>
       </div>
 
       <div class="container mt-5">
@@ -764,7 +764,7 @@
             <div class="col-lg-3 col-md-6 info">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
-              <p>A108 Adam Street<br>New York, NY 535022</p>
+              <p>Sher Khan Rd, Bashirabad<br>Peshawar, Khyber Pakhtunkhwa</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
@@ -782,7 +782,7 @@
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+              <p>+92 91 561 3666<br>+92 91 561 3666</p>
             </div>
           </div>
         </div>
