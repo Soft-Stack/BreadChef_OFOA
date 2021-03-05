@@ -12,7 +12,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url({{ asset('img/slide/slide-1.jpg') }});">
+          <div class="carousel-item active" style="background: url({{ asset('img/building/cover.jpg') }});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Bread Chef</span> Cafe & Baker's</h2>
@@ -26,7 +26,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url({{ asset('img/slide/slide-2.jpg') }});">
+          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -40,7 +40,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url({{ asset('img/slide/slide-3.jpg') }});">
+          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }});">
             <div class="carousel-background"><img src="{{ asset('img/slide/slide-3.jpg') }}" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
@@ -131,9 +131,10 @@
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+              <img src="{{ asset('img/burger.jpg') }}" alt="" width="200" class="align-content-center">
+              <h4>Triple Decker Club Sandwich</h4>
+              <p>Grilled Chicken, Salami egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise</p>
+              <span>Rs.595</span>
             </div>
           </div>
 
@@ -162,9 +163,10 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Show All</li>
-              <li data-filter=".filter-starters">Starters</li>
+              <li data-filter=".filter-starters">Appetizers</li>
               <li data-filter=".filter-salads">Salads</li>
-              <li data-filter=".filter-specialty">Specialty</li>
+              <li data-filter=".filter-specialty">Soup</li>
+              <li data-filter=".filter-sandwiches">Sandwiches</li>
             </ul>
           </div>
         </div>
@@ -173,10 +175,10 @@
 
           <div class="col-lg-6 menu-item filter-starters">
             <div class="menu-content">
-              <a href="#">Lobster Bisque</a><span>$5.95</span>
+              <a href="#">Nachos</a><span>Rs.450</span>
             </div>
             <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
+              Description
             </div>
           </div>
 
@@ -189,21 +191,30 @@
             </div>
           </div>
 
-          <div class="col-lg-6 menu-item filter-starters">
+          <div class="col-lg-6 menu-item filter-sandwiches">
             <div class="menu-content">
-              <a href="#">Crab Cake</a><span>$7.95</span>
+              <a href="#">Triple Decker Club Sandwich</a><span>Rs.595</span>
             </div>
             <div class="menu-ingredients">
-              A delicate crab cake served on a toasted roll with lettuce and tartar sauce
+              Grilled Chicken, Salami egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise 
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Buffalo WIngs</a><span>Rs.430</span>
+            </div>
+            <div class="menu-ingredients">
+              Description
             </div>
           </div>
 
           <div class="col-lg-6 menu-item filter-salads">
             <div class="menu-content">
-              <a href="#">Caesar Selections</a><span>$8.95</span>
+              <a href="#">Caesar Salad</a><span>Rs.450</span>
             </div>
             <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
+              Description
             </div>
           </div>
 
@@ -218,7 +229,7 @@
 
           <div class="col-lg-6 menu-item filter-starters">
             <div class="menu-content">
-              <a href="#">Mozzarella Stick</a><span>$4.95</span>
+              <a href="#">Cheese Stick</a><span>Rs.350</span>
             </div>
             <div class="menu-ingredients">
               Lorem, deren, trataro, filede, nerada
@@ -227,19 +238,19 @@
 
           <div class="col-lg-6 menu-item filter-salads">
             <div class="menu-content">
-              <a href="#">Greek Salad</a><span>$9.95</span>
+              <a href="#">Grilled Chicken Salad</a><span>Rs.390</span>
             </div>
             <div class="menu-ingredients">
-              Fresh spinach, crisp romaine, tomatoes, and Greek olives
+              Description
             </div>
           </div>
 
           <div class="col-lg-6 menu-item filter-salads">
             <div class="menu-content">
-              <a href="#">Spinach Salad</a><span>$9.95</span>
+              <a href="#">Russian Salad</a><span>Rs.350</span>
             </div>
             <div class="menu-ingredients">
-              Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+              Description
             </div>
           </div>
 
