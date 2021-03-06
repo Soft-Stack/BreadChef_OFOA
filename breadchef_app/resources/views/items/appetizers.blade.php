@@ -33,10 +33,10 @@
 
           <div class="col-lg-4">
             <div class="box">
-              <img src="{{ asset('img/items/appetizers/nachos.jpeg') }}" alt="" width="250">
+              <img src="{{ asset('img/items/appetizers/nachos.jpeg') }}" alt="">
               <h4>Nachos</h4>
               <p>nachos description</p>
-              <span>Rs.450</span>
+              <span>Rs.450 <button class="btn btn-warning float-end"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button></span>
             </div>
           </div>
 
