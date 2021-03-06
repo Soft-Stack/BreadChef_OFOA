@@ -830,12 +830,16 @@ section {
 
 .why-us .box:hover {
   background: #ffb03b;
-  padding: 30px 30px 70px 30px;
+  padding: 30px 30px 30px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
 }
 
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
   color: #fff;
+}
+
+.why-us .box:hover button {
+  background-color: white;
 }
 
 /*--------------------------------------------------------------
@@ -1593,3 +1597,18 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+/* ============================================================================= */
+/* SoftStack Changes in CSS */
+/* ============================================================================= */
+.btn-cart {
+  margin-top: -40px;
+}
+
+.modal-cart {
+  border: 3px solid black;
+  border-radius: 0.5%;
+}
+
+/* .cart-item {
+  padding-top: 5px;
+} */
