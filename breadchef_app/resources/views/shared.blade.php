@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Bread Chef Cafe & Baker's - Peshawar, Peshawar</title>
+  <title>Bread Chef Cafe & Baker's - Peshawar</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -60,7 +60,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
@@ -83,12 +83,13 @@
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#book-a-table">Book a table</a></li>
           <li><a class="nav-link scrollto" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
+      <a href="{{ url('/checkout') }}" class="book-a-table-btn scrollto"><i class="bi bi-bag-check-fill text-dark"></i> Checkout</a>
 
     </div>
   </header><!-- End Header -->

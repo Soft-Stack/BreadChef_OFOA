@@ -18,7 +18,15 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/', function () {
+    return view('items.appetizers');
+});
+
+Route::get('/home', function(){
     return view('index');
+});
+
+Route::get('/about', function(){
+    return view('index#about');
 });
 
 Route::get('/inner-page', function () {
@@ -35,4 +43,8 @@ Route::get('/items/appetizers', function(){
 
 Route::get('/bag', function(){
     return view('bag');
+});
+
+Route::get('/checkout', function(){
+    return view('checkout');
 });
