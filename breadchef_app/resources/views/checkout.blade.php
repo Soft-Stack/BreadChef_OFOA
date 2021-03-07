@@ -143,41 +143,41 @@
 
             <!-- Order Summary Start -->
             <div class="col-md-4 border border-4 ms-4">
-                <h4 class="fw-bolder mt-2">Order Summary <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4>
+                <h4 class="fw-bolder mt-2">Order Summary <span class="float-end" onClick="emptyBag(this)"><i class="bi bi-bag-dash"></i></span></h4>
                 <hr>
 
-                <div class="container">
+                <div class="container order-window">
                 <!-- All Items in Bag -->
 
                     <div class="row cart-item">
-                        <h5>Cheese Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <h5>Cheese Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
-                        <span><button class="btn btn-secondary">-</button></span>
-                        <span class="fs-5">1</span>
-                        <span><button class="btn btn-secondary">+</button></span>
-                        <span class="float-end fs-5">Rs.550</span>
+                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
+                            <span class="fs-5">1</span>
+                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
+                            <span class="float-end fs-5" onClick="removeFromBag(this)">Rs.550</span>
                         </p> 
                         <hr>
                     </div>
 
                     <div class="row cart-item">
-                        <h5>Zinger Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <h5>Zinger Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
-                        <span><button class="btn btn-secondary">-</button></span>
-                        <span class="fs-5">1</span>
-                        <span><button class="btn btn-secondary">+</button></span>
-                        <span class="float-end fs-5">Rs.350</span>
+                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
+                            <span class="fs-5">1</span>
+                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
+                            <span class="float-end fs-5">Rs.350</span>
                         </p> 
                         <hr>
                     </div> 
 
                     <div class="row cart-item">
-                        <h5>Fish Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <h5>Fish Burger <span class="float-end"  onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
-                        <span><button class="btn btn-secondary">-</button></span>
-                        <span class="fs-5">1</span>
-                        <span><button class="btn btn-secondary">+</button></span>
-                        <span class="float-end fs-5">Rs.500</span>
+                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
+                            <span class="fs-5">1</span>
+                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
+                            <span class="float-end fs-5">Rs.500</span>
                         </p> 
                         <hr>
                     </div>
@@ -190,7 +190,7 @@
         <!-- Total Price -->
         <div class="row mt-3">
             <div class="col-md-12 text-center">
-                <h4 class="fw-bolder">Total Rs. 3200</h4>
+                <h4 class="fw-bolder" id="subtotal">Total Rs.3200</h4>
             </div>
         </div>
 
@@ -242,7 +242,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/calculate.js') }}"></script>
+  <script src="{{ asset('js/checkout.js') }}"></script>
 
 </body>
 

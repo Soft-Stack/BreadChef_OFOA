@@ -229,6 +229,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/calculate.js') }}"></script>
+  <script src="{{ asset('js/checkout.js') }}"></script>
 
 </body>
 
