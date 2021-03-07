@@ -109,12 +109,13 @@
             <!-- Customer Information -->
             <div class="col-md-7 border border-4 ms-4" >
                 <h4 class="fw-bolder mt-2">Customer information</h4>
+                <hr>
                 <!-- Form Start -->
                 <form class="mt-3 mb-3">
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -123,36 +124,83 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="03xx-">
                             <div id="emailHelp" class="form-text">This number will be used to confirm your order.</div>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputPassword1" class="form-label">Delivery Address</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Complete address">
+                        </div>
+                        <div class="mb-3 col-md-12">
+                            <label for="exampleInputPassword1" class="form-label">Any comments (optional)</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
                         </div>
                     </div>
                     
-                    
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 <!-- Form End -->
             </div>
 
             <!-- Order Summary Start -->
             <div class="col-md-4 border border-4 ms-4">
-                <h4 class="fw-bolder mt-2">Order Summary</h4>
+                <h4 class="fw-bolder mt-2">Order Summary <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4>
+                <hr>
+
+                <div class="container">
+                <!-- All Items in Bag -->
+
+                    <div class="row cart-item">
+                        <h5>Cheese Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <p>
+                        <span><button class="btn btn-secondary">-</button></span>
+                        <span class="fs-5">1</span>
+                        <span><button class="btn btn-secondary">+</button></span>
+                        <span class="float-end fs-5">Rs.550</span>
+                        </p> 
+                        <hr>
+                    </div>
+
+                    <div class="row cart-item">
+                        <h5>Zinger Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <p>
+                        <span><button class="btn btn-secondary">-</button></span>
+                        <span class="fs-5">1</span>
+                        <span><button class="btn btn-secondary">+</button></span>
+                        <span class="float-end fs-5">Rs.350</span>
+                        </p> 
+                        <hr>
+                    </div> 
+
+                    <div class="row cart-item">
+                        <h5>Fish Burger <span class="float-end"><i class="bi bi-bag-dash"></i></span></h5> 
+                        <p>
+                        <span><button class="btn btn-secondary">-</button></span>
+                        <span class="fs-5">1</span>
+                        <span><button class="btn btn-secondary">+</button></span>
+                        <span class="float-end fs-5">Rs.500</span>
+                        </p> 
+                        <hr>
+                    </div>
+   
+                </div>
+
             </div>
         </div>
+
+        <!-- Total Price -->
         <div class="row mt-3">
             <div class="col-md-12 text-center">
-                <button class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
+                <h4 class="fw-bolder">Total Rs. 3200</h4>
             </div>
-            
         </div>
+
+        <!-- Order Button -->
+        <div class="row mt-2">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
+            </div>    
+        </div>
+
       </div>
     </section>
 
