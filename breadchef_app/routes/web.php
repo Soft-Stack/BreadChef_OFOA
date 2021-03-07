@@ -28,7 +28,11 @@ Route::get('/inner-page', function () {
 Route::get('/shared', function () {
     return view('shared');
 });
-Route::get('items/appetizers', function(){
+
+Route::get('/items/appetizers', function(){
     return view('items.appetizers');
 });
 
+Route::get('/bag', function(){
+    return view('bag');
+});

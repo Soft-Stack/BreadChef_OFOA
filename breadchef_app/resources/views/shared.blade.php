@@ -24,6 +24,9 @@
   <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -80,6 +83,7 @@
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -127,6 +131,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/calculate.js') }}"></script>
 
 </body>
 

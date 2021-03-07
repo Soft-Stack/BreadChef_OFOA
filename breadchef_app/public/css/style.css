@@ -794,7 +794,7 @@ section {
 # Whu Us
 --------------------------------------------------------------*/
 .why-us .box {
-  padding: 50px 30px;
+  padding: 20px 20px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;
   height: 100%;
@@ -804,7 +804,7 @@ section {
   display: block;
   font-size: 28px;
   font-weight: 700;
-  color: #ffcf88;
+  color: #ffb03b;
 }
 
 .why-us .box h4 {
@@ -822,14 +822,24 @@ section {
   padding: 0;
 }
 
+.why-us .box img {
+  padding: 0;
+  width: 100%;
+  height: 250px;
+}
+
 .why-us .box:hover {
   background: #ffb03b;
-  padding: 30px 30px 70px 30px;
+  padding: 30px 30px 30px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
 }
 
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
   color: #fff;
+}
+
+.why-us .box:hover button {
+  background-color: white;
 }
 
 /*--------------------------------------------------------------
@@ -876,7 +886,9 @@ section {
 }
 
 .menu .menu-content::after {
-  content: "......................................................................" "...................................................................." "....................................................................";
+  content: "......................................................................"
+ "...................................................................."
+ "....................................................................";
   position: absolute;
   left: 20px;
   right: 0;
@@ -1585,3 +1597,19 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+/* ============================================================================= */
+/* SoftStack Changes in CSS */
+/* ============================================================================= */
+.btn-cart {
+  margin-top: -40px;
+}
+
+.modal-cart {
+  border: 3px solid black;
+  border-radius: 0.5%;
+}
+
+
+/* .cart-item {
+  padding-top: 5px;
+} */
