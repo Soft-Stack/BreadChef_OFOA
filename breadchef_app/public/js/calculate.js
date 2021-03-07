@@ -69,7 +69,7 @@ function removeFromBag(item)
 
 function emptyBag(bag)
 {
-    document.getElementsByClassName('bag-window').innerHTML = "";
+    document.getElementsByClassName('bag-window')[0].innerHTML = "";
     setSubTotal(0);
 }
 

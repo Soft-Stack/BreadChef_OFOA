@@ -67,7 +67,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h2 class="modal-title fw-bold" id="staticBackdropLabel">My Bag</h2>
-                    <button class="btn fs-3" onClick="emptyBag"><i class="bi bi-bag-dash"></i></button>
+                    <button class="btn fs-3" onClick="emptyBag(this)"><i class="bi bi-bag-dash"></i></button>
                   </div>
                   <div class="modal-body">
                     
@@ -82,28 +82,6 @@
                           <span><button class="btn btn-secondary">+</button></span>
                           <span class="float-end fs-5">Rs.450</span>
                         </p> 
-                        <hr>
-                      </div> -->
-
-                      <!-- <div class="row cart-item">
-                        <h4>Buffalo Wings <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4> 
-                        <p>
-                          <span><button class="btn btn-secondary">-</button></span>
-                          <span class="fs-5"> 1 </span>
-                          <span class="fs-5"><button class="btn btn-secondary">+</button></span>
-                          <span class="float-end fs-5">Rs.430</span>
-                        </p>
-                        <hr>
-                      </div> -->
-
-                      <!-- <div class="row cart-item">
-                        <h4>Cheese Stick <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4> 
-                        <p>
-                          <span><button class="btn btn-secondary">-</button></span>
-                          <span class="fs-5"> 1 </span>
-                          <span><button class="btn btn-secondary">+</button></span>
-                          <span class="float-end fs-5">Rs.350</span>
-                        </p>
                         <hr>
                       </div> -->
 
