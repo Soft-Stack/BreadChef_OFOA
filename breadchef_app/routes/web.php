@@ -36,3 +36,21 @@ Route::get('/items/appetizers', function(){
 Route::get('/bag', function(){
     return view('bag');
 });
+
+
+
+
+
+
+
+
+
+// admin routes
+
+Route::get('/breadchef-admin', function() {
+    return view('admin.home');
+});
+
+Route::get('/breadchef-admin/orders', function() {
+    return view('admin.orders');
+});
