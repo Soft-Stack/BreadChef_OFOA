@@ -148,15 +148,15 @@
                                             class="fas fa-info"></i></a>
                                 </td>
                             </tr>
-                            <tr onclick="getOrderInfo()">
-                                <td style="width:30px;"><span class="fa fa-truck"></td>
-                                <td style="width:120px;">PCK-268</td>
-                                <td style="width:180px;">Abdullah Khan</td>
-                                <td>0321-213213</td>
-                                <td style="400px;"> H # E303/12-D1 street # 3. New Iqbal Park, Lahore Cantt</td>
+                            <tr>
+                                <td onclick="getOrderInfo()" style="width:30px;"><span class="fa fa-truck"></td>
+                                <td onclick="getOrderInfo()" style="width:120px;">PCK-268</td>
+                                <td onclick="getOrderInfo()" style="width:180px;">Abdullah Khan</td>
+                                <td onclick="getOrderInfo()">0321-213213</td>
+                                <td onclick="getOrderInfo()" style="400px;"> H # E303/12-D1 street # 3. New Iqbal Park, Lahore Cantt</td>
                                 {{-- <td><span class="fa fa-calendar"></span> Thursday, 4:39 pm</td> --}}
-                                <td><span style="color:red; font-weight:bold;">Canceled</span></td>
-                                <td>1500 Rs</td>
+                                <td onclick="getOrderInfo()"><span style="color:red; font-weight:bold;">Canceled</span></td>
+                                <td onclick="getOrderInfo()">1500 Rs</td>
                                 <td>
                                     <a href="#" class="btn btn-simple btn-icon"><i
                                             class=" fas fa-check"></i></a>

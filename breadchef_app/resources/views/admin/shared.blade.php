@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="en">
-
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,17 +21,19 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Bread Chef | Dashboard</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <a class="navbar-brand" href="index.html">Bread Chef | Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse ml-auto justify-content-end"  id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
+                                {{-- <input class="form-control" type="text" placeholder="Search.."> --}}
                             </div>
                         </li>
                         <li class="nav-item dropdown notification">

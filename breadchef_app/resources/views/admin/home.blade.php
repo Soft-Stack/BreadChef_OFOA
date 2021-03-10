@@ -32,7 +32,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Customers</h5>
+                            <h5 class="text-muted">Unique Customers</h5>
                             <div class="metric-value d-inline-block">
                                 <h1 class="mb-1 text-primary">32,100 </h1>
                             </div>
@@ -48,7 +48,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Order</h5>
+                            <h5 class="text-muted">Order This Week</h5>
                             <div class="metric-value d-inline-block">
                                 <h1 class="mb-1 text-primary">4,200 </h1>
                             </div>
@@ -64,7 +64,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Revenue</h5>
+                            <h5 class="text-muted">Orders This Month</h5>
                             <div class="metric-value d-inline-block">
                                 <h1 class="mb-1 text-primary">$5,656</h1>
                             </div>
@@ -81,7 +81,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Growth</h5>
+                            <h5 class="text-muted">Total Orders</h5>
                             <div class="metric-value d-inline-block">
                                 <h1 class="mb-1 text-primary">+28.45% </h1>
                             </div>
