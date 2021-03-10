@@ -14,7 +14,7 @@
   <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet"> -->
   <!-- {{ asset('') }} -->
   <!-- Vendor CSS Files -->
   <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
@@ -63,15 +63,15 @@
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
           <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('/items/appetizers') }}">Appetizers</a></li>
-              <li class="dropdown"><a href="#"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
+              <li><a href="#appetizers">Appetizers</a></li>
+              <li><a href="#sandwiches">Sandwiches</a></li>
+              <li class="dropdown"><a href="#flavorLoadedSteaks"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Chicken</a></li>
                   <li><a href="#">Beef</a></li>
                 </ul>
               </li>
               <li><a href="#">Italian Affairs</a></li>
-              <li><a href="#">Sandwiches</a></li>
               <li><a href="#">Burgers</a></li>
               <li><a href="#">Pizza Size 9"</a></li>
             </ul>
@@ -93,10 +93,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Appetizers</h2>
+          <h2>Items</h2>
           <ol>
             <li><a href="{{ url('/') }}">Home</a></li>
-            <li>Appetizers</li>
+            <li>Items</li>
           </ol>
         </div>
 
@@ -106,7 +106,9 @@
 
     <!-- ======= Whu Us Section ======= -->
     <section id="why-us" class="why-us">
-      <div class="container">
+
+      <!---------------------------------------- Appetizers  ------------------------------------->
+      <div class="container" id="appetizers">
 
         <div class="section-title">
           <h2>Choose your <span>Appetizers</span></h2>
@@ -186,9 +188,94 @@
             <!-- Modal ENd -->
         </div>
 
+      </div>
+      <!---------------------------------------- End Appetizers  ------------------------------------->
+
+      <!----------------------------------------------- Sandwiches ------------------------------------>
+      <div class="container mt-5" id="flavorLoadedSteaks">
+
+        <div class="section-title">
+          <h2>Choose your <span>Sandwiches</span></h2>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box">
+              <img src="{{ asset('img/items/sandwiches/triple-decker-club-sandwich.jpg') }}" alt="">
+              <h4>Triple Decker Club Sandwich</h4>
+              <p>Grilled Chicken, Salami, egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise</p>
+              <span>Rs.595</span>
+              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>  
+            </div>
+            
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <img src="{{ asset('img/items/sandwiches/crunch-sandwich.png') }}" alt="" width="250">
+              <h4>Crunch Sandwich</h4>
+              <p>Crispy fried chicken topped with cheese honey mustard & vegetables</p>
+              <span>Rs.595</span>
+              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <img src="{{ asset('img/items/sandwiches/grilled-chicken-panini-sandwich.jpg') }}" alt="" width="250">
+              <h4>Grilled Chicken Panini Sandwich</h4>
+              <p>description</p>
+              <span>Rs.595</span>
+              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
+            </div>
+          </div>
+            <!-- Modal Start -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-cart">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fw-bold" id="staticBackdropLabel">My Bag</h2>
+                    <button class="btn fs-3" onClick="emptyBag(this)"><i class="bi bi-bag-dash"></i></button>
+                  </div>
+                  <div class="modal-body">
+                    
+                    <div class="bag-window">
+                      <!-- Items -->
+
+                      <!-- <div class="row cart-item">
+                        <h4>Nachos <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4> 
+                        <p>
+                          <span><button class="btn btn-secondary">-</button></span>
+                          <span class="fs-5">1</span>
+                          <span><button class="btn btn-secondary">+</button></span>
+                          <span class="float-end fs-5">Rs.450</span>
+                        </p> 
+                        <hr>
+                      </div> -->
+
+                    </div>
+                    
+                    <hr>                    
+                    <div class="row">
+                      <p class="fs-3">Sub Total <span class="fs-2 float-end fw-bolder" id="subtotal">Rs.0</span></p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="{{ url('/checkout') }}"><button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal ENd -->
+        </div>
 
       </div>
-    </section><!-- End Whu Us Section -->
+      <!----------------------------------------------- End Flavor Loaded Steaks ------------------------------------>
+
+    </section><!-- End Why Us Section -->
 
   </main><!-- End #main -->
 
@@ -228,8 +315,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/calculate.js') }}"></script>
-  <script src="{{ asset('js/checkout.js') }}"></script>
+  <script src="{{ asset('js/bag.js') }}"></script>
+  <!-- <script src="{{ asset('js/checkout.js') }}"></script> -->
 
 </body>
 

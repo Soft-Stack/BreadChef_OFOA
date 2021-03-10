@@ -63,9 +63,9 @@
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{{ url('/items') }}"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('/items/appetizers') }}">Appetizers</a></li>
+              <li><a href="{{ url('/items') }}">Appetizers</a></li>
               <li class="dropdown"><a href="#"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Chicken</a></li>

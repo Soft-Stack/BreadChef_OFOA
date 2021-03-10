@@ -61,9 +61,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{{ url('/items') }}"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('/items/appetizers') }}">Appetizers</a></li>
+              <li><a href="#">Appetizers</a></li>
               <li class="dropdown"><a href="#"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Chicken</a></li>

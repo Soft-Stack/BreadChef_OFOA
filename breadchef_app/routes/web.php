@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
+/********************************************************
+ * Routes of Website
+ */
 Route::get('/', function () {
-    return view('items.appetizers');
+    return view('website.appetizers');
 });
 
 Route::get('/home', function(){
-    return view('index');
+    return view('website.index');
 });
 
 Route::get('/about', function(){
@@ -34,17 +37,18 @@ Route::get('/inner-page', function () {
 });
 
 Route::get('/shared', function () {
-    return view('shared');
+    return view('website.shared');
 });
 
-Route::get('/items/appetizers', function(){
-    return view('items.appetizers');
+Route::get('/items', function(){
+    return view('website.items');
 });
 
 Route::get('/bag', function(){
-    return view('bag');
+    return view('website.bag');
 });
 
 Route::get('/checkout', function(){
-    return view('checkout');
+    return view('website.checkout');
 });
+/**************************************************************** */

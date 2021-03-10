@@ -1,4 +1,4 @@
-@extends('shared')
+@extends('website.shared')
 
 @section('pageContent')
 
