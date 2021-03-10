@@ -20,7 +20,15 @@ use App\Http\Controllers\MainController;
 });*/
 
 Route::get('/', function () {
+    return view('items.appetizers');
+});
+
+Route::get('/home', function(){
     return view('index');
+});
+
+Route::get('/about', function(){
+    return view('index#about');
 });
 
 Route::get('/inner-page', function () {
@@ -65,3 +73,6 @@ Route::post('/order', 'MainController@placeOrder');
 
 
 
+Route::get('/checkout', function(){
+    return view('checkout');
+});
