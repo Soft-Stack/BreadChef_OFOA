@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class Customer extends Model
 {
@@ -26,4 +27,50 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = ['name', 'email', 'phone', 'address', 'orders'];
+
+    public static function isUnique(array $customer) {
+        Log::debug($customer);
+        $result = Customer::where([
+            'name' => $customer['name'],
+            'email' => $customer['email'],
+            'phone' => $customer['phone'],
+            'address' => $customer['address'],
+            'orders' => $customer['address'] 
+        ])->get();
+        
+        return count($result) == 0;
+    }
+
+    /**
+     * Checks whether customer is new,
+     * returns customer_id
+     * @param array customer As Array
+     * @return int customer_id
+     */
+    public static function checkAndAdd(array $customerAsArray) {
+        if(Customer::isUnique($customerAsArray)) {
+            // is customer is unique, make entry in DB
+            Log::debug("Customer is unique : ".$customerAsArray['name']);
+
+            Customer::create($customerAsArray);
+            $newCustomerId = Customer::latest()->first()->id;
+            return $newCustomerId;
+        } else {
+            // return customer_id for already existing customer
+            Log::debug("Customer is not unique : ".$customerAsArray['name']);
+            $existingCustomer = Customer::where([
+                'name' => $customerAsArray['name'],
+                'email' => $customerAsArray['email'],
+                'phone' => $customerAsArray['phone'],
+                'address' => $customerAsArray['address'],
+                'orders' => $customerAsArray['address'] 
+            ])->get()->first();
+
+            $existingCustomerId = $existingCustomer->id;
+            $existingCustomerOrders = (int) $existingCustomer->orders;
+            $updatedOrders = $existingCustomerOrders + 1;
+            Customer::where( ['id' => $existingCustomerId] )->update(['orders' => (string)$updatedOrders]);
+            return $existingCustomerId;
+        }
+    }
 }
