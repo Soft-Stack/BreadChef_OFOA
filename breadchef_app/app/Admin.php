@@ -29,6 +29,16 @@ class Admin extends Model
      */
     protected $fillable = ['name', 'password'];
 
+
+    /**
+     * Check if Admin is logged in
+     * @return bool
+     */
+    public static function isLoggedIn() {
+        return session('admin-name', false);
+    }
+
+
     /**
      * Validate user and log in
      * @param string name
