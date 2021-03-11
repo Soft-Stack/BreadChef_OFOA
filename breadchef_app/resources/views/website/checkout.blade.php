@@ -149,7 +149,27 @@
                 <div class="container order-window">
                 <!-- All Items in Bag -->
 
-                    <div class="row cart-item">
+                <?php
+                      if( is_array($session_bag ?? '') || is_object($session_bag ?? '') )
+                      {
+                        foreach($session_bag ?? '' as $item)
+                        {?>
+                            <div class="row cart-item">
+                              <h5>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h5> 
+                              <p>
+                                <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
+                                <span class="fs-5"> {{ $item['quantity'] }} </span>
+                                <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
+                                <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
+                              </p> 
+                              <hr>
+                            </div>
+                        <?php
+                        }
+                      }
+                      ?>
+
+                    <!-- <div class="row cart-item">
                         <h5>Cheese Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
                             <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
@@ -158,9 +178,9 @@
                             <span class="float-end fs-5" onClick="removeFromBag(this)">Rs.550</span>
                         </p> 
                         <hr>
-                    </div>
+                    </div> -->
 
-                    <div class="row cart-item">
+                    <!-- <div class="row cart-item">
                         <h5>Zinger Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
                             <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
@@ -169,9 +189,9 @@
                             <span class="float-end fs-5">Rs.350</span>
                         </p> 
                         <hr>
-                    </div> 
+                    </div>  -->
 
-                    <div class="row cart-item">
+                    <!-- <div class="row cart-item">
                         <h5>Fish Burger <span class="float-end"  onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
                         <p>
                             <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
@@ -180,7 +200,7 @@
                             <span class="float-end fs-5">Rs.500</span>
                         </p> 
                         <hr>
-                    </div>
+                    </div> -->
    
                 </div>
 

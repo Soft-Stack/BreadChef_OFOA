@@ -159,7 +159,8 @@
 
                   <div class="modal-body">
                   <!-- Form Start -->
-                  <form method="POST" action="{{ url('') }}"></form>
+                  <form method="POST" action="{{ url('/proceedToCheckout') }}">
+                  @csrf
                     <div class="bag-window">
                       <!-- Items -->
                       <?php
@@ -168,13 +169,18 @@
                         foreach($session_bag ?? '' as $item)
                         {?>
                             <div class="row cart-item">
-                              <h4>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h4> 
+                              <h4>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h4>        
                               <p>
                                 <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
                                 <span class="fs-5"> {{ $item['quantity'] }} </span>
                                 <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
                                 <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
-                              </p> 
+                              </p>
+                              <!-- hidden fields -->
+                              <input name="name" value="{{ $item['name'] }}" type="text" hidden> 
+                              <input name="quantity" value="{{ $item['quantity'] }}" type="number" hidden>
+                              <input name="price" value="{{ $item['price'] }}" type="number" hidden>
+
                               <hr>
                             </div>
                         <?php
@@ -196,14 +202,16 @@
                     
                     <hr>                    
                     <div class="row">
-                      <p class="fs-3">Sub Total <span class="fs-2 float-end fw-bolder" id="subtotal">Rs.{{ $session_subtotal ?? '' }}</span></p>
+                      <p class="fs-3">Sub Total <span class="fs-2 float-end fw-bolder" id="subtotal">Rs.0</span></p>
                     </div>
                   </div>
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="{{ url('/checkout') }}"><button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button></a>
+                    <button type="submit" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button>
                   </div>
+
+                  </form>
                   <!-- Form End -->
                 </div>
               </div>

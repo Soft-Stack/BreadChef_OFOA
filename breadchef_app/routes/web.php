@@ -51,4 +51,6 @@ Route::get('/checkout', 'CustomerController@getCheckoutView');
 Route::get('/proceedToCheckout', 'CustomerController@setCustomerSessionData');
 
 Route::get('/print', 'CustomerController@printSessionData');
+
+Route::post('/proceedToCheckout', 'CustomerController@proceedToCheckout');
 /**************************************************************** */

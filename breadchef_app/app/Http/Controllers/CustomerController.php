@@ -24,16 +24,16 @@ class CustomerController extends Controller
         );
 
         $bag = array();
-        $bag = [
-            array(
-                'name' => 'Crunch Sandwich', 
-                'quantity' => 1, 
-                'price' => 595),
-            array(
-                'name' => 'Special Zinger Burger', 
-                'quantity' => 1, 
-                'price' => 490),
-        ];
+        // $bag = [
+        //     array(
+        //         'name' => 'Crunch Sandwich', 
+        //         'quantity' => 1, 
+        //         'price' => 595),
+        //     array(
+        //         'name' => 'Special Zinger Burger', 
+        //         'quantity' => 1, 
+        //         'price' => 490),
+        // ];
 
         $subTotal = 0;
         
@@ -85,14 +85,14 @@ class CustomerController extends Controller
                 'name' => 'Maza ka Sandwich', 
                 'quantity' => 1, 
                 'price' => 595),
-            array(
-                'name' => 'ESpecial Zinger Burger', 
-                'quantity' => 2, 
-                'price' => 500),
-            array(
-                'name' => 'Fish Burger', 
-                'quantity' => 1, 
-                'price' => 550),
+            // array(
+            //     'name' => 'Especial Zinger Burger', 
+            //     'quantity' => 2, 
+            //     'price' => 500),
+            // array(
+            //     'name' => 'Fish Burger', 
+            //     'quantity' => 1, 
+            //     'price' => 550),
         ];
         // $bag = array();
         // foreach($inputBag as $inputItem)
@@ -107,7 +107,7 @@ class CustomerController extends Controller
         // }
         session(['session_bag' => $inputBag]);
 
-        $subtotal = 1250;
+        $subtotal = 0;
         session(['session_subtotal' => $subtotal]);
 
     }
@@ -115,8 +115,27 @@ class CustomerController extends Controller
     /**
      * Redirect to Checkout
      */
-    public function getCheckoutView()
+    public function proceedToCheckout(Request $request)
     {
-        return view('website.checkout');
+        print_r($request->all());
+        print_r("<br>");
+        $item_name = $request->name;
+        $item_quantity = $request->quantity;
+        $item_price = $request->price;
+
+        $item = array(
+            'name' => $item_name,
+            'quantity' => $item_quantity,
+            'price' => $item_price,
+        );
+
+        print_r($item);
+
+        $bag = array();
+        array_push($bag, $item);
+
+        session(['session_bag' => $bag]);
+
+        //return view('website.checkout', $this->getCustomerSessionData());
     }
 }
