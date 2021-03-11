@@ -3,6 +3,8 @@
 // .order-window is .bag-window
 // createNewOrder is createNewItem
 
+updateSubTotal();
+
 function addToBag(item){
 
     // var itemName = e.children[0].children[0].children[0].innerHTML;
@@ -41,7 +43,7 @@ function addToBag(item){
         var bagWindow = document.getElementsByClassName('bag-window')[0];
         console.log(selectedItemPrice);
 
-        var itemBox = "<div class='row cart-item'><h4>"+selectedItemName+"<span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span></h4> <p><span><button class='btn border-dark fw-bold' onClick='decrementQuantity(this)'>-</button></span><span class='fs-5'> "+selectedItemQuantity+" </span><span><button class='btn border-dark fw-bold' onClick='incrementQuantity(this)'>+</button></span> <span class='float-end fs-5'>Rs."+selectedItemPrice+"</span></p><hr></div>";
+        var itemBox = "<div class='row cart-item'><h4>"+selectedItemName+"<span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span></h4> <p><span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span><span class='fs-5'> "+selectedItemQuantity+" </span><span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> <span class='float-end fs-5'>Rs."+selectedItemPrice+"</span></p><hr></div>";
 
         bagWindow.innerHTML += itemBox;
     }

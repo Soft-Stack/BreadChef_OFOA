@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controller\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 /********************************************************
  * Routes of Website
  */
-Route::get('/', function () {
-    return view('website.appetizers');
-});
+Route::get('/', 'CustomerController@index');
 
 Route::get('/home', function(){
     return view('website.index');
@@ -40,15 +40,15 @@ Route::get('/shared', function () {
     return view('website.shared');
 });
 
-Route::get('/items', function(){
-    return view('website.items');
-});
+Route::get('/items', 'CustomerController@index');
 
 Route::get('/bag', function(){
     return view('website.bag');
 });
 
-Route::get('/checkout', function(){
-    return view('website.checkout');
-});
+Route::get('/checkout', 'CustomerController@getCheckoutView');
+
+Route::get('/proceedToCheckout', 'CustomerController@setCustomerSessionData');
+
+Route::get('/print', 'CustomerController@printSessionData');
 /**************************************************************** */

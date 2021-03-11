@@ -151,15 +151,36 @@
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-cart">
                 <div class="modal-content">
+
                   <div class="modal-header">
                     <h2 class="modal-title fw-bold" id="staticBackdropLabel">My Bag</h2>
                     <button class="btn fs-3" onClick="emptyBag(this)"><i class="bi bi-bag-dash"></i></button>
                   </div>
+
                   <div class="modal-body">
-                    
+                  <!-- Form Start -->
+                  <form method="POST" action="{{ url('') }}"></form>
                     <div class="bag-window">
                       <!-- Items -->
-
+                      <?php
+                      if( is_array($session_bag ?? '') || is_object($session_bag ?? '') )
+                      {
+                        foreach($session_bag ?? '' as $item)
+                        {?>
+                            <div class="row cart-item">
+                              <h4>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h4> 
+                              <p>
+                                <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
+                                <span class="fs-5"> {{ $item['quantity'] }} </span>
+                                <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
+                                <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
+                              </p> 
+                              <hr>
+                            </div>
+                        <?php
+                        }
+                      }
+                      ?>
                       <!-- <div class="row cart-item">
                         <h4>Nachos <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4> 
                         <p>
@@ -175,13 +196,15 @@
                     
                     <hr>                    
                     <div class="row">
-                      <p class="fs-3">Sub Total <span class="fs-2 float-end fw-bolder" id="subtotal">Rs.0</span></p>
+                      <p class="fs-3">Sub Total <span class="fs-2 float-end fw-bolder" id="subtotal">Rs.{{ $session_subtotal ?? '' }}</span></p>
                     </div>
                   </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <a href="{{ url('/checkout') }}"><button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button></a>
                   </div>
+                  <!-- Form End -->
                 </div>
               </div>
             </div>
