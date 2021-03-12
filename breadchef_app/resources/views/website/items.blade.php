@@ -177,9 +177,9 @@
                                 <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
                               </p>
                               <!-- hidden fields -->
-                              <input name="name" value="{{ $item['name'] }}" type="text" hidden> 
-                              <input name="quantity" value="{{ $item['quantity'] }}" type="number" hidden>
-                              <input name="price" value="{{ $item['price'] }}" type="number" hidden>
+                              <input name="name[]" value="{{ $item['name'] }}" type="text" hidden> 
+                              <input name="quantity[]" value="{{ $item['quantity'] }}" type="number" hidden>
+                              <input name="price[]" value="{{ $item['price'] }}" type="number" hidden>
 
                               <hr>
                             </div>
@@ -347,7 +347,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/bag.js') }}"></script>
-  <!-- <script src="{{ asset('js/checkout.js') }}"></script> -->
+  <script src="{{ asset('js/items.js') }}"></script>
 
 </body>
 

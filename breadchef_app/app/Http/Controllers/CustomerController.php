@@ -83,16 +83,8 @@ class CustomerController extends Controller
         $inputBag = [
             array(
                 'name' => 'Maza ka Sandwich', 
-                'quantity' => 1, 
-                'price' => 595),
-            // array(
-            //     'name' => 'Especial Zinger Burger', 
-            //     'quantity' => 2, 
-            //     'price' => 500),
-            // array(
-            //     'name' => 'Fish Burger', 
-            //     'quantity' => 1, 
-            //     'price' => 550),
+                'quantity' => 1,
+                'price' => 500,), 
         ];
         // $bag = array();
         // foreach($inputBag as $inputItem)
@@ -117,25 +109,38 @@ class CustomerController extends Controller
      */
     public function proceedToCheckout(Request $request)
     {
-        print_r($request->all());
+        // print_r($request->all());
         print_r("<br>");
-        $item_name = $request->name;
-        $item_quantity = $request->quantity;
-        $item_price = $request->price;
 
-        $item = array(
+        $item_names = $_POST['name'];
+        $item_quantities = $_POST['quantity'];
+        $item_prices = $_POST['price'];
+
+        foreach($item_names as $key => $name)
+        {
+            print("Item name: ".$name.", quantity: ".$item_quantities[$key].", price: ".$item_prices[$key]);
+            print("<br>");
+        }
+
+        /*$item = array(
             'name' => $item_name,
             'quantity' => $item_quantity,
             'price' => $item_price,
-        );
+        );*/
 
-        print_r($item);
+
+        // print_r($item);
 
         $bag = array();
-        array_push($bag, $item);
+        //array_push($bag, $item);
 
         session(['session_bag' => $bag]);
 
         //return view('website.checkout', $this->getCustomerSessionData());
+    }
+
+    public function getCheckoutView()
+    {
+        return view('/website.checkout');
     }
 }

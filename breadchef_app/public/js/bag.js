@@ -43,7 +43,21 @@ function addToBag(item){
         var bagWindow = document.getElementsByClassName('bag-window')[0];
         console.log(selectedItemPrice);
 
-        var itemBox = "<div class='row cart-item'><h4>"+selectedItemName+"<span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span></h4> <p><span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span><span class='fs-5'> "+selectedItemQuantity+" </span><span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> <span class='float-end fs-5'>Rs."+selectedItemPrice+"</span></p><hr></div>";
+        var itemBox = `<div class='row cart-item'>
+                        <h4>${selectedItemName}
+                            <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
+                        </h4> 
+                        <p>
+                            <span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span>
+                            <span class='fs-5'> ${selectedItemQuantity} </span>
+                            <span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> 
+                            <span class='float-end fs-5'>Rs.${selectedItemPrice}</span>
+                        </p>
+                        <hr>
+                      </div>
+                            <input name='name[]' value='${selectedItemName}' type='text' hidden>
+                            <input name='quantity[]' value='${selectedItemQuantity}' type='number' hidden>
+                            <input name='price[]' value='${selectedItemPrice}' type='number' hidden>`;
 
         bagWindow.innerHTML += itemBox;
     }
