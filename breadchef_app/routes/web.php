@@ -28,10 +28,6 @@ Route::get('/home', function(){
     return view('website.index');
 });
 
-Route::get('/about', function(){
-    return view('index#about');
-});
-
 Route::get('/inner-page', function () {
     return view('inner-page');
 });
@@ -48,9 +44,6 @@ Route::get('/bag', function(){
 
 Route::get('/checkout', 'CustomerController@getCheckoutView');
 
-Route::get('/proceedToCheckout', 'CustomerController@setCustomerSessionData');
-
 Route::get('/print', 'CustomerController@printSessionData');
 
-Route::post('/proceedToCheckout', 'CustomerController@proceedToCheckout');
 /**************************************************************** */

@@ -76,7 +76,7 @@
               <li><a href="#">Pizza Size 9"</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag</a></li>
+          <li><a class="nav-link scrollto" href="" onClick="displayDataInModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -158,35 +158,10 @@
                   </div>
 
                   <div class="modal-body">
-                  <!-- Form Start -->
-                  <form method="POST" action="{{ url('/proceedToCheckout') }}">
-                  @csrf
+          
                     <div class="bag-window">
                       <!-- Items -->
-                      <?php
-                      if( is_array($session_bag ?? '') || is_object($session_bag ?? '') )
-                      {
-                        foreach($session_bag ?? '' as $item)
-                        {?>
-                            <div class="row cart-item">
-                              <h4>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h4>        
-                              <p>
-                                <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
-                                <span class="fs-5"> {{ $item['quantity'] }} </span>
-                                <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
-                                <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
-                              </p>
-                              <!-- hidden fields -->
-                              <input name="name[]" value="{{ $item['name'] }}" type="text" hidden> 
-                              <input name="quantity[]" value="{{ $item['quantity'] }}" type="number" hidden>
-                              <input name="price[]" value="{{ $item['price'] }}" type="number" hidden>
-
-                              <hr>
-                            </div>
-                        <?php
-                        }
-                      }
-                      ?>
+                      
                       <!-- <div class="row cart-item">
                         <h4>Nachos <span class="float-end"><i class="bi bi-bag-dash"></i></span></h4> 
                         <p>
@@ -208,11 +183,9 @@
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button>
+                    <a href="{{ url('/checkout') }}"> <button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button></a>
                   </div>
 
-                  </form>
-                  <!-- Form End -->
                 </div>
               </div>
             </div>
@@ -347,7 +320,6 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/bag.js') }}"></script>
-  <script src="{{ asset('js/items.js') }}"></script>
 
 </body>
 

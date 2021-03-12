@@ -1,9 +1,33 @@
 
-// e is item
-// .order-window is .bag-window
-// createNewOrder is createNewItem
+var itemObj, myBagJSON, text;
+var myBag = [];
+var bag = [];
 
+displayDataInModal();
 updateSubTotal();
+
+/**
+ * Retreive Data from JSON and display into Bag HTML Modal
+ */
+function displayDataInModal()
+{
+    console.log('Function called: displayDataInModal()');
+
+    // var text;
+    // var bag = [];
+
+    text = localStorage.getItem("bagJSON");
+    myBag = JSON.parse(text);
+
+    console.log("Items in JSON: " + myBag.length);
+    for(var i = 0; i < myBag.length; i++)
+    {
+        console.log('JSON Item Name: ' + myBag[i].name);
+        console.log('JSON Item Qty: ' + myBag[i].quantity);
+        console.log('JSON Item Price: '+ myBag[i].price);
+    }
+
+}
 
 function addToBag(item){
 
@@ -43,6 +67,20 @@ function addToBag(item){
         var bagWindow = document.getElementsByClassName('bag-window')[0];
         console.log(selectedItemPrice);
 
+        // Storing item data into JSON
+        // var itemObj, myBagJSON;
+        // var myBag;
+
+        text = localStorage.getItem("bagJSON");
+        myBag = JSON.parse(text);
+
+        itemObj = {'name': selectedItemName, 'quantity': selectedItemQuantity, 'price': selectedItemPrice};
+        myBag.push(itemObj);
+
+        myBagJSON = JSON.stringify(myBag);
+        localStorage.setItem("bagJSON", myBagJSON);
+
+        // Displaying Data in HTML
         var itemBox = `<div class='row cart-item'>
                         <h4>${selectedItemName}
                             <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
@@ -54,10 +92,7 @@ function addToBag(item){
                             <span class='float-end fs-5'>Rs.${selectedItemPrice}</span>
                         </p>
                         <hr>
-                      </div>
-                            <input name='name[]' value='${selectedItemName}' type='text' hidden>
-                            <input name='quantity[]' value='${selectedItemQuantity}' type='number' hidden>
-                            <input name='price[]' value='${selectedItemPrice}' type='number' hidden>`;
+                      </div>`;
 
         bagWindow.innerHTML += itemBox;
     }
@@ -85,6 +120,7 @@ function removeFromBag(item)
 
 function emptyBag(bag)
 {
+    localStorage.clear();
     document.getElementsByClassName('bag-window')[0].innerHTML = "";
     setSubTotal(0);
 }
@@ -150,7 +186,7 @@ function updateSubTotal()
         var quantity = parseInt(items[i].children[1].children[1].innerHTML.split(' ')[1], 10);
         sum += price * quantity;
     }
-    console.log("Sub Total: " + sum);
+    //console.log("Sub Total: " + sum);
     setSubTotal(sum);
 }
 
