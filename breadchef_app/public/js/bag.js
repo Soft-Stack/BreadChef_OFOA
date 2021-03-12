@@ -1,4 +1,6 @@
 
+"use strict";
+
 var itemObj, myBagJSON, text;
 var myBag = [];
 var bag = [];
@@ -17,14 +19,15 @@ function displayDataInModal()
     // var bag = [];
 
     text = localStorage.getItem("bagJSON");
-    myBag = JSON.parse(text);
 
-    console.log("Items in JSON: " + myBag.length);
-    for(var i = 0; i < myBag.length; i++)
+    bag = JSON.parse(text);
+
+    console.log("Items in JSON: " + bag.length);
+    for(var i = 0; i < bag.length; i++)
     {
-        console.log('JSON Item Name: ' + myBag[i].name);
-        console.log('JSON Item Qty: ' + myBag[i].quantity);
-        console.log('JSON Item Price: '+ myBag[i].price);
+        console.log('JSON Item Name: ' + bag[i].name);
+        console.log('JSON Item Qty: ' + bag[i].quantity);
+        console.log('JSON Item Price: '+ bag[i].price);
     }
 
 }
@@ -69,13 +72,14 @@ function addToBag(item){
 
         // Storing item data into JSON
         // var itemObj, myBagJSON;
-        // var myBag;
+        var myBag = [];
 
         text = localStorage.getItem("bagJSON");
-        myBag = JSON.parse(text);
+        myBag = text == null ? [] : JSON.parse(text);
 
         itemObj = {'name': selectedItemName, 'quantity': selectedItemQuantity, 'price': selectedItemPrice};
-        myBag.push(itemObj);
+        
+        myBag == null ? myBag = [itemObj] : myBag.push(itemObj);
 
         myBagJSON = JSON.stringify(myBag);
         localStorage.setItem("bagJSON", myBagJSON);
