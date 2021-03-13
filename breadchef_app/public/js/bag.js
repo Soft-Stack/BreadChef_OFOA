@@ -1,9 +1,16 @@
 
 "use strict";
 
+var bagObj = localStorage.getItem("bagJSON");
+var itemsArray = JSON.parse(bagObj);
+if(itemsArray == null)
+{
+    itemsArray = [];
+    bagObj = JSON.stringify(itemsArray);
+    localStorage.setItem("bagJSON", bagObj);
+}
+
 var itemObj, myBagJSON, text;
-var myBag = [];
-var bag = [];
 
 displayDataInModal();
 updateSubTotal();
@@ -13,22 +20,40 @@ updateSubTotal();
  */
 function displayDataInModal()
 {
+
+
+    var bagObj = localStorage.getItem("bagJSON");
+    var itemsArray = JSON.parse(bagObj);
     console.log('Function called: displayDataInModal()');
-
-    // var text;
-    // var bag = [];
-
-    text = localStorage.getItem("bagJSON");
-
-    bag = JSON.parse(text);
-
-    console.log("Items in JSON: " + bag.length);
-    for(var i = 0; i < bag.length; i++)
+    var bagWindow = document.getElementsByClassName('bag-window')[0];
+    bagWindow.innerHTML = "";
+    console.log("Items in JSON: " + itemsArray.length);
+    for(var i = 0; i < itemsArray.length; i++)
     {
-        console.log('JSON Item Name: ' + bag[i].name);
-        console.log('JSON Item Qty: ' + bag[i].quantity);
-        console.log('JSON Item Price: '+ bag[i].price);
+        console.log('JSON Item Name: ' + itemsArray[i].name);
+        console.log('JSON Item Qty: ' + itemsArray[i].quantity);
+        console.log('JSON Item Price: '+ itemsArray[i].price);
+
+        var itemName = itemsArray[i].name;
+        var itemQuantity = itemsArray[i].quantity;
+        var itemPrice = itemsArray[i].price;
+
+        var itemBox = `<div class='row cart-item'>
+                        <h4>${itemName}
+                            <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
+                        </h4> 
+                        <p>
+                            <span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span>
+                            <span class='fs-5'> ${itemQuantity} </span>
+                            <span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> 
+                            <span class='float-end fs-5'>Rs.${itemPrice}</span>
+                        </p>
+                        <hr>
+                      </div>`;
+
+        bagWindow.innerHTML += itemBox; 
     }
+    updateSubTotal();
 
 }
 
@@ -41,66 +66,101 @@ function addToBag(item){
     console.log("Selected Item Name: " + selectedItemName);
     console.log("Selected Item Price: " + selectedItemPrice);
 
-    var items = document.getElementsByClassName('bag-window')[0].children;
+    // var items = document.getElementsByClassName('bag-window')[0].children;
     var createNewItem = true;
-    console.log("Items in Bag: " + items.length);
+    // console.log("Items in Bag: " + items.length);
 
-    for(var i = 0; i < items.length; i++)
+    // // Old Loop
+    // /*for(var i = 0; i < items.length; i++)
+    // {
+    //     var bagItemName = items[i].children[0].innerText.split(' ')[0];
+    //     console.log("Item Bag: " + bagItemName);
+
+    //     if(selectedItemName.trim() == bagItemName.trim())
+    //     {
+    //         console.log('Already in Bag');
+    //         createNewItem = false;
+    //     }
+    //     else
+    //     {
+    //         console.log('Not in Bag');
+    //         //var newItemQuantity = parseInt(selectedItemQuantity, 10) + 1;
+    //         //console.log("New Qty: " + newItemQuantity);
+    //         createNewItem = true;
+    //     }
+       
+    // }*/
+    // // Old Loop
+
+    var bagObj = localStorage.getItem("bagJSON");
+    var itemsArray = JSON.parse(bagObj);
+    if(itemsArray == null)
     {
-        var bagItemName = items[i].children[0].innerText.split(' ')[0];
-        console.log("Item Bag: " + bagItemName);
-
-        if(selectedItemName.trim() == bagItemName.trim())
+        itemsArray = [];
+    }
+    // // New Loop
+    for(var i  = 0; i < itemsArray.length; i++)
+    {
+        var bagItemName = itemsArray[i].name;
+        
+        if(selectedItemName == bagItemName)
         {
-            console.log('Already in Bag');
             createNewItem = false;
+            console.log('New Item will NOT be Added');
         }
         else
         {
-            console.log('Not in Bag');
-            //var newItemQuantity = parseInt(selectedItemQuantity, 10) + 1;
-            //console.log("New Qty: " + newItemQuantity);
             createNewItem = true;
         }
     }
+    // // New Loop
 
     if(createNewItem)
     {
-        console.log('New Item will be Added');
-        var bagWindow = document.getElementsByClassName('bag-window')[0];
-        console.log(selectedItemPrice);
+    //     console.log('New Item will be Added');
+    //     var bagWindow = document.getElementsByClassName('bag-window')[0];
+    //     bagWindow.innerHTML = "";
+    //     //console.log(selectedItemPrice);
 
-        // Storing item data into JSON
-        // var itemObj, myBagJSON;
-        var myBag = [];
 
-        text = localStorage.getItem("bagJSON");
-        myBag = text == null ? [] : JSON.parse(text);
-
-        itemObj = {'name': selectedItemName, 'quantity': selectedItemQuantity, 'price': selectedItemPrice};
+    //     // Storing in localStorage
+    //     itemObj = {'name': selectedItemName, 'quantity': selectedItemQuantity, 'price': selectedItemPrice};
+    //     itemsArray == null ? itemsArray = [itemObj] : itemsArray.push(itemObj); // even if itemsArray is null push new item
+    //     bagObj = JSON.stringify(itemsArray);
+    //     localStorage.setItem("bagJSON", bagObj);
         
-        myBag == null ? myBag = [itemObj] : myBag.push(itemObj);
 
-        myBagJSON = JSON.stringify(myBag);
-        localStorage.setItem("bagJSON", myBagJSON);
+    //     // Displaying Data in HTML
+    //     var itemBox = `<div class='row cart-item'>
+    //                     <h4>${selectedItemName}
+    //                         <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
+    //                     </h4> 
+    //                     <p>
+    //                         <span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span>
+    //                         <span class='fs-5'> ${selectedItemQuantity} </span>
+    //                         <span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> 
+    //                         <span class='float-end fs-5'>Rs.${selectedItemPrice}</span>
+    //                     </p>
+    //                     <hr>
+    //                   </div>`;
 
-        // Displaying Data in HTML
-        var itemBox = `<div class='row cart-item'>
-                        <h4>${selectedItemName}
-                            <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
-                        </h4> 
-                        <p>
-                            <span><button class='btn border-dark' onClick='decrementQuantity(this)'>-</button></span>
-                            <span class='fs-5'> ${selectedItemQuantity} </span>
-                            <span><button class='btn border-dark' onClick='incrementQuantity(this)'>+</button></span> 
-                            <span class='float-end fs-5'>Rs.${selectedItemPrice}</span>
-                        </p>
-                        <hr>
-                      </div>`;
+    //     bagWindow.innerHTML += itemBox;
 
-        bagWindow.innerHTML += itemBox;
+        var bagObj = localStorage.getItem("bagJSON");
+        var itemsArray = JSON.parse(bagObj);
+        if(itemsArray == null)
+        {
+            itemsArray = [];
+            bagObj = JSON.stringify(itemsArray);
+            localStorage.setItem("bagJSON", bagObj);
+        }
+
+        var jsoned = JSON.parse(localStorage.bagJSON)
+        jsoned.push({"name": selectedItemName, "quantity": selectedItemQuantity, "price": selectedItemPrice});
+        localStorage.bagJSON = JSON.stringify(jsoned);
+        displayDataInModal();
     }
-    updateSubTotal();
+
 
 }
 
