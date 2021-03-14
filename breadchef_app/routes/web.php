@@ -52,6 +52,10 @@ Route::get('/checkout', function(){
     return view('/website.checkout');
 });
 
+Route::get('/feedback', function(){
+    return view('website.feedback');
+});
+
 /**************************************************************** */
 Route::post('/order', 'MainController@placeOrder');
 
@@ -64,9 +68,9 @@ Route::post('/order', 'MainController@placeOrder');
 // Route::middleware(['web'])->group(function () {
     Route::prefix('breadchef-admin')->name('admin.')->group(function () {
         
-        Route::get('/', function() {
-            return view('admin.home');
-        })->name('home');
+        // Route::get('/', function() {
+        //     return view('admin.home');
+        // })->name('home');
         
         Route::get('/orders', 'AdminController@orders');
     

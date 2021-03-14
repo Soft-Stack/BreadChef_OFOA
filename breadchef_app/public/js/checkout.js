@@ -44,9 +44,9 @@ function displayDataInModal()
                             </p>
                             <hr>
 
-                            <input type='text' name='name[]' value='${itemName}' hidden>
-                            <input type='number' name='quantity[]' value='${itemQuantity}' hidden>
-                            <input type='number' name='price[]' value='${itemPrice}' hidden>
+                            <input type='text' name='items[]' value='${itemName}' hidden>
+                            <input type='number' name='quantities[]' value='${itemQuantity}' hidden>
+                            <input type='number' name='prices[]' value='${itemPrice}' hidden>
                         </div>`;
 
         orderWindow.innerHTML += itemBox; 
