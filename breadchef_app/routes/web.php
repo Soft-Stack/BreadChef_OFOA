@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +46,30 @@ Route::get('/items/appetizers', function(){
 Route::get('/bag', function(){
     return view('bag');
 });
+
+Route::post('/order', 'MainController@placeOrder');
+
+
+
+
+
+
+// admin routes
+// Route::middleware(['web'])->group(function () {
+    Route::prefix('breadchef-admin')->name('admin.')->group(function () {
+        
+        Route::get('/', function() {
+            return view('admin.home');
+        })->name('home');
+        
+        Route::get('/orders', 'AdminController@orders');
+    
+        Route::get('/login', 'AdminController@login')->name('admin.login');
+        Route::post('/login', 'AdminController@login');
+    });
+// });
+
+
 
 Route::get('/checkout', function(){
     return view('checkout');
