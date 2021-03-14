@@ -22,9 +22,10 @@ function displayDataInModal()
 {
     var bagObj = localStorage.getItem("bagJSON");
     var itemsArray = JSON.parse(bagObj);
-    console.log('Function called: displayDataInModal()');
+
     var bagWindow = document.getElementsByClassName('bag-window')[0];
     bagWindow.innerHTML = "";
+
     console.log("Items in JSON: " + itemsArray.length);
     for(var i = 0; i < itemsArray.length; i++)
     {
@@ -122,28 +123,32 @@ function removeFromBag(item)
     for(var i = 0; i < items.length; i++)
     {
         var bagItemName = items[i].children[0].innerText;
-        if(selectedItemName.trim() == bagItemName.trim())
+        console.log("Bag Item Name " + i + ": " + bagItemName);
+        
+        if(selectedItemName == bagItemName)
         {
-            // removing item from HTML
-            items[i].remove();
-            item.parentNode.parentNode.remove(); 
-            
+            // console.log(selectedItemName + "==" + bagItemName);
             // removing item from localStorage
             var bagObj = localStorage.getItem("bagJSON");
             var itemsArray = JSON.parse(bagObj);
-            for(var i = 0; i < itemsArray.length; i++)
+            for(var j = 0; j < itemsArray.length; j++)
             {
-                if(itemsArray[i].name == selectedItemName)
+                if(itemsArray[j].name == selectedItemName)
                 {
-                    itemsArray.pop(i);
+                    itemsArray.pop(j);
                     var jsoned = JSON.stringify(itemsArray);
                     localStorage.setItem("bagJSON", jsoned);
                 }
             }
+
+            // // removing item from HTML
+            items[i].remove();
+            item.parentNode.parentNode.remove(); 
         }
+
     }
     displayDataInModal();
-    updateSubTotal();
+    // updateSubTotal();
 }
 
 function emptyBag(bag)
