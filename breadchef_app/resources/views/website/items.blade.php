@@ -139,7 +139,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="{{ url('/checkout') }}"> <button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-plus-fill"></i> Proceed To Checkout</button></a>
+            <a href="{{ url('/checkout') }}"> <button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-check-fill"></i> Proceed To Checkout</button></a>
           </div>
 
         </div>

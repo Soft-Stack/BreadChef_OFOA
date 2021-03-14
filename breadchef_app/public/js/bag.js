@@ -135,13 +135,15 @@ function removeFromBag(item)
             {
                 if(itemsArray[j].name == selectedItemName)
                 {
-                    itemsArray.pop(j);
+                    // itemsArray.pop(j);
+                    itemsArray.splice(j, 1);
                     var jsoned = JSON.stringify(itemsArray);
                     localStorage.setItem("bagJSON", jsoned);
                 }
             }
             // // removing item from HTML
-            items[i].remove(); 
+            items[i].remove();
+            item.parentNode.parentNode.remove(); 
         }
 
     }

@@ -70,12 +70,15 @@ function removeFromBag(item)
             // removing item from localStorage
             var bagObj = localStorage.getItem("bagJSON");
             var itemsArray = JSON.parse(bagObj);
+            console.log("Items Array : ", itemsArray);
             for(var j = 0; j < itemsArray.length; j++)
             {
+                console.log(`Item[${j}] : `, itemsArray[j]);
                 if(itemsArray[j].name == selectedItemName)
                 {
                     console.log(itemsArray[j].name + "==" + selectedItemName);
-                    itemsArray.pop(j);
+                    // itemsArray.pop(j);
+                    itemsArray.splice(j, 1);
                     var jsoned = JSON.stringify(itemsArray);
                     localStorage.setItem("bagJSON", jsoned);
                     console.log("localStorage updated");
