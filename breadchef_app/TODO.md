@@ -23,5 +23,15 @@
 - here customer fill his order details like name, phone, address,
 - And at right side of page, he will see his items and total Bill
 
- 
+
+## Dashboard views
+
+1) Make cards work:
+    - Unique Customer
+    - Orders this week
+    - Orders this month
+
+2) Soft deletes on orders
+3) Field validations postOrder
+    
 
