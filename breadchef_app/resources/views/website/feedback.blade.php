@@ -109,11 +109,14 @@
             <hr>
             
             <p class="mb-0">How was your experience with our website ? Help us improve ourself for you</p>
-            <div class="form-floating col-md-6 mt-2">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-              <button class="btn btn-primary float-end">Submit</button>
-              <label for="floatingTextarea2">Comments</label>
+            <div class="container col-md-6">
+              <div class="form-floating mt-2">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <button class="btn btn-primary btn-block float-end">Submit</button>
             </div>
+            
             
           </div>
         </p>
