@@ -104,18 +104,19 @@
 
     <section class="inner-page">
       <div class="container">
+      <!-- FORM -->
+      <form class="mt-3 mb-3">
         <div class="row">
 
             <!-- Customer Information -->
             <div class="col-md-7 border border-4 ms-4" >
                 <h4 class="fw-bolder mt-2">Customer information</h4>
                 <hr>
-                <!-- Form Start -->
-                <form class="mt-3 mb-3">
+                
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+                            <input name="name" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -136,9 +137,6 @@
                             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
                         </div>
                     </div>
-                    
-                </form>
-                <!-- Form End -->
             </div>
 
             <!-- Order Summary Start -->
@@ -184,10 +182,12 @@
         <!-- Order Button -->
         <div class="row mt-2">
             <div class="col-md-12 text-center">
-                <button class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
+                <button type="submit" class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
             </div>    
         </div>
-
+      
+      </form>
+      <!-- END FORM -->
       </div>
     </section>
 
