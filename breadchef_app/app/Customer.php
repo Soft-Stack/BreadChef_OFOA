@@ -41,20 +41,21 @@ class Customer extends Model
         return count($result) == 0;
     }
 
+
     /**
      * Checks whether customer is new,
-     * returns customer_id
+     * returns customer
      * @param array customer As Array
-     * @return int customer_id
+     * @return App\Customer customer
      */
     public static function checkAndAdd(array $customerAsArray) {
         if(Customer::isUnique($customerAsArray)) {
             // is customer is unique, make entry in DB
             Log::debug("Customer is unique : ".$customerAsArray['name']);
 
-            Customer::create($customerAsArray);
-            $newCustomerId = Customer::latest()->first()->id;
-            return $newCustomerId;
+            $cust =  Customer::create($customerAsArray);
+            // $newCustomerId = Customer::latest()->first()->id;
+            return $cust;
         } else {
             // return customer_id for already existing customer
             Log::debug("Customer is not unique : ".$customerAsArray['name']);
@@ -70,7 +71,7 @@ class Customer extends Model
             $existingCustomerOrders = (int) $existingCustomer->orders;
             $updatedOrders = $existingCustomerOrders + 1;
             Customer::where( ['id' => $existingCustomerId] )->update(['orders' => (string)$updatedOrders]);
-            return $existingCustomerId;
+            return $existingCustomer;
         }
     }
 }
