@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controller\CustomerController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
@@ -19,16 +21,13 @@ use App\Http\Controllers\MainController;
     return view('welcome');
 });*/
 
-Route::get('/', function () {
-    return view('items.appetizers');
-});
+/********************************************************
+ * Routes of Website
+ */
+Route::get('/', 'CustomerController@index');
 
 Route::get('/home', function(){
-    return view('index');
-});
-
-Route::get('/about', function(){
-    return view('index#about');
+    return view('website.index');
 });
 
 Route::get('/inner-page', function () {
@@ -36,17 +35,20 @@ Route::get('/inner-page', function () {
 });
 
 Route::get('/shared', function () {
-    return view('shared');
+    return view('website.shared');
 });
 
-Route::get('/items/appetizers', function(){
-    return view('items.appetizers');
-});
+Route::get('/items', 'CustomerController@index');
 
 Route::get('/bag', function(){
-    return view('bag');
+    return view('website.bag');
 });
 
+Route::get('/checkout', 'CustomerController@getCheckoutView');
+
+Route::get('/print', 'CustomerController@printSessionData');
+
+/**************************************************************** */
 Route::post('/order', 'MainController@placeOrder');
 
 
@@ -71,6 +73,6 @@ Route::post('/order', 'MainController@placeOrder');
 
 
 
-Route::get('/checkout', function(){
-    return view('checkout');
-});
+// Route::get('/checkout', function(){
+//     return view('checkout');
+// });
