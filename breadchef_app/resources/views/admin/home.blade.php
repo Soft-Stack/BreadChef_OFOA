@@ -32,15 +32,15 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Unique Customers</h5>
+                            <h5 class="text-muted" >Unique Customers</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1 text-primary">32,100 </h1>
+                                <h1 class="mb-1 text-primary" id="unique-customers-value"> - </h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-success">
                                 <i class="fa fa-fw fa-caret-up"></i><span>5.27%</span>
                             </div>
                         </div>
-                        <div id="sparkline-1"></div>
+                        <div id="customer-sparkline"></div>
                     </div>
                 </div>
                 <!-- /. metric -->
@@ -50,13 +50,13 @@
                         <div class="card-body">
                             <h5 class="text-muted">Order This Week</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1 text-primary">4,200 </h1>
+                                <h1 class="mb-1 text-primary" id="orders-this-week-value" > - </h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-danger">
                                 <i class="fa fa-fw fa-caret-down"></i><span>1.08%</span>
                             </div>
                         </div>
-                        <div id="sparkline-2"></div>
+                        <div id="week-order-sparkline"></div>
                     </div>
                 </div>
                 <!-- /. metric -->
@@ -66,13 +66,13 @@
                         <div class="card-body">
                             <h5 class="text-muted">Orders This Month</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1 text-primary">$5,656</h1>
+                                <h1 class="mb-1 text-primary" id="orders-this-month-value"> - </h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-danger">
                                 <i class="fa fa-fw fa-caret-down"></i><span>7.00%</span>
                             </div>
                         </div>
-                        <div id="sparkline-3">
+                        <div id="month-order-sparkline">
                         </div>
                     </div>
                 </div>
@@ -83,13 +83,13 @@
                         <div class="card-body">
                             <h5 class="text-muted">Total Orders</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1 text-primary">+28.45% </h1>
+                                <h1 class="mb-1 text-primary" id="total-orders"> - </h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-success">
                                 <i class="fa fa-fw fa-caret-up"></i><span>4.87%</span>
                             </div>
                         </div>
-                        <div id="sparkline-4"></div>
+                        <div id="total-orders-sparkline"></div>
                     </div>
                 </div>
                 <!-- /. metric -->
@@ -98,33 +98,33 @@
             <!-- revenue  -->
             <!-- ============================================================== -->
             <div class="row">
-                <div class="col-xl-8 col-lg-12 col-md-8 col-sm-12 col-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Revenue</h5>
                         <div class="card-body">
                             <canvas id="revenue" width="400" height="150"></canvas>
                         </div>
                         <div class="card-body border-top">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 p-3">
-                                    <h4> Today's Earning: $2,800.30</h4>
-                                    <p>Suspendisse potenti. Done csit amet rutrum.
-                                    </p>
-                                </div>
+                                    {{-- <h4> Today's Earning: $2,800.30</h4> --}}
+                                    {{-- <p>Suspendisse potenti. Done csit amet rutrum. --}}
+                                    {{-- </p> --}}
+                                {{-- </div>
+                                <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3"> --}}
+                                    {{-- <h2 class="font-weight-normal mb-3"><span>$48,325</span>                                                    </h2> --}}
+                                    {{-- <div class="mb-0 mt-3 legend-item"> --}}
+                                        {{-- <span class="fa-xs text-primary mr-1 legend-title "><i class="fa fa-fw fa-square-full"></i></span> --}}
+                                        {{-- <span class="legend-text">Current Week</span></div> --}}
+                                {{-- </div>
                                 <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
-                                    <h2 class="font-weight-normal mb-3"><span>$48,325</span>                                                    </h2>
-                                    <div class="mb-0 mt-3 legend-item">
-                                        <span class="fa-xs text-primary mr-1 legend-title "><i class="fa fa-fw fa-square-full"></i></span>
-                                        <span class="legend-text">Current Week</span></div>
-                                </div>
-                                <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
-                                    <h2 class="font-weight-normal mb-3">
+                                    <h2 class="font-weight-normal mb-3"> --}}
 
-                                                    <span>$59,567</span>
-                                                </h2>
-                                    <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">Previous Week</span></div>
-                                </div>
-                            </div>
+                                                    {{-- <span>$59,567</span> --}}
+                                                {{-- </h2> --}}
+                                    {{-- <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">Previous Week</span></div> --}}
+                                {{-- </div> --}}
+                            {{-- </div>  --}}
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                 <!-- ============================================================== -->
                 <!-- total sale  -->
                 <!-- ============================================================== -->
-                <div class="col-xl-4 col-lg-12 col-md-4 col-sm-12 col-12">
+                {{-- <div class="col-xl-4 col-lg-12 col-md-4 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Total Sale</h5>
                         <div class="card-body">
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- ============================================================== -->
                 <!-- end total sale  -->
                 <!-- ============================================================== -->

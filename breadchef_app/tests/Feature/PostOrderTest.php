@@ -66,7 +66,8 @@ class PostOrderTest extends TestCase
             'quantities' => [
                 '1',
                 '1'
-            ]
+            ], 
+            'total-amount' => 3000
         ];
         $response = $this->post('/order', $payload);
         // Log::debug("[PostOrderTest]", $response);

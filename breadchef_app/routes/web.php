@@ -62,9 +62,7 @@ Route::post('/order', 'MainController@placeOrder');
             return view('admin.home');
         })->name('home');
         
-        Route::get('/orders', function() {
-            return view('admin.orders');
-        });
+        Route::get('/orders', 'AdminController@orders');
     
         Route::get('/login', 'AdminController@login')->name('admin.login');
         Route::post('/login', 'AdminController@login');

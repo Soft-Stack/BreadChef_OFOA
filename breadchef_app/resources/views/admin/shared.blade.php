@@ -4,8 +4,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @if (Request::is('breadchef-admin/orders'))
+        {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+        <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+        <!-- Bootstrap Date-Picker Plugin -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    @endif
+    <script src="{{ asset('js/app.js')}}"></script>
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" /> --}}
+
+    {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}"> --}}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="{{ asset('vendor/fonts/circular-std/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('libs/css/style.css')}}">
     {{-- <link rel="stylesheet" href="{{ asset('libs/css/material-dashboard98f3.css')}}"> --}}
@@ -37,15 +50,14 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
-                                    class="indicator"></span></a>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" onclick="showNotifications()" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i><span id="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
-                                    <div class="notification-list">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">
+                                     <div class="notification-list">
+                                        <div id="notifications" class="list-group">
+                                            {{-- <a href="#" class="list-group-item list-group-item-action active"> 
                                                 <div class="notification-info">
                                                     <div class="notification-list-user-img"><img
                                                             src="assets/images/avatar-2.jpg" alt=""
@@ -96,10 +108,10 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </li>
                                 <li>
-                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                    <div class="list-footer"></div>
                                 </li>
                             </ul>
                         </li>
@@ -220,20 +232,69 @@
         <!-- ============================================================== -->
         <!-- Optional JavaScript -->
         <!-- jquery 3.3.1 js-->
-        <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script>
+        {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
+        {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
         <!-- bootstrap bundle js-->
-        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
-        <!-- slimscroll js-->
+
+        {{-- <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js')}}"></script> --}}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> --}}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+        <!-- slimscroll js--> --}}
         <script src="{{ asset('vendor/slimscroll/jquery.slimscroll.js')}}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     
         <!-- main js-->
-        <script src="{{ asset('libs/js/main-js.js')}}"></script>
+        {{-- <script src="{{ asset('libs/js/main-js.js')}}"></script> --}}
    
-        <script src="{{ asset('vendor/custom-js/jquery.multi-select.html')}}"></script>
+        {{-- <script src="{{ asset('vendor/datepicker/datepicker.js')}}"></script> --}}
+
+        {{-- <script src="{{ asset('vendor/custom-js/jquery.multi-select.html')}}"></script> --}}
         <!-- dashboard sales js-->
 
+        <script>
+            $(document).ready(function() {
+                $('.dropdown-menu').on('hidden.bs.dropdown', function(e) {
+                    $('.dropdown-menu')[0].innerHTML = '<div> <strong> No New Notifications </strong> </div>'
+                });
+            });
+            var channel = Echo.channel('my-channel');
+            channel.listen('.my-event', function(data) {
+                // alert(JSON.stringify(data));
+                $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
+
+                var payload = `
+                        <div class="list-group-item list-group-item-action active">
+                            <div class="notification-info">
+                                <div class="notification-list-user-img">
+                                    <img alt="" class="user-avatar-md rounded-circle">
+                                </div>
+                                <div class="notification-list-user-block">
+                                    <span class="notification-list-user-name">
+                                        <strong> New Order # ${data.order.id} <strong>
+                                    </span>
+                                    <div class="notification-date">few seconds ago</div>
+                                </div>
+                            </div>
+                        </div>
+                `;
+
+                $('#notifications').prepend(payload);
+                
+                // console.log(data);
+            });
+
+            function showNotifications() {
+                $('#indicator')[0].innerHTML = '';
+            }
+
+            
+        </script>
         @if (Request::is('breadchef-admin'))
             <!-- chartjs js-->
+            
             <script src="{{ asset('vendor/charts/charts-bundle/Chart.bundle.js')}}"></script>
             <script src="{{ asset('vendor/charts/charts-bundle/chartjs.js')}}"></script>
                 <!-- jvactormap js-->
@@ -243,7 +304,64 @@
             <script src="{{ asset('vendor/charts/sparkline/jquery.sparkline.js')}}"></script>
             <script src="{{ asset('vendor/charts/sparkline/spark-js.js')}}"></script>
             <script src="{{ asset('libs/js/dashboard-sales.js')}}"></script>      
-        @endif         
+        @endif        
+        
+        
+        @if (Request::is('breadchef-admin/orders'))
+            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+            <script src="{{ asset('js/admin-orders.js')}}"></script>      
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+            <script>
+                $(document).ready(function () {
+                    // $('.toast').toast('show');
+                    var orders = <?php echo json_encode($orders) ; ?> ;
+                    console.log(orders);
+                    orders.forEach(order => {
+                        console.log(addToTable(order));
+                    });
+                    
+                   
+                    // source : https://stackoverflow.com/questions/19634588/how-to-add-datepicker-when-i-click-on-text-box
+                    if (!$.fn.bootstrapDP && $.fn.datepicker && $.fn.datepicker.noConflict) {
+                        var datepicker = $.fn.datepicker.noConflict();
+                        $.fn.bootstrapDP = datepicker;
+                    }
+
+                    // for bootstrap-datepicker
+                    $.datepicker.setDefaults({
+                        showOn: "both",
+                        buttonImageOnly: true,
+                        buttonImage: "calendar.gif",
+                        buttonText: "Calendar"
+                    });
+
+                     $('#datepicker').bootstrapDP({
+                        "format": 'dd/mm/yyyy',
+                        "autoclose": true,
+                        "todayHighlight": true
+                    });
+
+                    
+                    $("#datepicker").bootstrapDP("setDate",new Date());
+                    
+                    $('#datepicker').bootstrapDP().on('changeDate', e => {
+                            var date = new Date(e.date);
+                            date = date.toLocaleDateString();
+                            date = date.split('/');
+                            date = date[2]+"-"+date[1]+"-"+date[0]
+                            console.log(date);
+                    });
+
+                    // for jqueryUI
+                    // $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
+                    // $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy")
+
+                });
+            </script>
+        @endif
     </body>
 
 </html>
