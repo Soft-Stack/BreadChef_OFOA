@@ -146,64 +146,29 @@
                 <h4 class="fw-bolder mt-2">Order Summary <span class="float-end" onClick="emptyBag(this)"><i class="bi bi-bag-dash"></i></span></h4>
                 <hr>
 
+                <!-- Order Window -->
                 <div class="container order-window">
                 <!-- All Items in Bag -->
 
-                <?php
-                      if( is_array($session_bag ?? '') || is_object($session_bag ?? '') )
-                      {
-                        foreach($session_bag ?? '' as $item)
-                        {?>
-                            <div class="row cart-item">
-                              <h5>{{ $item['name'] }} <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h5> 
-                              <p>
-                                <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
-                                <span class="fs-5"> {{ $item['quantity'] }} </span>
-                                <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
-                                <span class="float-end fs-5">Rs.{{ $item['price'] }}</span>
-                              </p> 
-                              <hr>
-                            </div>
-                        <?php
-                        }
-                      }
-                      ?>
+                    <div class="row cart-item">
+                      <h5>Item Name here <span class="float-end" onClick='removeFromBag(this)'><i class="bi bi-bag-dash"></i></span></h5> 
+                      <p>
+                        <span><button class="btn border-dark" onClick='decrementQuantity(this)'>-</button></span>
+                        <span class="fs-5"> 0 </span>
+                        <span><button class="btn border-dark" onClick='incrementQuantity(this)'>+</button></span>
+                        <span class="float-end fs-5">Rs.100</span>
+                      </p> 
+                      <hr>
 
-                    <!-- <div class="row cart-item">
-                        <h5>Cheese Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
-                        <p>
-                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
-                            <span class="fs-5">1</span>
-                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
-                            <span class="float-end fs-5" onClick="removeFromBag(this)">Rs.550</span>
-                        </p> 
-                        <hr>
-                    </div> -->
+                      <!-- hidden fields -->
+                      <input type="text" name="name[]" value="">
+                      <input type="number" name="quantity[]" value="">
+                      <input type="number" name="price[]" value="">
 
-                    <!-- <div class="row cart-item">
-                        <h5>Zinger Burger <span class="float-end" onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
-                        <p>
-                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
-                            <span class="fs-5">1</span>
-                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
-                            <span class="float-end fs-5">Rs.350</span>
-                        </p> 
-                        <hr>
-                    </div>  -->
-
-                    <!-- <div class="row cart-item">
-                        <h5>Fish Burger <span class="float-end"  onClick="removeFromBag(this)"><i class="bi bi-bag-dash"></i></span></h5> 
-                        <p>
-                            <span><button class="btn btn-secondary" onClick="decrementQuantity(this)">-</button></span>
-                            <span class="fs-5">1</span>
-                            <span><button class="btn btn-secondary" onClick="incrementQuantity(this)">+</button></span>
-                            <span class="float-end fs-5">Rs.500</span>
-                        </p> 
-                        <hr>
-                    </div> -->
-   
+                    </div>
+                        
                 </div>
-
+                <!-- End Order Window -->
             </div>
         </div>
 
@@ -211,6 +176,8 @@
         <div class="row mt-3">
             <div class="col-md-12 text-center">
                 <h4 class="fw-bolder" id="subtotal">Total Rs.3200</h4>
+                <!-- hidden field -->
+                <input type="number" name="total" value="" id="total" hidden>
             </div>
         </div>
 

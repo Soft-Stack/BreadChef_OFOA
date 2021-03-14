@@ -1,8 +1,58 @@
 //---------------------------------------------------------
 //
 //  make calculations in the Checkout file
+"use strict";
 
+var jsoned = localStorage.getItem("subTotal");
+var total = JSON.parse(jsoned);
+setSubTotal(total);
+
+
+displayDataInModal();
 updateSubTotal();
+
+/**
+ * Retreive Data from JSON and display into Bag HTML Modal
+ */
+function displayDataInModal()
+{
+    var bagObj = localStorage.getItem("bagJSON");
+    var itemsArray = JSON.parse(bagObj);
+    if(itemsArray == null)
+    {
+        itemsArray = [];
+    }
+
+    var orderWindow = document.getElementsByClassName('order-window')[0];
+    orderWindow.innerHTML = "";
+
+    for(var i = 0; i < itemsArray.length; i++)
+    {
+        var itemName = itemsArray[i].name;
+        var itemQuantity = itemsArray[i].quantity;
+        var itemPrice = itemsArray[i].price;
+
+        var itemBox = ` <div class='row cart-item'>
+                            <h5>${itemName}
+                                <span class='float-end' onClick='removeFromBag(this)'><i class='bi bi-bag-dash'></i></span>
+                            </h5>
+                            <p>
+                                <span><button class='btn border-dark btn-sm' onClick='decrementQuantity(this)'>-</button></span>
+                                <span class='fs-6'> ${itemQuantity} </span>
+                                <span><button class='btn border-dark btn-sm' onClick='incrementQuantity(this)'>+</button></span> 
+                                <span class='float-end fs-6'>Rs.${itemPrice}</span>
+                            </p>
+                            <hr>
+
+                            <input type='text' name='name[]' value='${itemName}' hidden>
+                            <input type='number' name='quantity[]' value='${itemQuantity}' hidden>
+                            <input type='number' name='price[]' value='${itemPrice}' hidden>
+                        </div>`;
+
+        orderWindow.innerHTML += itemBox; 
+    }
+    updateSubTotal();
+}
 
 function removeFromBag(item)
 {
@@ -13,17 +63,36 @@ function removeFromBag(item)
     for(var i = 0; i < items.length; i++)
     {
         var bagItemName = items[i].children[0].innerText;
-        if(selectedItemName.trim() == bagItemName.trim())
+        console.log("Bag Item Name " + i + ": " + bagItemName);
+        if(selectedItemName == bagItemName)
         {
-            items[i].remove();
-            item.parentNode.parentNode.remove();           
+            console.log(selectedItemName + "==" + bagItemName);
+            // removing item from localStorage
+            var bagObj = localStorage.getItem("bagJSON");
+            var itemsArray = JSON.parse(bagObj);
+            for(var j = 0; j < itemsArray.length; j++)
+            {
+                if(itemsArray[j].name == selectedItemName)
+                {
+                    console.log(itemsArray[j].name + "==" + selectedItemName);
+                    itemsArray.pop(j);
+                    var jsoned = JSON.stringify(itemsArray);
+                    localStorage.setItem("bagJSON", jsoned);
+                    console.log("localStorage updated");
+                }
+            }
+
+            // removing item from HTML
+            items[i].remove();   
+            item.parentNode.parentNode.remove();       
         }
     }
-    updateSubTotal();
+    displayDataInModal();
 }
 
 function emptyBag(bag)
 {
+    localStorage.clear();
     document.getElementsByClassName('order-window')[0].innerHTML = "";
     setSubTotal(0);
 }
@@ -48,10 +117,24 @@ function decrementQuantity(item)
                 quantity = quantity - 1;
                 console.log("New Qty Text: " + quantity);
                 items[i].children[1].children[1].innerText = quantity;
+
+                // decrementing item in localStorage
+                var jsoned = localStorage.getItem("bagJSON");
+                var itemsArray = JSON.parse(jsoned);
+                for(var j = 0; j < itemsArray.length; j++)
+                {
+                    if(itemsArray[j].name == selectedItemName)
+                    {
+                        itemsArray[j].quantity = quantity;
+
+                        var jsoned = JSON.stringify(itemsArray);
+                        localStorage.setItem("bagJSON", jsoned);
+                    }
+                }
             }            
         }
     }
-    updateSubTotal();
+    displayDataInModal();
 }
 
 
@@ -72,9 +155,25 @@ function incrementQuantity(item)
         {
             var quantity = (parseInt(bagItemQty, 10) + 1);
             console.log("New Qty Text: " + quantity);
-            items[i].children[1].children[1].innerText = quantity;         
+            items[i].children[1].children[1].innerText = quantity;
+            
+            // incrementing item in localStrorage
+            var jsoned = localStorage.getItem("bagJSON");
+            var itemsArray = JSON.parse(jsoned);
+            
+            for(var j = 0; j < itemsArray.length; j++)
+            {
+                if(itemsArray[j].name == selectedItemName)
+                {
+                    itemsArray[j].quantity = quantity;
+
+                    var jsoned = JSON.stringify(itemsArray);
+                    localStorage.setItem("bagJSON", jsoned);
+                }
+            }
         }
     }
+    displayDataInModal();
     updateSubTotal();
 }
 
@@ -96,4 +195,8 @@ function updateSubTotal()
 function setSubTotal(subtotal) {
     var SubTotal = "Total Rs." + subtotal;
     document.getElementById('subtotal').innerText = SubTotal;
+    document.getElementById('total').value = subtotal;
+
+    var jsoned = JSON.stringify(subtotal);
+    localStorage.setItem("subTotal", jsoned);
 }

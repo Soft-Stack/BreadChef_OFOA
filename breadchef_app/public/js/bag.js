@@ -140,15 +140,12 @@ function removeFromBag(item)
                     localStorage.setItem("bagJSON", jsoned);
                 }
             }
-
             // // removing item from HTML
-            items[i].remove();
-            item.parentNode.parentNode.remove(); 
+            items[i].remove(); 
         }
 
     }
     displayDataInModal();
-    // updateSubTotal();
 }
 
 function emptyBag(bag)
@@ -262,4 +259,7 @@ function updateSubTotal()
 function setSubTotal(subtotal) {
     var SubTotal = "Rs." + subtotal;
     document.getElementById('subtotal').innerText = SubTotal;
+
+    var jsoned = JSON.stringify(subtotal);
+    localStorage.setItem("subTotal", jsoned);
 }
