@@ -67,13 +67,13 @@ Route::post('/order', 'MainController@placeOrder');
 // admin routes
 // Route::middleware(['web'])->group(function () {
     Route::prefix('breadchef-admin')->name('admin.')->group(function () {
-        
-        // Route::get('/', function() {
-        //     return view('admin.home');
-        // })->name('home');
-        
+
+         Route::get('/', function() {
+             return view('admin.home');
+         })->name('home');
+
         Route::get('/orders', 'AdminController@orders');
-    
+
         Route::get('/login', 'AdminController@login')->name('admin.login');
         Route::post('/login', 'AdminController@login');
     });

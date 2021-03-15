@@ -182,57 +182,48 @@
             </div>
           </div>
 
+            <div class="col-lg-6 menu-item filter-starters">
+                <div class="menu-content">
+                    <a href="#">Buffalo Wings</a><span>Rs.430</span>
+                </div>
+                <div class="menu-ingredients">
+                    Description
+                </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+                <div class="menu-content">
+                    <a href="#">Cheese Stick</a><span>Rs.350</span>
+                </div>
+                <div class="menu-ingredients">
+                    Lorem, deren, trataro, filede, nerada
+                </div>
+            </div>
+
           <div class="col-lg-6 menu-item filter-specialty">
             <div class="menu-content">
-              <a href="#">Bread barrel</a><span>$6.95</span>
+              <a href="#">Bread barrel</a><span>Rs.695</span>
             </div>
             <div class="menu-ingredients">
               Lorem, deren, trataro, filede, nerada
             </div>
           </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+                <div class="menu-content">
+                    <a href="#">Tuscan Grilled</a><span>Rs.995</span>
+                </div>
+                <div class="menu-ingredients">
+                    Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+                </div>
+            </div>
 
           <div class="col-lg-6 menu-item filter-sandwiches">
             <div class="menu-content">
               <a href="#">Triple Decker Club Sandwich</a><span>Rs.595</span>
             </div>
             <div class="menu-ingredients">
-              Grilled Chicken, Salami egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise 
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <div class="menu-content">
-              <a href="#">Buffalo WIngs</a><span>Rs.430</span>
-            </div>
-            <div class="menu-ingredients">
-              Description
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Caesar Salad</a><span>Rs.450</span>
-            </div>
-            <div class="menu-ingredients">
-              Description
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <div class="menu-content">
-              <a href="#">Tuscan Grilled</a><span>$9.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Grilled chicken with provolone, artichoke hearts, and roasted red pesto
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <div class="menu-content">
-              <a href="#">Cheese Stick</a><span>Rs.350</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
+              Grilled Chicken, Salami egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise
             </div>
           </div>
 
@@ -245,6 +236,15 @@
             </div>
           </div>
 
+            <div class="col-lg-6 menu-item filter-salads">
+                <div class="menu-content">
+                    <a href="#">Caesar Salad</a><span>Rs.450</span>
+                </div>
+                <div class="menu-ingredients">
+                    Description
+                </div>
+            </div>
+
           <div class="col-lg-6 menu-item filter-salads">
             <div class="menu-content">
               <a href="#">Russian Salad</a><span>Rs.350</span>
@@ -256,7 +256,7 @@
 
           <div class="col-lg-6 menu-item filter-specialty">
             <div class="menu-content">
-              <a href="#">Lobster Roll</a><span>$12.95</span>
+              <a href="#">Lobster Roll</a><span>Rs.195</span>
             </div>
             <div class="menu-ingredients">
               Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
