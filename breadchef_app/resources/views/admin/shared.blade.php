@@ -247,16 +247,15 @@
                     $('#notifications').prepend(payload);
                     
                     // console.log(data);
-                });
-    
-                function showNotifications() {
-                    $('#indicator')[0].innerHTML = '';
-                }
-    
-                
+                });            
             </script>
         @endif        
         
+        <script>
+            function showNotifications() {
+                $('#indicator')[0].innerHTML = '';
+            }
+        </script>
         
         @if (Request::is('breadchef-admin/orders'))
             <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

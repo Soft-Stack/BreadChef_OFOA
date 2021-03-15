@@ -266,14 +266,14 @@ function addToTable(order) {
 
 $.getJSON(`http://localhost:8000/api/orderbydate?date=${today}`, function(data) {
 
-    $("#spinner")[0].hidden = false
+    $("#spinner")[0].hidden = false;
     console.log("DATA : ", data);
     orders = data;
     console.log(orders);
     orders.forEach(order => {
         addToTable(order);
     });
-    $("#spinner")[0].hidden = true
+    $("#spinner")[0].hidden = true;
 });
 
 
@@ -282,6 +282,25 @@ $.getJSON(`http://localhost:8000/api/orderbydate?date=${today}`, function(data) 
 var channel = Echo.channel('my-channel');
 channel.listen('.my-event', function(data) {
     // alert(JSON.stringify(data));
+    $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
+    
+    var payload = `
+            <div class="list-group-item list-group-item-action active">
+                <div class="notification-info">
+                    <div class="notification-list-user-img">
+                        <img alt="" class="user-avatar-md rounded-circle">
+                    </div>
+                    <div class="notification-list-user-block">
+                        <span class="notification-list-user-name">
+                            <strong> New Order # ${data.order.id} <strong>
+                        </span>
+                        <div class="notification-date">few seconds ago</div>
+                    </div>
+                </div>
+            </div>
+    `;
+
+    $('#notifications').prepend(payload);
     console.log(data);
 
     addToTable(data.order);
