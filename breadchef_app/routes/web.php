@@ -24,7 +24,9 @@ use App\Http\Controllers\MainController;
 /********************************************************
  * Routes of Website
  */
-Route::get('/', 'CustomerController@index');
+Route::get('/', function(){
+    return view('website.items');
+});
 
 Route::get('/home', function(){
     return view('website.index');
@@ -38,15 +40,21 @@ Route::get('/shared', function () {
     return view('website.shared');
 });
 
-Route::get('/items', 'CustomerController@index');
+Route::get('/items', function(){
+    return view('website.items');
+});
 
 Route::get('/bag', function(){
     return view('website.bag');
 });
 
-Route::get('/checkout', 'CustomerController@getCheckoutView');
+Route::get('/checkout', function(){
+    return view('/website.checkout');
+});
 
-Route::get('/print', 'CustomerController@printSessionData');
+Route::get('/feedback', function(){
+    return view('website.feedback');
+});
 
 /**************************************************************** */
 Route::post('/order', 'MainController@placeOrder');
@@ -60,9 +68,9 @@ Route::post('/order', 'MainController@placeOrder');
 // Route::middleware(['web'])->group(function () {
     Route::prefix('breadchef-admin')->name('admin.')->group(function () {
         
-        Route::get('/', function() {
-            return view('admin.home');
-        })->name('home');
+        // Route::get('/', function() {
+        //     return view('admin.home');
+        // })->name('home');
         
         Route::get('/orders', 'AdminController@orders');
     
