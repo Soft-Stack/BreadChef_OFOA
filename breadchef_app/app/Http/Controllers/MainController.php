@@ -19,6 +19,8 @@ class MainController extends Controller
 {
     public function placeOrder(Request $request) {
         // TODO: Add validation maybe ?
+
+        //print_r($request->all());
        
         Log::debug("[PlaceOrder] Got Request", $request->all());
         // Log::debug("[PlaceOrder] Got Request", $request->input('name'));
@@ -52,6 +54,7 @@ class MainController extends Controller
 
         OrderPosted::dispatch($order, $cart, $customer);
 
-        return response(['status' => 'success'], 200);
+        // return response(['status' => 'success'], 200);
+        return redirect('/feedback');
     }
 }
