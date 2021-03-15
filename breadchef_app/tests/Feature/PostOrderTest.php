@@ -29,6 +29,7 @@ class PostOrderTest extends TestCase
             'address' => "Street # 3, testabad",
             'comments' => '',
             'total-amount' => '1500',
+            'datetime' => "2021-03-15",
             'items' => [
                 'Cake',
                 'Burger'
@@ -44,7 +45,9 @@ class PostOrderTest extends TestCase
         ];
         $response = $this->post('/order', $payload);
         // Log::debug("[PostOrderTest]", $response);
-        $response->assertStatus(200, "Response is: " . $response->getContent());
+        // $response->assertStatus(200, "Response is: " . $response->getContent());
+        $response->assertRedirect('/feedback');
+
     }
 
     public function testPostOrderTwo() {
@@ -55,6 +58,7 @@ class PostOrderTest extends TestCase
             'address' => "Street # 3, testabad",
             'comments' => '',
             // 'total-amount' => '1500',
+            'datetime' => "2021-03-15",
             'items' => [
                 'Cake',
                 'Burger'
@@ -71,6 +75,7 @@ class PostOrderTest extends TestCase
         ];
         $response = $this->post('/order', $payload);
         // Log::debug("[PostOrderTest]", $response);
-        $response->assertStatus(200, "Response is: " . $response->getContent());
+        // $response->assertStatus(200, "Response is: " . $response->getContent());
+        $response->assertRedirect('/feedback');
     }
 }
