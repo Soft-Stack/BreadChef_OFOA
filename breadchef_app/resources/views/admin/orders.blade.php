@@ -129,6 +129,11 @@
                             
                         </tbody>
                     </table>
+                    <center>
+                        <div id="spinner" hidden class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </center>
                 </div>
             </div>
         </div>
@@ -146,7 +151,29 @@
 </div>
 {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
 <script>
-                        var orders = <?php echo json_encode($orders) ; ?> ;
+
+    /**
+     * You first need to create a formatting function to pad numbers to two digits…
+     **/
+     function twoDigits(d) {
+        if(0 <= d && d < 10) return "0" + d.toString();
+        if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+        return d.toString();
+    }
+
+    /**
+     * …and then create the method to output the date string as desired.
+     * Some people hate using prototypes this way, but if you are going
+     * to apply this to more than one Date object, having it as a prototype
+     * makes sense.
+     **/
+    Date.prototype.toMysqlFormat = function() {
+        return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()+5) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+    };
+    var date = new Date();
+    var today = date.toMysqlFormat().split(' ')[0];
+var orders = null ;
+
 
 function getOrderInfo(orderid) {
     var cart = null;
@@ -236,11 +263,18 @@ function addToTable(order) {
     $('#orders-table').prepend(payload);
 }
                     // $('.toast').toast('show');
-console.log(orders);
-orders.forEach(order => {
-    console.log(addToTable(order));
-});
 
+$.getJSON(`http://localhost:8000/api/orderbydate?date=${today}`, function(data) {
+
+    $("#spinner")[0].hidden = false
+    console.log("DATA : ", data);
+    orders = data;
+    console.log(orders);
+    orders.forEach(order => {
+        addToTable(order);
+    });
+    $("#spinner")[0].hidden = true
+});
 
 
 // console.log(orders);

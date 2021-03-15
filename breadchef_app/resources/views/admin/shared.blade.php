@@ -55,60 +55,9 @@
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
-                                     <div class="notification-list">
-                                        <div id="notifications" class="list-group">
-                                            {{-- <a href="#" class="list-group-item list-group-item-action active"> 
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img
-                                                            src="assets/images/avatar-2.jpg" alt=""
-                                                            class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span
-                                                            class="notification-list-user-name">Jeremy
-                                                            Rakestraw</span>accepted your invitation to join the
-                                                        team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img
-                                                            src="assets/images/avatar-3.jpg" alt=""
-                                                            class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span
-                                                            class="notification-list-user-name">John
-                                                            Abraham</span>is now following you
-                                                        <div class="notification-date">2 days ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img
-                                                            src="assets/images/avatar-4.jpg" alt=""
-                                                            class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span
-                                                            class="notification-list-user-name">Monaan
-                                                            Pechi</span> is watching your main repository
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img
-                                                            src="assets/images/avatar-5.jpg" alt=""
-                                                            class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span
-                                                            class="notification-list-user-name">Jessica
-                                                            Caruso</span>accepted your invitation to join the
-                                                        team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div> --}}
+                                        <div class="notification-list">
+                                            <div id="notifications" class="list-group">
+                                           
                                 </li>
                                 <li>
                                     <div class="list-footer"></div>
@@ -319,14 +268,13 @@
   
                 $(document).ready(function () {
                     
-                    // console.log($('#datepicker'));  
+                    console.log($('#datepicker'));  
 
 
                     function getOrderInfo2() {
                         $('#myModal4').modal('show');
                     }
 
-                    
                    
                     // source : https://stackoverflow.com/questions/19634588/how-to-add-datepicker-when-i-click-on-text-box
                     if (!$.fn.bootstrapDP && $.fn.datepicker && $.fn.datepicker.noConflict) {
@@ -334,35 +282,57 @@
                         $.fn.bootstrapDP = datepicker;
                     }
 
-                    // for bootstrap-datepicker
-                    $.datepicker.setDefaults({
-                        showOn: "both",
-                        buttonImageOnly: true,
-                        buttonImage: "calendar.gif",
-                        buttonText: "Calendar"
-                    });
+                    // //for bootstrap-datepicker
+                    // $.datepicker.setDefaults({
+                    //     showOn: "both",
+                    //     buttonImageOnly: true,
+                    //     buttonImage: "",
+                    //     buttonText: "Calendar"
+                    // });
 
-                     $('#datepicker').bootstrapDP({
-                        "format": 'dd/mm/yyyy',
-                        "autoclose": true,
-                        "todayHighlight": true
-                    });
+                    //  $('#datepicker').bootstrapDP({
+                    //     "format": 'dd/mm/yyyy',
+                    //     "autoclose": true,
+                    //     "todayHighlight": true
+                    // });
 
                     
-                    $("#datepicker").bootstrapDP("setDate",new Date());
+                    // $("#datepicker").bootstrapDP("format", 'dd/mm/yyy');
+                    // $("#datepicker").bootstrapDP("autoclose",true);
                     
-                    $('#datepicker').bootstrapDP().on('changeDate', e => {
-                            var date = new Date(e.date);
-                            date = date.toLocaleDateString();
-                            date = date.split('/');
-                            date = date[2]+"-"+date[1]+"-"+date[0]
-                            console.log(date);
-                    });
+                    // $("#datepicker").bootstrapDP("setDate",new Date());
+                    
+                    // $('#datepicker').bootstrapDP().on('changeDate', e => {
+                    //         var date = new Date(e.date);
+                    //         date = date.toLocaleDateString();
+                    //         date = date.split('/');
+                    //         date = date[2]+"-"+date[1]+"-"+date[0]
+                    //         console.log(date);
+                    // });
 
                     // for jqueryUI
-                    // $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
-                    // $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy")
+                    $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
+                    $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy")
+                    $( "#datepicker" ).datepicker("setDate",new Date())
+                        .on('change', function(e) {
+                            $('#orders-table')[0].innerHTML = "";
+                            $("#spinner")[0].hidden = false
+                            var rawdate = e.target.value;
+                            var splitted = rawdate.split('-');
+                            var newdate =  splitted[2] + "-" + splitted[1] + "-" + splitted[0]; 
+                            console.log(newdate);
 
+                            $.getJSON(`http://localhost:8000/api/orderbydate?date=${newdate}`, function(data) {
+
+                                console.log("DATA : ", data);
+                                orders = data;
+                                // console.log(orders);
+                                orders.forEach(order => {
+                                    addToTable(order);
+                                });
+                            });
+                            $("#spinner")[0].hidden = true;
+                        });;
                 });
             </script>
         @endif
