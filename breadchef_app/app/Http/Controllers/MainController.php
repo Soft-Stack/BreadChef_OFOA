@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Cart;
 use App\Customer;
 use App\Order;
+use App\Category;
+use App\Item;
+use App\Variation;
 use App\Transformers\CartTransformer;
 use App\Transformers\CustomerTransformer;
 use App\Transformers\OrderTransformer;
@@ -17,6 +20,22 @@ use App\Events\OrderPosted;
 
 class MainController extends Controller
 {
+
+    /**
+     * Redirects to items view
+     * return categories array, items array, variations array
+     */
+    public function getItemsView()
+    {
+        $data = [
+            'categories' => $this->getAllCategories(),
+            'items' => $this->getAllItems(),
+            'variations' => $this->getAllVariations(),
+        ];
+
+        return view('website.items', $data);
+    }
+
     public function placeOrder(Request $request) {
         // TODO: Add validation maybe ?
 
@@ -56,5 +75,26 @@ class MainController extends Controller
 
         // return response(['status' => 'success'], 200);
         return redirect('/feedback');
+    }
+
+    /**
+     * Get All category names from the database and send it to a view
+     */
+    public function getAllCategories()
+    {
+        $categories = Category::all();
+        return $categories;
+    }
+
+    public function getAllItems()
+    {
+        $items = Item::all();
+        return $items;
+    }
+
+    public function getAllVariations()
+    {
+        $variations = Variation::all();
+        return $variations;
     }
 }

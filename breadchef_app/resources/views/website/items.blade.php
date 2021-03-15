@@ -63,17 +63,20 @@
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
           <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#appetizers">Appetizers</a></li>
-              <li><a href="#sandwiches">Sandwiches</a></li>
-              <li class="dropdown"><a href="#flavorLoadedSteaks"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Chicken</a></li>
-                  <li><a href="#">Beef</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Italian Affairs</a></li>
-              <li><a href="#">Burgers</a></li>
-              <li><a href="#">Pizza Size 9"</a></li>
+            <?php
+              foreach($categories ?? '' as $category)
+              {
+                ?>
+                <li><a href="#{{$category->id}}">{{ $category->name }}</a></li>
+                <?php
+              }
+            ?>
+               <!-- <li><a href="#appetizers">Appetizers</a></li>
+               <li><a href="#sandwiches">Sandwiches</a></li>
+               <li><a href="#flavorLoadedSteaks"><span>Flavor Loaded Steaks</a></li>
+               <li><a href="#">Italian Affairs</a></li>
+               <li><a href="#">Burgers</a></li>
+               <li><a href="#">Pizza Size 9"</a></li> -->
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="" onClick="displayDataInModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag</a></li>
@@ -149,6 +152,44 @@
 
     <!-- ======= Whu Us Section ======= -->
     <section id="why-us" class="why-us">
+
+    <?php
+
+        foreach($categories as $category)
+        {
+          echo "Category: ", $category->name, "<br>";
+          $itemsInCat = array();
+          // check for items
+          foreach($items as $item)
+          {
+            if($category->id == $item->categoryid)
+            {
+              array_push($itemsInCat, $item);
+            }
+          }
+
+          echo "Items: " , sizeof($itemsInCat), "<br>";
+          if(sizeof($itemsInCat) > 0)
+          {
+            foreach($itemsInCat as $item)
+            {
+              echo "Item: " , $item->name, "<br>";
+
+              // check for variations
+              foreach($variations ?? '' as $variation)
+              {
+                if($item->id == $variation->itemid)
+                {
+                  echo "Variation: " , $variation->name, "<br>";
+                }
+              }
+            }
+          }
+
+          $itemsInCat = [];
+        }
+
+    ?>
 
       <!---------------------------------------- Appetizers  ------------------------------------->
       <div class="container" id="appetizers">
