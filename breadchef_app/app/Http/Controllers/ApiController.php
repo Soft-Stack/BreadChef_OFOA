@@ -7,6 +7,8 @@ use App\Order;
 
 use App\Http\Controllers\Controller as BaseController;
 use App\Transformers\CustomerTransformer;
+use App\Transformers\OrderTransformer;
+
 use Illuminate\Http\Request;
 
 class ApiController extends BaseController
@@ -147,5 +149,12 @@ class ApiController extends BaseController
         $data['total-orders'] = $data_all;
  
         return $data;
+    }
+
+    public function ordersByDate(Request $request) {
+        $date = $request->input('date');        
+        $orders = Order::byDate($date); 
+        $orders_formatted = OrderTransformer::formatOrders($orders);
+        return $orders_formatted;
     }
 }

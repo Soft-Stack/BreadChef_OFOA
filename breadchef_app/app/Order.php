@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
+    // use SoftDeletes;
     /**
      * The table associated with the model.
      *
@@ -41,4 +43,23 @@ class Order extends Model
     public function customer() {
         return $this->hasOne('App\Customer');
     }
+
+    /**
+     * @param string date | assuimg format : 2021-03-15
+     */
+    public static function byDate($date) {
+
+        if($date == "") {
+            abort(404, "No Date");
+        }
+        $orders = Order::all();
+        $ordersByDate = [];
+        foreach($orders as $order) {
+            $orderDate = explode(' ', $order->datetime)[0];
+            if($date == $orderDate) {
+                array_push($ordersByDate, $order);
+            }
+        }
+        return $ordersByDate;
+    } 
 }

@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/customer', 'ApiController@getUniqueCustomers');
 Route::get('/orders', 'ApiController@getOrdersByWeek');
 Route::get('/revenue', 'ApiController@getRevenue');
+Route::get('/orderbydate', 'ApiController@ordersByDate');
 
