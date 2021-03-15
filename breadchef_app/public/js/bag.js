@@ -58,12 +58,27 @@ function displayDataInModal()
 
 function addToBag(item){
 
+    var ItemBox = item.parentNode;
+    // console.log(ItemBox);
+    var index = Array.prototype.indexOf.call(ItemBox.children, item);
+    // console.log("clicked on index: " + index);
+    // console.log(ItemBox.children[index]);
+    // console.log("Price: " + ItemBox.children[index-1].innerText.split('.')[1] );
+    var selectedItemPrice = ItemBox.children[index-1].innerText.split('.')[1];
+    console.log("Selected Item Price: " + selectedItemPrice);
+
     // var itemName = e.children[0].children[0].children[0].innerHTML;
     var selectedItemName = item.parentNode.children[1].innerText;
     var selectedItemQuantity = 1;
-    var selectedItemPrice = item.parentNode.children[3].innerText.split('.')[1];
     console.log("Selected Item Name: " + selectedItemName);
-    console.log("Selected Item Price: " + selectedItemPrice);
+
+    // Item Name + variation
+    if(index > 4)
+    {
+        var itemVariationName = item.parentNode.children[index-1].innerText.split(' ')[0];
+        selectedItemName = selectedItemName + " - " + itemVariationName;
+        console.log("Full name with variation: " + selectedItemName);
+    }
 
     // var items = document.getElementsByClassName('bag-window')[0].children;
     var createNewItem = true;
@@ -115,7 +130,8 @@ function addToBag(item){
 }
 
 function removeFromBag(item)
-{
+{ 
+
     var selectedItemName = item.parentNode.parentNode.children[0].innerText;
     console.log("Item To Remove: " + selectedItemName);
 
