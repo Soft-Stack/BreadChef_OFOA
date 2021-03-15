@@ -253,7 +253,7 @@
                     // Revenue
                     // ============================================================== 
                     
-                    $.getJSON('{{ env('APP_URL') }}/api/revenue', function(data) {
+                    $.getJSON('/api/revenue', function(data) {
 
                         var thisWeek = sparkify(data['this-week']);
                         var lastWeek = sparkify(data['last-week']);
@@ -316,7 +316,7 @@
                     //
                     // For Unique Customer card
                     //
-                    $.getJSON('{{ env('APP_URL') }}/api/customer', function (data) {
+                    $.getJSON('/api/customer', function (data) {
                         console.log(data);
                         var customerspark = sparkify(data);
 
@@ -344,7 +344,7 @@
                     //
                     // For Weekly Order and Monthly card
                     //
-                    $.getJSON('{{ env('APP_URL') }}/api/orders', function (data) {
+                    $.getJSON('/api/orders', function (data) {
                         console.log(data);
 
                         var weekspark = sparkify(data['current-week']);
@@ -478,7 +478,7 @@
                             var newdate =  splitted[2] + "-" + splitted[1] + "-" + splitted[0]; 
                             console.log(newdate);
 
-                            $.getJSON(`{{ env('APP_URL') }}/api/orderbydate?date=${newdate}`, function(data) {
+                            $.getJSON(`/api/orderbydate?date=${newdate}`, function(data) {
 
                                 console.log("DATA : ", data);
                                 orders = data;
