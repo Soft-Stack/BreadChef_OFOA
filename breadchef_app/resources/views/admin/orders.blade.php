@@ -172,14 +172,14 @@
     };
     var date = new Date();
     var today = date.toMysqlFormat().split(' ')[0];
-var orders = null ;
+    var orders = null ;
 
 
-function getOrderInfo(orderid) {
-    var cart = null;
-    var total = null;
-    var comment = null;
-    orders.forEach(order => {
+    function getOrderInfo(orderid) {
+        var cart = null;
+        var total = null;
+        var comment = null;
+        orders.forEach(order => {
         if(order.id == orderid) {
             cart = order.cart;
             total = order.total_amount;
@@ -231,98 +231,87 @@ function getOrderInfo(orderid) {
     $('#myModal4').modal('show');
 }
 
-// load orders table
-function addToTable(order) {
-    var status = "";
-    if(order.status.trim() === "In Progress") {
-        status = `<td onclick="getOrderInfo(${order.id})"><span style="color:#fcba03; font-weight:bold;"> In Progress </span></td>`;
-    } else if(order.status == "Delivered") {
-        status = `<td onclick="getOrderInfo()"><span style="color:green; font-weight:bold;"> Delivered </span></td>`;
-    } else if(order.status == "Cancelled") {
-        status = `<td onclick="getOrderInfo()"><span style="color:red; font-weight:bold;"> Cancelled </span></td>`;
+    // load orders table
+    function addToTable(order) {
+        var status = "";
+        if(order.status.trim() === "In Progress") {
+            status = `<td onclick="getOrderInfo(${order.id})"><span style="color:#fcba03; font-weight:bold;"> In Progress </span></td>`;
+        } else if(order.status == "Delivered") {
+            status = `<td onclick="getOrderInfo()"><span style="color:green; font-weight:bold;"> Delivered </span></td>`;
+        } else if(order.status == "Cancelled") {
+            status = `<td onclick="getOrderInfo()"><span style="color:red; font-weight:bold;"> Cancelled </span></td>`;
+        }
+        var payload = `<tr>
+                                <td onclick="getOrderInfo(${order.id})" style="width:30px;"><span class="fa fa-truck"></td>
+                                <td onclick="getOrderInfo(${order.id})" style="width:120px;">${order.id}</td>
+                                <td onclick="getOrderInfo(${order.id})" style="width:180px;">${order.customer.name}</td>
+                                <td onclick="getOrderInfo(${order.id})">${order.customer.phone}</td>
+                                <td onclick="getOrderInfo(${order.id})" style="400px;"> ${order.customer.phone}</td>
+                                <td><span class="fa fa-calendar"></span> ${order.datetime} </td>
+                                ${status};
+                                <td onclick="getOrderInfo()">RS.${order.total_amount}</td>
+                                <td>
+                                    <a href="#" class="btn btn-simple btn-icon"><i
+                                            class=" fas fa-check"></i></a>
+                                    <a href="#" class="btn btn-simple btn-icon"><i
+                                            class=" fas fa-times"></i></a>
+                                    <a href="#" class="btn btn-simple btn-icon"><i
+                                            class="fas fa-info"></i></a>
+                                </td>
+                            </tr>`;
+                            // return payload;
+        $('#orders-table').prepend(payload);
     }
-    var payload = `<tr>
-                            <td onclick="getOrderInfo(${order.id})" style="width:30px;"><span class="fa fa-truck"></td>
-                            <td onclick="getOrderInfo(${order.id})" style="width:120px;">${order.id}</td>
-                            <td onclick="getOrderInfo(${order.id})" style="width:180px;">${order.customer.name}</td>
-                            <td onclick="getOrderInfo(${order.id})">${order.customer.phone}</td>
-                            <td onclick="getOrderInfo(${order.id})" style="400px;"> ${order.customer.phone}</td>
-                            <td><span class="fa fa-calendar"></span> ${order.datetime} </td>
-                            ${status};
-                            <td onclick="getOrderInfo()">RS.${order.total_amount}</td>
-                            <td>
-                                <a href="#" class="btn btn-simple btn-icon"><i
-                                        class=" fas fa-check"></i></a>
-                                <a href="#" class="btn btn-simple btn-icon"><i
-                                        class=" fas fa-times"></i></a>
-                                <a href="#" class="btn btn-simple btn-icon"><i
-                                        class="fas fa-info"></i></a>
-                            </td>
-                        </tr>`;
-                        // return payload;
-    $('#orders-table').prepend(payload);
-}
-                    // $('.toast').toast('show');
 
-$.getJSON(`http://localhost:8000/api/orderbydate?date=${today}`, function(data) {
+    function markStatus(orderid, status) {
+        // TODO: complete this.
+        // $.getJSON(`http://localhost:8000/api/markstatus?orderid=${today}`)
+    }
 
-    $("#spinner")[0].hidden = false;
-    console.log("DATA : ", data);
-    orders = data;
-    console.log(orders);
-    orders.forEach(order => {
-        addToTable(order);
+    $.getJSON(`{{ env('APP_URL') }}/api/orderbydate?date=${today}`, function(data) {
+
+        $("#spinner")[0].hidden = false;
+        console.log("DATA : ", data);
+        orders = data;
+        console.log(orders);
+        orders.forEach(order => {
+            addToTable(order);
+        });
+        $("#spinner")[0].hidden = true;
     });
-    $("#spinner")[0].hidden = true;
-});
 
 
-// console.log(orders);
+    // console.log(orders);
 
-var channel = Echo.channel('my-channel');
-channel.listen('.my-event', function(data) {
-    // alert(JSON.stringify(data));
-    $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
-    
-    var payload = `
-            <div class="list-group-item list-group-item-action active">
-                <div class="notification-info">
-                    <div class="notification-list-user-img">
-                        <img alt="" class="user-avatar-md rounded-circle">
-                    </div>
-                    <div class="notification-list-user-block">
-                        <span class="notification-list-user-name">
-                            <strong> New Order # ${data.order.id} <strong>
-                        </span>
-                        <div class="notification-date">few seconds ago</div>
+    var channel = Echo.channel('my-channel');
+    channel.listen('.my-event', function(data) {
+        // alert(JSON.stringify(data));
+        $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
+        
+        var payload = `
+                <div class="list-group-item list-group-item-action active">
+                    <div class="notification-info">
+                        <div class="notification-list-user-img">
+                            <img alt="" class="user-avatar-md rounded-circle">
+                        </div>
+                        <div class="notification-list-user-block">
+                            <span class="notification-list-user-name">
+                                <strong> New Order # ${data.order.id} <strong>
+                            </span>
+                            <div class="notification-date">few seconds ago</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-    `;
+        `;
 
-    $('#notifications').prepend(payload);
-    console.log(data);
+        $('#notifications').prepend(payload);
+        console.log(data);
 
-    addToTable(data.order);
-});
+        addToTable(data.order);
+    });
 
 
 
 </script>
-<footer class="footer" style="position: fixed; bottom: 0; ">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="text-md-right footer-links d-none d-sm-block">
-                    <a href="javascript: void(0);">About</a>
-                    <a href="javascript: void(0);">Support</a>
-                    <a href="javascript: void(0);">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 @endsection
