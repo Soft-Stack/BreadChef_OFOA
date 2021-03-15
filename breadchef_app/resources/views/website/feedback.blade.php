@@ -167,6 +167,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/feedback.js') }}"></script>
 
 </body>
 
