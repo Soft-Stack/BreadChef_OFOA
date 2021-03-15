@@ -54,7 +54,7 @@
 
       <div class="logo me-auto">
         <h1><a href="{{ url('/') }}">Bread Chef</a></h1>
-        
+
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -101,26 +101,30 @@
     </section><!-- End Breadcrumbs Section -->
 
     <section class="inner-page">
-      <div class="container">
+      <div class="container text-center">
         <p>
+          <!-- Alert -->
           <div class="alert alert-success" role="alert">
             <h4 class="alert-heading"> <span><i class="bi bi-emoji-laughing fs-1"></i></span>rder placed successfully!</h4>
-            <p>We've received your order and will contact you. Browse more <a href="{{ url('/items') }}">items</a>.</p>
+            <p>We've received your order and will contact you soon. Browse more <a href="{{ url('/items') }}">items</a>.</p>
             <hr>
-            
+          </div>
+          <!-- End Alert -->
+
+            <!-- Feedback -->
             <p class="mb-0">How was your experience with our website ? Help us improve ourself for you</p>
             <div class="container col-md-6">
-              <div class="form-floating mt-2">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comments</label>
-              </div>
-              <button class="btn btn-primary btn-block float-end">Submit</button>
+                <form method="" action="">
+                    @csrf
+                    <div class="form-floating mt-2">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <label for="floatingTextarea2">Comments</label>
+                    </div>
+                    <a href="{{ url('/') }}"><button class="btn btn-primary w-100 mt-2">Submit</button></a>
+                </form>
             </div>
-            
-            
-          </div>
-        </p>
-
+          <!-- End Feedback -->
+          </p>
       </div>
     </section>
 
@@ -163,6 +167,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/feedback.js') }}"></script>
 
 </body>
 

@@ -59,6 +59,7 @@ Route::get('/feedback', function(){
 Route::post('/order', 'MainController@placeOrder');
 
 // admin routes
+
 Route::prefix('breadchef-admin')->name('admin.')->group(function () {
         
     Route::get('/login', 'AdminController@login')->name('admin.login');
