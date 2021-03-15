@@ -15,9 +15,15 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->integer('categoryid')->unsigned();
             $table->string('name');
+            $table->string('description');
             $table->string('price');
             $table->timestamps();
+        });
+
+        Schema::table('items', function (Blueprint $table) {
+            $table->foreign('categoryid')->references('id')->on('categories');
         });
     }
 
