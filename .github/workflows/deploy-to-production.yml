@@ -20,6 +20,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           script: |
-            cd /var/www/html/
-            git checkout -f 
-            git pull
+            cd /home2/jumpstartsol/breadchef.jumpstartsol.com/BreadChef_OFOA/breadchef_app
+            git pull origin main
