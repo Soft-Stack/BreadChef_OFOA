@@ -269,7 +269,7 @@
         // $.getJSON(`http://localhost:8000/api/markstatus?orderid=${today}`)
     }
 
-    $.getJSON(`{{ env('APP_URL') }}/api/orderbydate?date=${today}`, function(data) {
+    $.getJSON(`/api/orderbydate?date=${today}`, function(data) {
 
         $("#spinner")[0].hidden = false;
         console.log("DATA : ", data);
