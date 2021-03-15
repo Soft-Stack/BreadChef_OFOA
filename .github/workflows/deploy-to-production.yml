@@ -19,6 +19,8 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: 2222
           script: |
             cd /home2/jumpstartsol/breadchef.jumpstartsol.com/BreadChef_OFOA/breadchef_app
             git pull origin main
