@@ -60,11 +60,11 @@ class MainController extends Controller
         $cart_id = Cart::latest()->first()->id;
 
         // $datetime = explode(' ',Date('Y-m-d', strtotime('today')))[0];
-        $datetime = Date("Y-m-d h:m:s", strtotime('today'));
+        // $datetime = Date("Y-m-d h:m:s", strtotime('today'));
 
         $orderAsArray['customerid'] = $customer_id;        
         $orderAsArray['cartid'] = $cart_id;
-        $orderAsArray['datetime'] = $datetime;
+        $orderAsArray['datetime'] = $request->input('datetime');
         $orderAsArray['status'] = 'In Progress';
 
         Log::debug('[Place Order] creating order', $orderAsArray);

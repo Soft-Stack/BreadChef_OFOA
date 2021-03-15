@@ -6,6 +6,7 @@ use App\Http\Controller\CustomerController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Middleware\AdminAuthGuard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +18,17 @@ use App\Http\Controllers\MainController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 /********************************************************
  * Routes of Website
+<<<<<<< HEAD
  */
 Route::get('/', 'MainController@getItemsView');
+=======
+ ********************************************************/
+Route::get('/', function(){
+    return view('website.items');
+});
+>>>>>>> 1b7659b1132c291631a6b56ee53ccd4e10550a75
 
 Route::get('/home', function(){
     return view('website.index');
@@ -52,33 +56,28 @@ Route::get('/feedback', function(){
     return view('website.feedback');
 });
 
+<<<<<<< HEAD
 Route::get('/getall', 'MainController@getAllCategories');
 
 /**************************************************************** */
+=======
+/**************************************************************** 
+ * Routes for dashboard
+****************************************************************/
+>>>>>>> 1b7659b1132c291631a6b56ee53ccd4e10550a75
 Route::post('/order', 'MainController@placeOrder');
 
-
-
-
-
-
 // admin routes
-// Route::middleware(['web'])->group(function () {
-    Route::prefix('breadchef-admin')->name('admin.')->group(function () {
 
-         Route::get('/', function() {
-             return view('admin.home');
-         })->name('home');
-
-        Route::get('/orders', 'AdminController@orders');
-
-        Route::get('/login', 'AdminController@login')->name('admin.login');
-        Route::post('/login', 'AdminController@login');
+Route::prefix('breadchef-admin')->name('admin.')->group(function () {
+        
+    Route::get('/login', 'AdminController@login')->name('admin.login');
+    Route::post('/login', 'AdminController@login');
+    
+    Route::middleware(['web', AdminAuthGuard::class])->group(function () {
+        Route::get('/', function() {
+            return view('admin.home');
+        })->name('home');    
+        Route::get('/orders', 'AdminController@orders');    
     });
-// });
-
-
-
-// Route::get('/checkout', function(){
-//     return view('checkout');
-// });
+});

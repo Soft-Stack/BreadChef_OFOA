@@ -29,6 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- =======================================================
   * Template Name: Delicious - v4.0.1
@@ -136,6 +137,8 @@
                         <div class="mb-3 col-md-12">
                             <label for="exampleInputPassword1" class="form-label">Any comments (optional)</label>
                             <input name="comments" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            <input id="datetime" name="datetime" type="text" hidden value="">
+                          
                         </div>
                     </div>
             </div>

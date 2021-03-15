@@ -69,56 +69,10 @@ $(function () {
                         }
                     }]
                 },
-
-
-                // scales: {
-                //     xAxes: [{
-                //         ticks: {
-                //             fontSize: 14,
-                //             fontFamily: 'Circular Std Book',
-                //             fontColor: '#71748d',
-                //         }
-                //     }],
-                //     yAxes: [{
-                //         ticks: {
-                //             fontSize: 14,
-                //             fontFamily: 'Circular Std Book',
-                //             fontColor: '#71748d',
-                //         }
-                //     }]
-                // }
-
             }
         });
     });
 
-    // ============================================================== 
-    // Total Sale
-    // ============================================================== 
-    // var ctx = document.getElementById("total-sale").getContext('2d');
-    // var myChart = new Chart(ctx, {
-    //     type: 'doughnut',
-
-    //     data: {
-    //         labels: ["Direct", " Affilliate", "Sponsored", " E-mail"],
-    //         datasets: [{
-    //             backgroundColor: [
-    //                 "#5969ff",
-    //                 "#ff407b",
-    //                 "#25d5f2",
-    //                 "#ffc750"
-    //             ],
-    //             data: [350.56, 135.18, 48.96, 154.02]
-    //         }]
-    //     },
-    //     options: {
-    //         legend: {
-    //             display: false
-
-    //         }
-    //     }
-
-    // });
 
     // ============================================================== 
     // Revenue Cards
