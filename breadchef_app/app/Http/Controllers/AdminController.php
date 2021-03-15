@@ -56,12 +56,7 @@ class AdminController extends Controller
     // }
 
     public function orders(Request $request) {
-
-        $orders = Order::where(['datetime' => Date('Y-m-d', strtotime('today'))])->get();
-
-        $orders_formatted = OrderTransformer::formatOrders($orders);
-
-        // return $orders_formatted;
-        return view('admin.orders', ['orders' => $orders_formatted]);
+        // return $orders_formatted
+        return view('admin.orders');
     }
 }

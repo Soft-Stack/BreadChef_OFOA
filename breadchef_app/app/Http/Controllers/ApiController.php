@@ -7,6 +7,8 @@ use App\Order;
 
 use App\Http\Controllers\Controller as BaseController;
 use App\Transformers\CustomerTransformer;
+use App\Transformers\OrderTransformer;
+
 use Illuminate\Http\Request;
 
 class ApiController extends BaseController
@@ -28,12 +30,24 @@ class ApiController extends BaseController
     {
 
         $customers = Customer::all();
-        $data = $this->countByDate($customers);
+        $data = $this->countCustomerByDate($customers);
         $data['total'] = count($customers);
 
         return $data;
     }
 
+    private function countCustomerByDate($obj) 
+    {
+        $data = [];
+
+        foreach($obj as $e) {
+            $createDate = explode(' ',$e->created_at)[0];
+            isset($data[$createDate]) || $data[$createDate] = 0;
+            $data[$createDate] ++;
+        }
+
+        return $data;
+    }
     /**
      * counts object creation w.r.t created at.
      * returns a 
@@ -147,5 +161,12 @@ class ApiController extends BaseController
         $data['total-orders'] = $data_all;
  
         return $data;
+    }
+
+    public function ordersByDate(Request $request) {
+        $date = $request->input('date');        
+        $orders = Order::byDate($date); 
+        $orders_formatted = OrderTransformer::formatOrders($orders);
+        return $orders_formatted;
     }
 }

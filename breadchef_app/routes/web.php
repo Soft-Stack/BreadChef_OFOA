@@ -6,6 +6,7 @@ use App\Http\Controller\CustomerController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Middleware\AdminAuthGuard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +18,9 @@ use App\Http\Controllers\MainController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 /********************************************************
  * Routes of Website
- */
+ ********************************************************/
 Route::get('/', function(){
     return view('website.items');
 });
@@ -56,31 +53,22 @@ Route::get('/feedback', function(){
     return view('website.feedback');
 });
 
-/**************************************************************** */
+/**************************************************************** 
+ * Routes for dashboard
+****************************************************************/
 Route::post('/order', 'MainController@placeOrder');
 
-
-
-
-
-
 // admin routes
-// Route::middleware(['web'])->group(function () {
-    Route::prefix('breadchef-admin')->name('admin.')->group(function () {
 
-         Route::get('/', function() {
-             return view('admin.home');
-         })->name('home');
-
-        Route::get('/orders', 'AdminController@orders');
-
-        Route::get('/login', 'AdminController@login')->name('admin.login');
-        Route::post('/login', 'AdminController@login');
+Route::prefix('breadchef-admin')->name('admin.')->group(function () {
+        
+    Route::get('/login', 'AdminController@login')->name('admin.login');
+    Route::post('/login', 'AdminController@login');
+    
+    Route::middleware(['web', AdminAuthGuard::class])->group(function () {
+        Route::get('/', function() {
+            return view('admin.home');
+        })->name('home');    
+        Route::get('/orders', 'AdminController@orders');    
     });
-// });
-
-
-
-// Route::get('/checkout', function(){
-//     return view('checkout');
-// });
+});
