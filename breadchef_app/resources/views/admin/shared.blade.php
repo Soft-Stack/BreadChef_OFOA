@@ -9,7 +9,7 @@
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
         <!-- Bootstrap Date-Picker Plugin -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     @endif
     <script src="{{ asset('js/app.js')}}"></script>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" /> --}}
@@ -254,44 +254,7 @@
         {{-- <script src="{{ asset('vendor/custom-js/jquery.multi-select.html')}}"></script> --}}
         <!-- dashboard sales js-->
 
-        <script>
-            $(document).ready(function() {
-                $('.dropdown-menu').on('hidden.bs.dropdown', function(e) {
-                    $('.dropdown-menu')[0].innerHTML = '<div> <strong> No New Notifications </strong> </div>'
-                });
-            });
-            var channel = Echo.channel('my-channel');
-            channel.listen('.my-event', function(data) {
-                // alert(JSON.stringify(data));
-                $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
-
-                var payload = `
-                        <div class="list-group-item list-group-item-action active">
-                            <div class="notification-info">
-                                <div class="notification-list-user-img">
-                                    <img alt="" class="user-avatar-md rounded-circle">
-                                </div>
-                                <div class="notification-list-user-block">
-                                    <span class="notification-list-user-name">
-                                        <strong> New Order # ${data.order.id} <strong>
-                                    </span>
-                                    <div class="notification-date">few seconds ago</div>
-                                </div>
-                            </div>
-                        </div>
-                `;
-
-                $('#notifications').prepend(payload);
-                
-                // console.log(data);
-            });
-
-            function showNotifications() {
-                $('#indicator')[0].innerHTML = '';
-            }
-
-            
-        </script>
+        
         @if (Request::is('breadchef-admin'))
             <!-- chartjs js-->
             
@@ -304,24 +267,65 @@
             <script src="{{ asset('vendor/charts/sparkline/jquery.sparkline.js')}}"></script>
             <script src="{{ asset('vendor/charts/sparkline/spark-js.js')}}"></script>
             <script src="{{ asset('libs/js/dashboard-sales.js')}}"></script>      
+
+            <script>
+                $(document).ready(function() {
+                    $('.dropdown-menu').on('hidden.bs.dropdown', function(e) {
+                        $('.dropdown-menu')[0].innerHTML = '<div> <strong> No New Notifications </strong> </div>'
+                    });
+                });
+                var channel = Echo.channel('my-channel');
+                channel.listen('.my-event', function(data) {
+                    // alert(JSON.stringify(data));
+                    $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
+    
+                    var payload = `
+                            <div class="list-group-item list-group-item-action active">
+                                <div class="notification-info">
+                                    <div class="notification-list-user-img">
+                                        <img alt="" class="user-avatar-md rounded-circle">
+                                    </div>
+                                    <div class="notification-list-user-block">
+                                        <span class="notification-list-user-name">
+                                            <strong> New Order # ${data.order.id} <strong>
+                                        </span>
+                                        <div class="notification-date">few seconds ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                    `;
+    
+                    $('#notifications').prepend(payload);
+                    
+                    // console.log(data);
+                });
+    
+                function showNotifications() {
+                    $('#indicator')[0].innerHTML = '';
+                }
+    
+                
+            </script>
         @endif        
         
         
         @if (Request::is('breadchef-admin/orders'))
-            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
             <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
             <script src="{{ asset('js/admin-orders.js')}}"></script>      
             <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
             <script>
+  
                 $(document).ready(function () {
-                    // $('.toast').toast('show');
-                    var orders = <?php echo json_encode($orders) ; ?> ;
-                    console.log(orders);
-                    orders.forEach(order => {
-                        console.log(addToTable(order));
-                    });
+                    
+                    // console.log($('#datepicker'));  
+
+
+                    function getOrderInfo2() {
+                        $('#myModal4').modal('show');
+                    }
+
                     
                    
                     // source : https://stackoverflow.com/questions/19634588/how-to-add-datepicker-when-i-click-on-text-box
