@@ -10,8 +10,8 @@ class OrderTransformer {
 
     public static function fromRequest(Request $request) {
         return [
-            'total_amount' => $request->input('total-amount')
-            // 'comment' => $request->input('comment'),
+            'total_amount' => $request->input('total-amount'),
+            'comment' => $request->input('comments') == null ? " - " : $request->input('comments') ,
         ];
     }
 

@@ -27,7 +27,7 @@ class Order extends Model
      * 
      * @var array
      */
-    protected $fillable = ['customerid', 'cartid', 'datetime', 'total_amount', 'status'];
+    protected $fillable = ['customerid', 'cartid', 'datetime', 'total_amount', 'status', 'comment'];
 
 
     /**
