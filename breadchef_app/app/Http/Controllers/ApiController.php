@@ -30,12 +30,24 @@ class ApiController extends BaseController
     {
 
         $customers = Customer::all();
-        $data = $this->countByDate($customers);
+        $data = $this->countCustomerByDate($customers);
         $data['total'] = count($customers);
 
         return $data;
     }
 
+    private function countCustomerByDate($obj) 
+    {
+        $data = [];
+
+        foreach($obj as $e) {
+            $createDate = explode(' ',$e->created_at)[0];
+            isset($data[$createDate]) || $data[$createDate] = 0;
+            $data[$createDate] ++;
+        }
+
+        return $data;
+    }
     /**
      * counts object creation w.r.t created at.
      * returns a 

@@ -179,15 +179,30 @@
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 js-->
-        {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
-        {{-- <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script> --}}
-        {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-        <!-- bootstrap bundle js-->
-
-        {{-- <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js')}}"></script> --}}
-
+        
+                <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <center>
+                                Copyright © 2021 SoftStack All rights reserved.
+                            </center>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> --}}
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
@@ -215,9 +230,179 @@
             <!-- sparkline js-->
             <script src="{{ asset('vendor/charts/sparkline/jquery.sparkline.js')}}"></script>
             <script src="{{ asset('vendor/charts/sparkline/spark-js.js')}}"></script>
-            <script src="{{ asset('libs/js/dashboard-sales.js')}}"></script>      
+            {{-- <script src="{{ asset('libs/js/dashboard-sales.js')}}"></script>       --}}
 
             <script>
+                $(function () {
+                    "use strict";
+
+                    //
+                    // Helper function
+                    //
+                    function sparkify(data) {
+                        var spark = [];
+                        for (var key in data) {
+                            if (key != 'total') {
+                                spark.push(data[key]);
+                            }
+                        }
+                        return spark;
+                    }
+
+                    // ============================================================== 
+                    // Revenue
+                    // ============================================================== 
+                    
+                    $.getJSON('{{ env('APP_URL') }}/api/revenue', function(data) {
+
+                        var thisWeek = sparkify(data['this-week']);
+                        var lastWeek = sparkify(data['last-week']);
+                        console.log(thisWeek);
+                        console.log(lastWeek);
+
+                        var ctx = document.getElementById('revenue').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+
+                            data: {
+                                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                                datasets: [{
+                                        label: 'Current Week',
+                                        data: thisWeek,
+                                        backgroundColor: "rgba(89, 105, 255,0.5)",
+                                        borderColor: "rgba(89, 105, 255,0.7)",
+                                        borderWidth: 2
+                                    },
+                                    {
+                                        label: 'Previous Week',
+                                        data: lastWeek,
+                                        backgroundColor: "rgba(255, 64, 123,0.5)",
+                                        borderColor: "rgba(255, 64, 123,0.7)",
+                                        borderWidth: 2
+                                    }
+                                ]
+                            },
+                            options: {
+
+                                legend: {
+                                    display: true,
+                                    position: 'bottom',
+
+                                    labels: {
+                                        fontColor: '#71748d',
+                                        fontFamily: 'Circular Std Book',
+                                        fontSize: 14,
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            // Include a dollar sign in the ticks
+                                            callback: function (value, index, values) {
+                                                return 'Rs.' + value;
+                                            }
+                                        }
+                                    }]
+                                },
+                            }
+                        });
+                    });
+
+
+                    // ============================================================== 
+                    // Revenue Cards
+                    // ============================================================== 
+
+                    //
+                    // For Unique Customer card
+                    //
+                    $.getJSON('{{ env('APP_URL') }}/api/customer', function (data) {
+                        console.log(data);
+                        var customerspark = sparkify(data);
+
+                        console.log('cust :', customerspark);
+                        $('#unique-customers-value')[0].innerText = data['total'];
+                        // [5, 5, 7, 7, 9, 5, 3, 5, 2, 4, 6, 7]
+                        $("#customer-sparkline").sparkline(customerspark, {
+                            type: 'line',
+                            width: '99.5%',
+                            height: '100',
+                            lineColor: '#5969ff',
+                            fillColor: '#dbdeff',
+                            lineWidth: 2,
+                            spotColor: undefined,
+                            minSpotColor: undefined,
+                            maxSpotColor: undefined,
+                            highlightSpotColor: undefined,
+                            highlightLineColor: undefined,
+                            resize: true
+                        });
+                    });
+
+
+
+                    //
+                    // For Weekly Order and Monthly card
+                    //
+                    $.getJSON('{{ env('APP_URL') }}/api/orders', function (data) {
+                        console.log(data);
+
+                        var weekspark = sparkify(data['current-week']);
+                        var monthspark = sparkify(data['this-month']);
+                        var totalspark = sparkify(data['total-orders']);
+
+                        $('#orders-this-week-value')[0].innerText = data['current-week']['total'];
+                        $('#orders-this-month-value')[0].innerText = data['this-month']['total'];
+                        $('#total-orders')[0].innerText = data['total-orders']['total'];
+
+
+                        $("#week-order-sparkline").sparkline(weekspark, {
+                            type: 'line',
+                            width: '99.5%',
+                            height: '100',
+                            lineColor: '#ff407b',
+                            fillColor: '#ffdbe6',
+                            lineWidth: 2,
+                            spotColor: undefined,
+                            minSpotColor: undefined,
+                            maxSpotColor: undefined,
+                            highlightSpotColor: undefined,
+                            highlightLineColor: undefined,
+                            resize: true
+                        });
+
+                        $("#month-order-sparkline").sparkline(monthspark, {
+                            type: 'line',
+                            width: '99.5%',
+                            height: '100',
+                            lineColor: '#25d5f2',
+                            fillColor: '#dffaff',
+                            lineWidth: 2,
+                            spotColor: undefined,
+                            minSpotColor: undefined,
+                            maxSpotColor: undefined,
+                            highlightSpotColor: undefined,
+                            highlightLineColor: undefined,
+                            resize: true
+                        });
+
+                        $("#total-orders-sparkline").sparkline(totalspark, {
+                            type: 'line',
+                            width: '99.5%',
+                            height: '100',
+                            lineColor: '#fec957',
+                            fillColor: '#fff2d5',
+                            lineWidth: 2,
+                            spotColor: undefined,
+                            minSpotColor: undefined,
+                            maxSpotColor: undefined,
+                            highlightSpotColor: undefined,
+                            highlightLineColor: undefined,
+                            resize: true,
+                        });
+                    });
+                });
+
                 $(document).ready(function() {
                     $('.dropdown-menu').on('hidden.bs.dropdown', function(e) {
                         $('.dropdown-menu')[0].innerHTML = '<div> <strong> No New Notifications </strong> </div>'
@@ -281,34 +466,6 @@
                         $.fn.bootstrapDP = datepicker;
                     }
 
-                    // //for bootstrap-datepicker
-                    // $.datepicker.setDefaults({
-                    //     showOn: "both",
-                    //     buttonImageOnly: true,
-                    //     buttonImage: "",
-                    //     buttonText: "Calendar"
-                    // });
-
-                    //  $('#datepicker').bootstrapDP({
-                    //     "format": 'dd/mm/yyyy',
-                    //     "autoclose": true,
-                    //     "todayHighlight": true
-                    // });
-
-                    
-                    // $("#datepicker").bootstrapDP("format", 'dd/mm/yyy');
-                    // $("#datepicker").bootstrapDP("autoclose",true);
-                    
-                    // $("#datepicker").bootstrapDP("setDate",new Date());
-                    
-                    // $('#datepicker').bootstrapDP().on('changeDate', e => {
-                    //         var date = new Date(e.date);
-                    //         date = date.toLocaleDateString();
-                    //         date = date.split('/');
-                    //         date = date[2]+"-"+date[1]+"-"+date[0]
-                    //         console.log(date);
-                    // });
-
                     // for jqueryUI
                     $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
                     $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy")
@@ -321,7 +478,7 @@
                             var newdate =  splitted[2] + "-" + splitted[1] + "-" + splitted[0]; 
                             console.log(newdate);
 
-                            $.getJSON(`http://localhost:8000/api/orderbydate?date=${newdate}`, function(data) {
+                            $.getJSON(`{{ env('APP_URL') }}/api/orderbydate?date=${newdate}`, function(data) {
 
                                 console.log("DATA : ", data);
                                 orders = data;
