@@ -21,7 +21,16 @@ $(document).ready(function () {
      * makes sense.
      **/
     Date.prototype.toMysqlFormat = function() {
-        return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()+5) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+        var hours = (this.getUTCHours() + 5);
+        if(hours > 24) {
+            hours = hours - 24;
+        }
+        return this.getUTCFullYear() 
+                + "-" + twoDigits(1 + this.getUTCMonth()) 
+                + "-" + twoDigits(this.getUTCDate()) 
+                + " " + twoDigits(hours); 
+                + ":" + twoDigits(this.getUTCMinutes()) 
+                + ":" + twoDigits(this.getUTCSeconds());
     };
     var date = new Date();
 

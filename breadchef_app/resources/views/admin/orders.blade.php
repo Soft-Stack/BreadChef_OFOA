@@ -180,56 +180,57 @@
         var total = null;
         var comment = null;
         orders.forEach(order => {
-        if(order.id == orderid) {
-            cart = order.cart;
-            total = order.total_amount;
-            comment = order.comment;
-        }     
-    });
-    console.log(cart);
-    var payloadHeader = `
-            <div class="modal-dialog" style="margin-top:4%; width:100%; font-size:18px;">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row" style="padding:20px;">
-                        <div class="col-md-8">
-                            <p style="font-size:16px; font-weight:bold">ORDER DETAILS</p>
-    `;
-
-    cart.forEach(item => {
-        var orderPayload =  `
-            <div class="row" style="margin-top:3px;">
-                <div class="col-md-3">${item[0]}</div>
-                <div class="col-md-5">X   ${item[1]}</div>
-                <div class="col-md-4"> RS.${item[2]}</div>
-            </div>
+            if(order.id == orderid) {
+                console.log('[getOrderInfo] ', order);
+                cart = order.cart;
+                total = order.total_amount;
+                comment = order.comment;
+            }     
+        });
+        console.log(cart);
+        var payloadHeader = `
+                <div class="modal-dialog" style="margin-top:4%; width:100%; font-size:18px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row" style="padding:20px;">
+                            <div class="col-md-8">
+                                <p style="font-size:16px; font-weight:bold">ORDER DETAILS</p>
         `;
 
-        payloadHeader += orderPayload;
-    });
+        cart.forEach(item => {
+            var orderPayload =  `
+                <div class="row" style="margin-top:3px;">
+                    <div class="col-md-3">${item[0]}</div>
+                    <div class="col-md-5">X   ${item[1]}</div>
+                    <div class="col-md-4"> RS.${item[2]}</div>
+                </div>
+            `;
 
-    var payloadFooter =  `
-                            <div class="row">
-                                {{-- <p style="width:90%; margin-top:10px; border-top:1px solid;"></p>
-                                <div class="col-md-8"><span style="font-weight:bold;">Discount</span></div>
-                                <div class="col-md-4"><span style="font-weight:bold">BS 27,00</span></div> --}}
-                                <p style="padding-left:20px ;width:90%; margin-top:10px; border-top:1px solid;"> <strong> Comment : ${comment} </strong> </p>
-                            </div>
-                            <div style="width:90%; margin-top:10px; border-top:1px solid;" class="row" style="margin-top:20px;">
-                                <div class="col-md-8"><span style="font-weight:bold;">Total ${cart.length}
-                                        Products</span></div>
-                                <div  class="col-md-4"><span style="font-weight:bold;">RS.${total}</span></div>
+            payloadHeader += orderPayload;
+        });
+
+        var payloadFooter =  `
+                                <div class="row">
+                                    {{-- <p style="width:90%; margin-top:10px; border-top:1px solid;"></p>
+                                    <div class="col-md-8"><span style="font-weight:bold;">Discount</span></div>
+                                    <div class="col-md-4"><span style="font-weight:bold">BS 27,00</span></div> --}}
+                                    <p style="padding-left:20px ;width:90%; margin-top:10px; border-top:1px solid;"> <strong> Comment : ${comment} </strong> </p>
+                                </div>
+                                <div style="width:90%; margin-top:10px; border-top:1px solid;" class="row" style="margin-top:20px;">
+                                    <div class="col-md-8"><span style="font-weight:bold;">Total ${cart.length}
+                                            Products</span></div>
+                                    <div  class="col-md-4"><span style="font-weight:bold;">RS.${total}</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `;
-    var finalPayload = payloadHeader + payloadFooter;
-    $('#myModal4')[0].innerHTML = finalPayload;
-    $('#myModal4').modal('show');
-}
+        `;
+        var finalPayload = payloadHeader + payloadFooter;
+        $('#myModal4')[0].innerHTML = finalPayload;
+        $('#myModal4').modal('show');
+    }
 
     // load orders table
     function addToTable(order) {
@@ -286,6 +287,8 @@
     var channel = Echo.channel('my-channel');
     channel.listen('.my-event', function(data) {
         // alert(JSON.stringify(data));
+        // console.log("[pusher] orders", orders);
+        orders.push(data.order);
         $('#indicator')[0].innerHTML = '<span class="indicator"></span>';
         
         var payload = `
