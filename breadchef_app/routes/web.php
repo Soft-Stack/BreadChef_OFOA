@@ -20,10 +20,8 @@ use App\Http\Middleware\AdminAuthGuard;
 
 /********************************************************
  * Routes of Website
- ********************************************************/
-Route::get('/', function(){
-    return view('website.items');
-});
+ */
+Route::get('/', 'MainController@getItemsView');
 
 Route::get('/home', function(){
     return view('website.index');
@@ -37,9 +35,7 @@ Route::get('/shared', function () {
     return view('website.shared');
 });
 
-Route::get('/items', function(){
-    return view('website.items');
-});
+Route::get('/items', 'MainController@getItemsView');
 
 Route::get('/bag', function(){
     return view('website.bag');
@@ -53,9 +49,9 @@ Route::get('/feedback', function(){
     return view('website.feedback');
 });
 
-/**************************************************************** 
- * Routes for dashboard
-****************************************************************/
+Route::get('/getall', 'MainController@getAllCategories');
+
+/**************************************************************** */
 Route::post('/order', 'MainController@placeOrder');
 
 // admin routes

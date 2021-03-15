@@ -3,15 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
-class Item extends Model
+class Category extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'items';
+    protected $table = 'categories';
     
     /**
      * The primary key associated with the table.
@@ -25,5 +26,7 @@ class Item extends Model
      * 
      * @var array
      */
-    protected $fillable = ['categoryid', 'name', 'description', 'price'];
+    protected $fillable = ['name'];
+
+   
 }
