@@ -157,7 +157,7 @@
 
         foreach($categories as $category)
         {
-          echo "Category: ", $category->name, "<br>";
+          // echo "Category: ", $category->name, "<br>";
           $itemsInCat = array();
           // check for items
           foreach($items as $item)
@@ -168,22 +168,165 @@
             }
           }
 
-          echo "Items: " , sizeof($itemsInCat), "<br>";
+          // echo "Items: " , sizeof($itemsInCat), "<br>";
           if(sizeof($itemsInCat) > 0)
           {
+            ?>
+            <!-- Container CODE -->
+            <div class="container" id="{{$category->id}}">
+
+              <div class="section-title">
+                <h2>Choose your <span>{{$category->name}}</span></h2>
+                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+              </div>
+
+            <?php
+            $i = 0;
             foreach($itemsInCat as $item)
             {
-              echo "Item: " , $item->name, "<br>";
+              //echo "Item: " , $item->name, "<br>";
 
-              // check for variations
-              foreach($variations ?? '' as $variation)
+              if($i == 0) // if first item in row
               {
-                if($item->id == $variation->itemid)
-                {
-                  echo "Variation: " , $variation->name, "<br>";
-                }
+                ?>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="box">
+                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <h4>{{$item->name}}</h4>
+                      <p>{{$item->description}}</p>
+
+                      <?php
+                      // check for variations
+                      $varsInItem = array();
+                      foreach($variations ?? '' as $variation)
+                      {
+                        if($item->id == $variation->itemid)
+                        { 
+                          array_push($varsInItem, $variation);
+                        }
+                      }
+                      if(sizeof($varsInItem) > 0) // if this item has variations
+                      {
+                        foreach($varsInItem as $Variation)
+                        {
+                          ?>
+                          <span class="fs-4">{{$Variation->name}} Rs.{{$Variation->price}}</span>
+                          <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
+                          <?php
+                        }
+                        $varsInItem = [];
+                      }
+                      else  // if this item has no variation
+                      { ?>
+                        <span class="fs-4">Rs.{{$item->price}}</span>
+                        <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
+                        <?php
+                      }
+                      ?>  
+                    </div>   
+                  </div>
+
+                <?php
+                $i++;
               }
+
+              elseif($i == 2) // if last item of row
+              {
+                ?>
+                  <div class="col-lg-4">
+                    <div class="box">
+                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <h4>{{$item->name}}</h4>
+                      <p>{{$item->description}}</p>
+                      
+                      <?php
+                      // check for variations
+                      $varsInItem = array();
+                      foreach($variations ?? '' as $variation)
+                      {
+                        if($item->id == $variation->itemid)
+                        { 
+                          array_push($varsInItem, $variation);
+                        }
+                      }
+                      if(sizeof($varsInItem) > 0) // if this item has variations
+                      {
+                        foreach($varsInItem as $Variation)
+                        {
+                          ?>
+                          <span class="fs-4">{{$Variation->name}} Rs.{{$Variation->price}}</span>
+                          <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
+                          <?php
+                        }
+                        $varsInItem = [];
+                      }
+                      else  // if this item has no variation
+                      { ?>
+                        <span class="fs-4">Rs.{{$item->price}}</span>
+                        <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
+                        <?php
+                      }
+                      ?>
+
+                    </div>   
+                  </div> 
+                </row> 
+
+                <?php
+                $i = 0;
+              }
+
+              else  // if middle element
+              {
+                ?>
+                <div class="col-lg-4">
+                    <div class="box">
+                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <h4>{{$item->name}}</h4>
+                      <p>{{$item->description}}</p>
+                      
+                      <?php
+                      // check for variations
+                      $varsInItem = array();
+                      foreach($variations ?? '' as $variation)
+                      {
+                        if($item->id == $variation->itemid)
+                        { 
+                          array_push($varsInItem, $variation);
+                        }
+                      }
+                      if(sizeof($varsInItem) > 0) // if this item has variations
+                      {
+                        foreach($varsInItem as $Variation)
+                        {
+                          ?>
+                          <span class="fs-4">{{$Variation->name}} Rs.{{$Variation->price}}</span>
+                          <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
+                          <?php
+                        }
+                        $varsInItem = [];
+                      }
+                      else  // if this item has no variation
+                      { ?>
+                        <span class="fs-4">Rs.{{$item->price}}</span>
+                        <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
+                        <?php
+                      }
+                      ?>
+
+                  </div>   
+                </div> 
+                <?php
+                $i++;
+              }
+
+
             }
+            ?> 
+            </div> 
+            <!-- End Container Code -->
+            <?php
           }
 
           $itemsInCat = [];
@@ -208,11 +351,10 @@
               <p>nachos description</p>
               <span class="fs-4">Rs.450</span>
               <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>  
-            </div>
-            
+            </div>   
           </div>
 
-          <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="col-lg-4">
             <div class="box">
               <img src="{{ asset('img/items/appetizers/Buffalo-Wings.jpg') }}" alt="" width="250">
               <h4>Buffalo Wings</h4>
@@ -222,7 +364,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="col-lg-4">
             <div class="box">
               <img src="{{ asset('img/items/appetizers/cheese-stick.jpg') }}" alt="" width="250">
               <h4>Cheese Stick</h4>
