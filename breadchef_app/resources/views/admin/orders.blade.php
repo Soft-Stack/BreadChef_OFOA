@@ -247,7 +247,7 @@
                                 <td onclick="getOrderInfo(${order.id})" style="width:120px;">${order.id}</td>
                                 <td onclick="getOrderInfo(${order.id})" style="width:180px;">${order.customer.name}</td>
                                 <td onclick="getOrderInfo(${order.id})">${order.customer.phone}</td>
-                                <td onclick="getOrderInfo(${order.id})" style="400px;"> ${order.customer.phone}</td>
+                                <td onclick="getOrderInfo(${order.id})" style="400px;"> ${order.customer.address}</td>
                                 <td><span class="fa fa-calendar"></span> ${order.datetime} </td>
                                 ${status};
                                 <td onclick="getOrderInfo()">RS.${order.total_amount}</td>
