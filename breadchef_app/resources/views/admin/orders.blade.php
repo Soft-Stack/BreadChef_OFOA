@@ -252,9 +252,9 @@
                                 ${status};
                                 <td onclick="getOrderInfo()">RS.${order.total_amount}</td>
                                 <td>
-                                    <a href="#" class="btn btn-simple btn-icon"><i
+                                    <a href="#" onclick="markStatus(${order.id}, 'Delivered', this)" class="btn btn-simple btn-icon"><i
                                             class=" fas fa-check"></i></a>
-                                    <a href="#" class="btn btn-simple btn-icon"><i
+                                    <a href="#" onclick="markStatus(${order.id}, 'Cancelled', this)" class="btn btn-simple btn-icon"><i
                                             class=" fas fa-times"></i></a>
                                     <a href="#" class="btn btn-simple btn-icon"><i
                                             class="fas fa-info"></i></a>
@@ -264,9 +264,20 @@
         $('#orders-table').prepend(payload);
     }
 
-    function markStatus(orderid, status) {
+    function markStatus(orderid, status, e ) {
         // TODO: complete this.
-        // $.getJSON(`http://localhost:8000/api/markstatus?orderid=${today}`)
+        $.post('/api/markstatus', {'orderid': orderid, 'status': status}, function  (res) {
+            console.log(res);
+
+            if(status == "Delivered") {
+                status = `<span style="color:green; font-weight:bold;"> Delivered </span>`;
+            } else if(status == "Cancelled") {
+                status = `<span style="color:red; font-weight:bold;"> Cancelled </span>`;
+            }
+            console.log(status);
+            e.parentNode.parentNode.children[6].innerHTML = status;
+        });
+        
     }
 
     $.getJSON(`/api/orderbydate?date=${today}`, function(data) {

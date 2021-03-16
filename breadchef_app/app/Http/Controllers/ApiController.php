@@ -169,4 +169,12 @@ class ApiController extends BaseController
         $orders_formatted = OrderTransformer::formatOrders($orders);
         return $orders_formatted;
     }
+
+    public function markStatus(Request $request) {
+        // echo $request->input('orderid')." - ".$request->input('status')
+        $status = $request->input('status');
+        $orderid = $request->input('orderid');
+        Order::where('id', $orderid )
+               ->update(['status' => $status]);
+    }
 }
