@@ -1,6 +1,8 @@
 
 "use strict";
 
+// const { update } = require("lodash");
+
 var bagObj = localStorage.getItem("bagJSON");
 var itemsArray = JSON.parse(bagObj);
 if(itemsArray == null)
@@ -15,6 +17,20 @@ var itemObj, myBagJSON, text;
 displayDataInModal();
 updateSubTotal();
 
+/**
+ * update bag count badge 
+ */
+ function updateBagBadge() {
+    var bagObj = localStorage.getItem("bagJSON");
+    var bag = JSON.parse(bagObj);
+
+    if(!bag || bag.length == 0) {
+        document.getElementById('bagcount').innerHTML = '';
+    } else {
+        document.getElementById('bagcount').innerHTML = `<span style="margin-left:5px;" class="badge rounded-pill bg-warning text-dark">${bag.length}</span>`;
+    }
+}
+updateBagBadge();
 /**
  * Retreive Data from JSON and display into Bag HTML Modal
  */
@@ -102,10 +118,16 @@ function addToBag(item){
             createNewItem = false;
             console.log('New Item will NOT be Added');
         }
-        else
-        {
-            createNewItem = true;
-        }
+        /*
+            dont need this else here, 
+            it is causing issue, 
+            once createNewItem is set to false, 
+            no need to reset it
+        */
+        // else
+        // {
+        //     createNewItem = true;
+        // }
     }
     // New Loop
 
@@ -125,8 +147,7 @@ function addToBag(item){
         localStorage.bagJSON = JSON.stringify(jsoned);
         displayDataInModal();
     }
-
-
+    updateBagBadge();
 }
 
 function removeFromBag(item)
@@ -163,6 +184,7 @@ function removeFromBag(item)
         }
 
     }
+    updateBagBadge();
     displayDataInModal();
 }
 
@@ -171,6 +193,7 @@ function emptyBag(bag)
     localStorage.clear();
     document.getElementsByClassName('bag-window')[0].innerHTML = "";
     setSubTotal(0);
+    updateBagBadge();
 }
 
 function decrementQuantity(item)

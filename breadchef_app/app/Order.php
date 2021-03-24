@@ -52,14 +52,6 @@ class Order extends Model
         if($date == "") {
             abort(404, "No Date");
         }
-        $orders = Order::all();
-        $ordersByDate = [];
-        foreach($orders as $order) {
-            $orderDate = explode(' ', $order->datetime)[0];
-            if($date == $orderDate) {
-                array_push($ordersByDate, $order);
-            }
-        }
-        return $ordersByDate;
+        return Order::where('datetime', 'like', $date.'%')->get();
     } 
 }
