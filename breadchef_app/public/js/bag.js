@@ -24,10 +24,11 @@ updateSubTotal();
     var bagObj = localStorage.getItem("bagJSON");
     var bag = JSON.parse(bagObj);
 
-    if(bag.length == 0) {
+    if(!bag || bag.length == 0) {
         document.getElementById('bagcount').innerHTML = '';
+    } else {
+        document.getElementById('bagcount').innerHTML = `<span style="margin-left:5px;" class="badge rounded-pill bg-warning text-dark">${bag.length}</span>`;
     }
-    document.getElementById('bagcount').innerHTML = `<span style="margin-left:5px;" class="badge rounded-pill bg-warning text-dark">${bag.length}</span>`;
 }
 updateBagBadge();
 /**
@@ -117,10 +118,16 @@ function addToBag(item){
             createNewItem = false;
             console.log('New Item will NOT be Added');
         }
-        else
-        {
-            createNewItem = true;
-        }
+        /*
+            dont need this else here, 
+            it is causing issue, 
+            once createNewItem is set to false, 
+            no need to reset it
+        */
+        // else
+        // {
+        //     createNewItem = true;
+        // }
     }
     // New Loop
 
