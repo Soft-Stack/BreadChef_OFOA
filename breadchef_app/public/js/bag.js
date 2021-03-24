@@ -71,9 +71,6 @@ function displayDataInModal()
 
 }
 
-
-
-
 function addToBag(item){
 
     var ItemBox = item.parentNode;
