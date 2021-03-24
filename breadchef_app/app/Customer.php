@@ -35,7 +35,6 @@ class Customer extends Model
             'email' => $customer['email'],
             'phone' => $customer['phone'],
             'address' => $customer['address'],
-            'orders' => $customer['address'] 
         ])->get();
         
         return count($result) == 0;
@@ -64,7 +63,6 @@ class Customer extends Model
                 'email' => $customerAsArray['email'],
                 'phone' => $customerAsArray['phone'],
                 'address' => $customerAsArray['address'],
-                'orders' => $customerAsArray['address'] 
             ])->get()->first();
 
             $existingCustomerId = $existingCustomer->id;
