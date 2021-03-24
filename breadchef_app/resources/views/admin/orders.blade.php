@@ -193,16 +193,16 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row" style="padding:20px;">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <p style="font-size:16px; font-weight:bold">ORDER DETAILS</p>
         `;
 
         cart.forEach(item => {
             var orderPayload =  `
                 <div class="row" style="margin-top:3px;">
-                    <div class="col-md-3">${item[0]}</div>
-                    <div class="col-md-5">X   ${item[1]}</div>
-                    <div class="col-md-4"> RS.${item[2]}</div>
+                    <div class="col-md-7">${item[0]}</div>
+                    <div class="col-md-3">X   ${item[1]}</div>
+                    <div class="col-md-2"> RS.${item[2]}</div>
                 </div>
             `;
 
@@ -211,15 +211,12 @@
 
         var payloadFooter =  `
                                 <div class="row">
-                                    {{-- <p style="width:90%; margin-top:10px; border-top:1px solid;"></p>
-                                    <div class="col-md-8"><span style="font-weight:bold;">Discount</span></div>
-                                    <div class="col-md-4"><span style="font-weight:bold">BS 27,00</span></div> --}}
-                                    <p style="padding-left:20px ;width:90%; margin-top:10px; border-top:1px solid;"> <strong> Comment : ${comment} </strong> </p>
+                                    <p style="padding-left:13px ;width:100%; margin-top:20px; padding-top:10px; border-top:1px solid;"> <strong> Comment : ${comment} </strong> </p>
                                 </div>
-                                <div style="width:90%; margin-top:10px; border-top:1px solid;" class="row" style="margin-top:20px;">
-                                    <div class="col-md-8"><span style="font-weight:bold;">Total ${cart.length}
+                                <div class="row" style="margin-top:10px; padding-top:10px; border-top:1px solid;"  >
+                                    <div class="col-md-10"><span style="font-weight:bold;">Total ${cart.length}
                                             Products</span></div>
-                                    <div  class="col-md-4"><span style="font-weight:bold;">RS.${total}</span></div>
+                                    <div  class="col-md-2"><span style="font-weight:bold; width:100%;">RS.${total}</span></div>
                                 </div>
                             </div>
                         </div>
