@@ -22,13 +22,13 @@ $(document).ready(function () {
      **/
     Date.prototype.toMysqlFormat = function() {
         var hours = (this.getUTCHours() + 5);
-        if(hours > 24) {
+        if(hours >= 24) {
             hours = hours - 24;
         }
         return this.getUTCFullYear() 
                 + "-" + twoDigits(1 + this.getUTCMonth()) 
                 + "-" + twoDigits(this.getUTCDate()) 
-                + " " + twoDigits(hours); 
+                + " " + twoDigits(hours) 
                 + ":" + twoDigits(this.getUTCMinutes()) 
                 + ":" + twoDigits(this.getUTCSeconds());
     };
