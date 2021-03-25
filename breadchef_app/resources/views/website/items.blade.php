@@ -80,11 +80,11 @@
                <li><a href="#">Pizza Size 9"</a></li> -->
             </ul>
           </li>
-          <li><a id="mybag" class="nav-link scrollto" href="" onClick="displayDataInModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag <span id="bagcount"> </span></a></li>
+          {{-- <li><a id="mybag" class="nav-link scrollto" href="" onClick="displayDataInModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag <span id="bagcount"> </span></a></li> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      <a id="mybag" class="nav-link" href="" onClick="displayDataInModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">My Bag <span id="bagcount"> </span></a>
       <a href="{{ url('/checkout') }}" class="book-a-table-btn scrollto"><i class="bi bi-bag-check-fill text-dark"></i> Checkout</a>
 
     </div>
