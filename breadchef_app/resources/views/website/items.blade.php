@@ -196,7 +196,7 @@
           {
             ?>
             <!-- Container CODE -->
-            <
+            
             <div  class="container" id="{{$category->id}}">
 
               <div class="section-title">
