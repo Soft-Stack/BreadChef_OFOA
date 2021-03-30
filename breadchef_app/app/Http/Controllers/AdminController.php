@@ -59,4 +59,9 @@ class AdminController extends Controller
         // return $orders_formatted
         return view('admin.orders');
     }
+
+    public function logout(Request $request) {
+        $request->session()->flush();
+        return redirect('/breadchef-admin');
+    }
 }

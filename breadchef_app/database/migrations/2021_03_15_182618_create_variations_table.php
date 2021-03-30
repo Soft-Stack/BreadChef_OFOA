@@ -19,6 +19,11 @@ class CreateVariationsTable extends Migration
             $table->string('name');
             $table->string('price');
             $table->timestamps();
+            
+        });
+
+        Schema::table('variations', function (Blueprint $table) {
+            $table->foreign('itemid')->references('id')->on('items');
         });
     }
 
