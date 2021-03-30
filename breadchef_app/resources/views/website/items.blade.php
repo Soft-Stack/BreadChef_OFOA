@@ -12,6 +12,7 @@
   <!-- Favicons -->
   <link href="{{ asset('img/favicon.png') }}" rel="icon">
   <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- Google Fonts -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet"> -->
@@ -151,11 +152,33 @@
     </div>
     <!-- Modal ENd -->
 
+    <section id="menu" class="menu">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Check our tasty <span>Menu</span></h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters">
+              {{-- <li data-filter="*" class="filter-active">Show All</li>
+              <li data-filter=".filter-starters">Appetizers</li>
+              <li data-filter=".filter-salads">Salads</li>
+              <li data-filter=".filter-specialty">Soup</li>
+              <li data-filter=".filter-sandwiches">Sandwiches</li> --}}
+            </ul>
+          </div>
+        </div>
+
+        
+      </div>
+    </section><!-- End Menu Section -->
+
     <!-- ======= Whu Us Section ======= -->
-    <section id="why-us" class="why-us">
+    <section style="margin:0; padding-top:0;" id="why-us" class="why-us">
 
-    <?php
-
+      <?php
         foreach($categories as $category)
         {
           // echo "Category: ", $category->name, "<br>";
@@ -168,17 +191,17 @@
               array_push($itemsInCat, $item);
             }
           }
-
           // echo "Items: " , sizeof($itemsInCat), "<br>";
           if(sizeof($itemsInCat) > 0)
           {
             ?>
             <!-- Container CODE -->
-            <div class="container" id="{{$category->id}}">
+            <
+            <div  class="container" id="{{$category->id}}">
 
               <div class="section-title">
                 <h2>Choose your <span>{{$category->name}}</span></h2>
-                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
               </div>
 
             <?php
@@ -186,14 +209,13 @@
             foreach($itemsInCat as $item)
             {
               //echo "Item: " , $item->name, "<br>";
-
               if($i == 0) // if first item in row
               {
                 ?>
                 <div class="row">
                   <div class="col-lg-4">
                     <div class="box">
-                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <img src="{{ asset('img/'.$item->image) }}" alt="">
                       <h4>{{$item->name}}</h4>
                       <p>{{$item->description}}</p>
 
@@ -231,13 +253,12 @@
                 <?php
                 $i++;
               }
-
               elseif($i == 2) // if last item of row
               {
                 ?>
                   <div class="col-lg-4">
                     <div class="box">
-                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <img src="{{ asset('img/'.$item->image) }}" alt="">
                       <h4>{{$item->name}}</h4>
                       <p>{{$item->description}}</p>
                       
@@ -272,18 +293,17 @@
 
                     </div>   
                   </div> 
-                </row> 
+                </div> 
 
                 <?php
                 $i = 0;
               }
-
               else  // if middle element
               {
                 ?>
                 <div class="col-lg-4">
                     <div class="box">
-                      <img src="{{ asset('img/breadchef-logo.jpg') }}" alt="">
+                      <img src="{{ asset('img/'.$item->image) }}" alt="">
                       <h4>{{$item->name}}</h4>
                       <p>{{$item->description}}</p>
                       
@@ -321,161 +341,17 @@
                 <?php
                 $i++;
               }
-
-
             }
             ?> 
             </div> 
+          </div>
             <!-- End Container Code -->
             <?php
           }
-
           $itemsInCat = [];
         }
-
     ?>
 
-      <!---------------------------------------- Appetizers  ------------------------------------->
-      <div class="container" id="appetizers">
-
-        <div class="section-title">
-          <h2>Choose your <span>Appetizers</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="{{ asset('img/items/appetizers/nachos.jpeg') }}" alt="">
-              <h4>Nachos</h4>
-              <p>nachos description</p>
-              <span class="fs-4">Rs.450</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>  
-            </div>   
-          </div>
-
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="{{ asset('img/items/appetizers/Buffalo-Wings.jpg') }}" alt="" width="250">
-              <h4>Buffalo Wings</h4>
-              <p>description</p>
-              <span class="fs-4">Rs.430</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="{{ asset('img/items/appetizers/cheese-stick.jpg') }}" alt="" width="250">
-              <h4>Cheese Stick</h4>
-              <p>description</p>
-              <span class="fs-4">Rs.350</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
-            </div>
-          </div>
-          
-            
-        </div>
-
-      </div>
-      <!---------------------------------------- End Appetizers  ------------------------------------->
-
-      <!----------------------------------------------- Sandwiches ------------------------------------>
-      <div class="container mt-5" id="sandwiches">
-
-        <div class="section-title">
-          <h2>Choose your <span>Sandwiches</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="{{ asset('img/items/sandwiches/triple-decker-club-sandwich.jpg') }}" alt="">
-              <h4>Triple Decker Club Sandwich</h4>
-              <p>Grilled Chicken, Salami, egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise</p>
-              <span>Rs.595</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>  
-            </div>
-            
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <img src="{{ asset('img/items/sandwiches/crunch-sandwich.png') }}" alt="" width="250">
-              <h4>Crunch Sandwich</h4>
-              <p>Crispy fried chicken topped with cheese honey mustard & vegetables</p>
-              <span>Rs.595</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <img src="{{ asset('img/items/sandwiches/grilled-chicken-panini-sandwich.jpg') }}" alt="" width="250">
-              <h4>Grilled Chicken Panini Sandwich</h4>
-              <p>description</p>
-              <span>Rs.595</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add To Bag</button>
-            </div>
-          </div>
-            
-        </div>
-      </div>
-      <!---------------------------------------------End Sandwiches ------------------------------------>
-
-      <!---------------------------------------- Flavor Loaded Steaks  ------------------------------------->
-      <div class="container mt-5" id="steaks">
-
-        <div class="section-title">
-          <h2>Choose your <span>Flavor Loaded Steaks</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="{{ asset('img/items/steaks/steak.jpg') }}" alt="">
-              <h4>Rigi Rigi Steak</h4>
-              <p>Grilled fillet with African spices</p>
-              <span class="fs-4">Chicken Rs.899</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
-              <span class="fs-4">Beef Rs.990</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>  
-            </div>
-            
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <img src="{{ asset('img/items/steaks/santorini.jpeg') }}" alt="" width="250">
-              <h4>Santorini Special Steak</h4>
-              <p>Grilled beef/chicken marinated  in spicy southwest marinade, served with spicy garlic herb butter</p>
-              <span class="fs-4">Chicken Rs.899</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
-              <span class="fs-4">Beef Rs.990</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <img src="{{ asset('img/items/steaks/decked.jpg') }}" alt="" width="250">
-              <h4>Decked Steak</h4>
-              <p>Prime cut fillet of beef/chicken with shiitake, jalapenos & onion served with vegetable</p>
-              <span class="fs-4">Chicken Rs.899</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
-              <span class="fs-4">Beef Rs.990</span>
-              <button onClick="addToBag(this)" class="btn btn-warning float-end btn-cart" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-bag-plus-fill"></i> Add</button>
-            </div>
-          </div>
-          
-        </div>
-
-      </div>
       <!---------------------------------------- End Flavor Loaded Steaks  ------------------------------------->
 
     </section><!-- End Why Us Section -->
@@ -508,6 +384,61 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script>
+
+
+    var categories = @json($categories);
+    var items = @json($items);
+    var variations = @json($variations);
+    var catdic = getCatById(categories); 
+
+    Object.values(catdic).forEach(c => {
+      if(c != '1') $(`#${c}`).hide();
+    });
+
+    console.log(categories);
+    for(var i = 0; i < categories.length; i++) {
+      var menuItem = `<li class="" onclick="loadmenu(this, '${categories[i].name.toLowerCase().split(' ').join('')}')" data-filter=".filter-starters">${categories[i].name}</li>`;
+      if(i == 0) {
+        menuItem = `<li class="filter-active" onclick="loadmenu(this, '${categories[i].name.toLowerCase().split(' ').join('')}')" data-filter=".filter-starters">${categories[i].name}</li>`;
+      }
+      $('#menu-flters').append(menuItem);
+    }
+
+    // console.log(categories);
+    // console.log(variations);
+
+    function loadmenu(l, category) {
+      // console.log(category);
+      // console.log(l.parentNode.children[0].classList.remove("filter-active"));
+      var fellowLis = l.parentNode.children;
+
+      Array.from(fellowLis).forEach(i => {
+        i.classList.remove("filter-active");
+        if(i == l) {
+          i.classList.add("filter-active");
+        }
+      });
+      Object.values(catdic).forEach(c => {
+
+        $(`#${c}`).hide();
+      });
+
+      $(`#${catdic[category]}`).show();
+    } 
+
+    // helpers
+    function getCatById(c) {
+      var catdic = {};
+      for(var i = 0; i < c.length; i++) {
+        catdic[c[i].name.toLowerCase().split(' ').join('')] = c[i].id;
+      }
+      return catdic;
+    }
+
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
