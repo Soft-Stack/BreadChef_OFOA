@@ -25,5 +25,9 @@ class Item extends Model
      * 
      * @var array
      */
-    protected $fillable = ['categoryid', 'name', 'description', 'price'];
+    protected $fillable = ['categoryid', 'name', 'description', 'price', 'image'];
+
+    public function category() {
+        return $this->hasOne('App\Category');
+    }
 }
