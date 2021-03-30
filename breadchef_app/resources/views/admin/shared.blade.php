@@ -73,6 +73,11 @@
                             </ul>
                         </li>
 
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-icons" href=""> {{session('admin-name')}}</a>
+                        </li>   
+
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
@@ -81,9 +86,10 @@
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a href="{{ url('breadchef-admin/logout') }}" class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
+                        
                     </ul>
                 </div>
             </nav>

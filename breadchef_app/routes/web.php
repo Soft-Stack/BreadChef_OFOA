@@ -66,5 +66,6 @@ Route::prefix('breadchef-admin')->name('admin.')->group(function () {
             return view('admin.home');
         })->name('home');    
         Route::get('/orders', 'AdminController@orders');    
+        Route::get('/logout', 'AdminController@logout');
     });
 });
