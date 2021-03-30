@@ -14,11 +14,12 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('categoryid')->unsigned();
             $table->string('name');
             $table->string('description');
             $table->string('price');
+            $table->string('image')->default('breadchef-logo.jpg');
             $table->timestamps();
         });
 
