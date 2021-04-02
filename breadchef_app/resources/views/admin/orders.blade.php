@@ -94,7 +94,8 @@
                             </div>
                         </div> --}}
                         <div class="form-group"> <!-- Date input -->
-                            {{-- <label class="control-label" for="date">Date</label> --}}
+                            <center><label class="control-label p-0 m-0" for="datepicker">Select Date </label></center>
+                            {{-- <label for="datepicker"> Select Date</label> --}}
                             <input class="form-control" id="datepicker" name="date" type="text"/>
                         </div>
                         
