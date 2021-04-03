@@ -60,4 +60,11 @@ class Admin extends Model
         }
     }
 
+
+    /**
+     * Returns name of admin
+     */
+    public static function name() {
+        return session('admin-name');
+    }
 }

@@ -28,6 +28,11 @@ class Customer extends Model
      */
     protected $fillable = ['name', 'email', 'phone', 'address', 'orders'];
 
+    /**
+     * A customer is unique if any
+     * of the following fields differ
+     *  
+     */
     public static function isUnique(array $customer) {
         Log::debug($customer);
         $result = Customer::where([

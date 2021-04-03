@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use DateInterval;
+use DatePeriod;
 use App\Customer;
 use App\Order;
-
 use App\Http\Controllers\Controller as BaseController;
 use App\Transformers\CustomerTransformer;
 use App\Transformers\OrderTransformer;
-
 use Illuminate\Http\Request;
 
 class ApiController extends BaseController
@@ -74,13 +75,38 @@ class ApiController extends BaseController
         return $data;
     }
 
+    private function dates() 
+    {   // returns an array of dates 
+        // including all dates for this
+        // and previous week
+        // https://www.php.net/manual/en/class.dateperiod.php
+        // https://stackoverflow.com/questions/4312439/php-return-all-dates-between-two-dates-in-an-array
+        
+        $dates = array();
+        $begin = new DateTime( Date('Y-m-d', strtotime('previous monday', strtotime('previous monday')) ));
+        $end   = new DateTime( Date( 'Y-m-d', strtotime('this sunday') ));
+        $end   = $end->modify( '+1 day' );
+
+        $interval = new DateInterval('P1D');
+        $daterange = new DatePeriod($begin, $interval, $end);
+
+        foreach($daterange as $date) { 
+            array_push( $dates,  $date->format("Y-m-d") );
+        }
+
+        return $dates;
+    }
+
     /**
      * format order object for response payload
      */
-    public function formatOrder($orders) 
-    {
-        
+    public function formatOrder($orders, $dates) 
+    {   
         $data = [];
+
+        foreach($dates as $date) {
+            $data[$date] = "0";
+        }
 
         foreach($orders as $order) {
             // print_r($order);
@@ -104,8 +130,10 @@ class ApiController extends BaseController
         // all orders after (and including) $ed but before $sd
         $orders_last_week = Order::where([['datetime', '>=', $ed], ['datetime', '<', $sd ]])->get();
 
-        $orders_this_week_formatted = $this->formatOrder($orders_this_week);
-        $orders_last_week_formatted = $this->formatOrder($orders_last_week);
+        $dates = array_chunk($this->dates(), 7);
+        
+        $orders_last_week_formatted = $this->formatOrder($orders_last_week, $dates[0]);
+        $orders_this_week_formatted = $this->formatOrder($orders_this_week, $dates[1]);
 
         // dd($orders_this_week_formatted);
         // return $orders_this_week_formatted;
