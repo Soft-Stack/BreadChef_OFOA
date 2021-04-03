@@ -54,9 +54,13 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="{{ url('/') }}">Bread Chef</a></h1>
+        <!-- <h1>
+          <a href="{{ url('/') }}">
+            <img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid" style="width:100px; height: 200px">
+          </a>
+        </h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">

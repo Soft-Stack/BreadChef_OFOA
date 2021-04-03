@@ -97,10 +97,10 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #header {
   top: 50px;
-  height: 70px;
+  height: 80px;
   z-index: 997;
   transition: all 0.5s;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   background: rgba(26, 24, 22, 0.85);
 }
 
@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 #header .logo img {
   padding: 0;
   margin: 0;
-  max-height: 40px;
+  max-height: 75px;
 }
 
 /*--------------------------------------------------------------

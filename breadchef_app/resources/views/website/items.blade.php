@@ -54,9 +54,13 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="{{ url('/') }}">Bread Chef</a></h1>
+        <!-- <h1>
+          <a href="{{ url('/') }}">
+            <img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid" style="height: 100%">
+          </a>
+        </h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -142,7 +146,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue shopping</button>
             <a href="{{ url('/checkout') }}"> <button type="button" class="btn btn-primary fs-5"><i class="bi bi-bag-check-fill"></i> Proceed To Checkout</button></a>
           </div>
 
