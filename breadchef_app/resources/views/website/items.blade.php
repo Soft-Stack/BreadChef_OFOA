@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('img/favicons/ms-icon-310x310.png') }}" rel="icon">
+  <link href="{{ asset('img/favicons/apple-icon-180x180.png') }}" rel="apple-touch-icon">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- Google Fonts -->
