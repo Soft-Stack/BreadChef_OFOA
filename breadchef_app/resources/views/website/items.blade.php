@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('img/favicons/ms-icon-310x310.png') }}" rel="icon">
+  <link href="{{ asset('img/favicons/apple-icon-180x180.png') }}" rel="apple-touch-icon">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- Google Fonts -->
@@ -46,7 +46,7 @@
   <section id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <i class="bi bi-phone d-flex align-items-center"><span>+92 91 561-3666</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+      <i class="bi bi-clock ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
     </div>
   </section>
 
