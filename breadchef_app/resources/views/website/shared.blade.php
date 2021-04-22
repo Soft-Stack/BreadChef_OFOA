@@ -14,7 +14,7 @@
   <link href="{{ asset('img/favicons/apple-icon-180x180.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet"> -->
 
     <!-- {{ asset('') }} -->
   <!-- Vendor CSS Files -->
@@ -44,8 +44,8 @@
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <i class="bi bi-phone d-flex align-items-center"><span>+92 91 561-3666</span></i>
-      <i class="bi bi-clock ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+      <i class="bi bi-phone col-xs-12 d-flex align-items-center"><span>+92 91 561-3666</span></i>
+      <i class="bi bi-clock col-xs-12 ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
     </div>
   </section>
 
