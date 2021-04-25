@@ -46,7 +46,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <div class="row">
         <i class="bi bi-phone col-xs-12 ms-4 d-flex align-items-center"><span>+92 91 561-3666</span></i>
-        <i class="bi bi-clock col-xs-12 ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
+        <i class="bi bi-clock col-xs-12 ms-4 mt-2 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
       </div>
       
     </div>
@@ -71,21 +71,7 @@
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li class="dropdown"><a href="{{ url('/items') }}"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="{{ url('/items') }}">Appetizers</a></li>
-              <li class="dropdown"><a href="#"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Chicken</a></li>
-                  <li><a href="#">Beef</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Italian Affairs</a></li>
-              <li><a href="#">Sandwiches</a></li>
-              <li><a href="#">Burgers</a></li>
-              <li><a href="#">Pizza Size 9"</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link scrollto" href="{{ url('/items') }}"><span>Items</span> </a></li>
           <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#events">Events</a></li>
           <li><a class="nav-link scrollto" href="#book-a-table">Book a table</a></li>
@@ -107,7 +93,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Bread Chef Cafe & Baker's</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>The Best Cafe & Restaurant in Peshawar</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="https://www.facebook.com/breadchefs/" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -140,7 +126,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/calculate.js') }}"></script>
-  <script src="{{ asset('js/checkout.js') }}"></script>
+  <!-- <script src="{{ asset('js/checkout.js') }}"></script> -->
 
 </body>
 

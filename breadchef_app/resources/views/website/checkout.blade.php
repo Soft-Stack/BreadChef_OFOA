@@ -46,7 +46,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <div class="row">
         <i class="bi bi-phone col-xs-12 ms-4 d-flex align-items-center"><span>+92 91 561-3666</span></i>
-        <i class="bi bi-clock col-xs-12 ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
+        <i class="bi bi-clock col-xs-12 ms-4 mt-2 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
       </div>
     </div>
   </section>
