@@ -12,7 +12,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url({{ asset('img/building/cover.jpg') }});">
+          <div class="carousel-item active" style="background: url({{ asset('img/building/cover.jpg') }}); background-image">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Bread Chef</span> Cafe & Baker's</h2>
@@ -26,7 +26,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }});">
+          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -111,7 +111,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Whu Us Section ======= -->
-    <section id="why-us" class="why-us">
+    <!-- <section id="why-us" class="why-us">
       <div class="container">
 
         <div class="section-title">
@@ -149,7 +149,7 @@
         </div>
 
       </div>
-    </section><!-- End Whu Us Section -->
+    </section> --> <!-- End Whu Us Section -->
 
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
@@ -281,19 +281,19 @@
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Modi sit est</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Customised Fresh Cakes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Unde praesentium sed</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Santorini Special Burger</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Pariatur explicabo vel</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Grilled Chicken Panini Sandwich</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Nostrum qui quasi</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Santorini Special Steak</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Iusto ut expedita aut</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Tandoori Fish</a>
               </li>
             </ul>
           </div>
@@ -302,60 +302,58 @@
               <div class="tab-pane active show" id="tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Architecto ut aperiam autem id</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>Customised Fresh Cakes</h3>
+                    <p class="font-italic">Available Flavours are Pineapple, Blackforrest, Kitkat, Cadbury, Bounty, Snickers, Caramel, Ice cream all Flavours, Coffee crunch, Chocolate fudge, Red Velvet, Dairy Milk, Nutella kitkat, Newyork cheese cake, Lemon cheese, Tiramissu, caramel cheese, Death by chocolate, Blueberry , strawberry cheese and much more flavors.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-1.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/specials/cake-1.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>Santorini Special Burger</h3>
+                    <p class="font-italic">Grilled Beef/Chicken topped with cheese mushroom, capsicum & onion.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-2.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/burgers/santorini-burger.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-3">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="font-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <h3>Grilled Chicken Panini Sandwich</h3>
+                    <p class="font-italic">Roasted beef strips topped with jalapeno and cheese, Caramelize onion, Mushroom, Jalapeno.</p>
+                    <p>A delicious & authentic option to have for sandwich lovers.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-3.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/sandwiches/panini-sandwich.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="font-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                    <h3>Santorini Special Steak</h3>
+                    <p class="font-italic">Grilled beef/chicken in spicy southwest marinade, served with spicy garlic herb butter.</p>
+                    <p>Presenting to you our delectable dish, Santorini Special Steak which is awesome and oh-so divinely filled with our special spices.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-4.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/steaks/santorini.jpeg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-5">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="font-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                    <h3>Tandoori Fish</h3>
+                    <p class="font-italic">Grilled Fish topped with tandoori spices.</p>
+                    <p>A blessing for all Fish lovers is surely our Tandoori Fish! This dish is perfect for Winter Times!</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-5.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/ocean-food/tandoori-fish.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -380,7 +378,7 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                  <img src="{{ asset('/img/building/event-breadchef-min.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Birthday Parties</h3>
@@ -407,7 +405,7 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+                  <img src="{{ asset('/img/building/event-3.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Private Parties</h3>
@@ -434,7 +432,7 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="{{ asset('img/event-custom.jpg') }}" class="img-fluid" alt="">
+                  <img src="{{ asset('img/building/event-1.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Custom Parties</h3>
@@ -529,48 +527,48 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-1.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-1.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/cover.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/cover.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-2.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-2.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/event-breadchef-min.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/event-breadchef-min.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-3.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/event-4.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/event-4.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-4.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-4.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/cover-2.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/cover-2.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-5.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/celeb.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/celeb.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-6.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-6.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/buffet.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/buffet.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
@@ -793,7 +791,7 @@
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+92 91 561 3666<br>+92 91 561 3666</p>
+              <p>+92 91 561 3666<br>+92 333 820 8261</p>
             </div>
           </div>
         </div>
