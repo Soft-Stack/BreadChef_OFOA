@@ -63,22 +63,8 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-          <li class="dropdown"><a href="{{ url('/items') }}"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Appetizers</a></li>
-              <li class="dropdown"><a href="#"><span>Flavor Loaded Steaks</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Chicken</a></li>
-                  <li><a href="#">Beef</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Italian Affairs</a></li>
-              <li><a href="#">Sandwiches</a></li>
-              <li><a href="#">Burgers</a></li>
-              <li><a href="#">Pizza Size 9"</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link scrollto" href="{{ url('/home') }}">Home</a></li>
+          <li><a href="{{ url('/items') }}"><span>Items</span> <i class="bi bi-chevron-down"></i></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -120,21 +106,21 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputPassword1" class="form-label">Full Name</label>
-                            <input name="name" type="text" class="form-control" id="exampleInputPassword1">
+                            <input name="name" type="text" class="form-control" id="exampleInputPassword1" required>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                            <input name="phone" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="03xx-">
+                            <input name="phone" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="03xx-" required>
                             <div id="emailHelp" class="form-text">This number will be used to confirm your order.</div>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputPassword1" class="form-label">Delivery Address</label>
-                            <input name="address" type="text" class="form-control" id="exampleInputPassword1" placeholder="Complete address">
+                            <input name="address" type="text" class="form-control" id="exampleInputPassword1" placeholder="Complete address" required>
                         </div>
                         <div class="mb-3 col-md-12">
                             <label for="exampleInputPassword1" class="form-label">Any comments (optional)</label>
@@ -201,7 +187,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Bread Chef Cafe & Baker's</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>The Best Cafe & Restaurant in Peshawar</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="https://www.facebook.com/breadchefs/" class="facebook"><i class="bx bxl-facebook"></i></a>
