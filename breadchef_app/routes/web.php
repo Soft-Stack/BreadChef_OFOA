@@ -23,9 +23,7 @@ use App\Http\Middleware\AdminAuthGuard;
  */
 Route::get('/', 'MainController@getItemsView');
 
-Route::get('/home', function(){
-    return view('website.index');
-});
+Route::get('/home', 'MainController@home');
 
 Route::get('/inner-page', function () {
     return view('inner-page');

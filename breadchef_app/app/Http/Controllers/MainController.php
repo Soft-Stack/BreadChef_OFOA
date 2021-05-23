@@ -36,6 +36,16 @@ class MainController extends Controller
         return view('website.items', $data);
     }
 
+    public function home()
+    {
+        $data = [
+            'categories' => $this->getAllCategories(),
+            'items' => $this->getAllItems(),
+            'variations' => $this->getAllVariations(),
+        ];
+        return view('website.index', $data);
+    }
+
     public function placeOrder(Request $request) {
         // TODO: Add validation maybe ?
 
