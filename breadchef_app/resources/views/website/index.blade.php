@@ -12,11 +12,11 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url({{ asset('img/building/cover.jpg') }});">
+          <div class="carousel-item active" style="background: url({{ asset('img/building/cover.jpg') }}); background-image">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Bread Chef</span> Cafe & Baker's</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <p class="animate__animated animate__fadeInUp">The best cafe and bakery you’ll find in Peshawar cantt. We have exquisite recipes and delicious bakery items. You must pay a visit to enjoy our ambience!</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                   <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
@@ -26,11 +26,11 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }});">
+          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown"><span>Bread Chef</span> Cafe & Baker's</h2>
+                <p class="animate__animated animate__fadeInUp">The best cafe and bakery you’ll find in Peshawar cantt. We have exquisite recipes and delicious bakery items. You must pay a visit to enjoy our ambience!</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                   <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
@@ -40,12 +40,12 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url({{ asset('img/building/cover-1.jpg') }});">
-            <div class="carousel-background"><img src="{{ asset('img/slide/slide-3.jpg') }}" alt=""></div>
+          <div class="carousel-item" style="background: url({{ asset('img/gallery/gallery-2.jpg') }}); background-repeat: no-repeat; background-position: top; background-size: cover;">
+            <div class="carousel-background"><img src="{{ asset('img/gallery/gallery-2.jpg') }}" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown"><span>Bread Chef</span> Cafe & Baker's</h2>
+                <p class="animate__animated animate__fadeInUp">The best cafe and bakery you’ll find in Peshawar cantt. We have exquisite recipes and delicious bakery items. You must pay a visit to enjoy our ambience!</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                   <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
@@ -76,8 +76,8 @@
 
         <div class="row">
 
-          <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{ asset("img/about.jpg") }}");'>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("{{ asset("img/burger.JPG") }}");'>
+            <a href="https://www.instagram.com/p/CL7LRXWJS4r/" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
           </div>
 
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
@@ -111,7 +111,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Whu Us Section ======= -->
-    <section id="why-us" class="why-us">
+    <!-- <section id="why-us" class="why-us">
       <div class="container">
 
         <div class="section-title">
@@ -149,7 +149,7 @@
         </div>
 
       </div>
-    </section><!-- End Whu Us Section -->
+    </section> --> <!-- End Whu Us Section -->
 
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
@@ -274,26 +274,26 @@
 
         <div class="section-title">
           <h2>Check our <span>Specials</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <p>Breadchef bakery has much reviewed cakes and trending items</p>
         </div>
 
         <div class="row">
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Modi sit est</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Customised Fresh Cakes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Unde praesentium sed</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Santorini Special Burger</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Pariatur explicabo vel</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Grilled Chicken Panini Sandwich</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Nostrum qui quasi</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Santorini Special Steak</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Iusto ut expedita aut</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Tandoori Fish</a>
               </li>
             </ul>
           </div>
@@ -302,60 +302,58 @@
               <div class="tab-pane active show" id="tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Architecto ut aperiam autem id</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>Customised Fresh Cakes</h3>
+                    <p class="font-italic">Available Flavours are Pineapple, Blackforrest, Kitkat, Cadbury, Bounty, Snickers, Caramel, Ice cream all Flavours, Coffee crunch, Chocolate fudge, Red Velvet, Dairy Milk, Nutella kitkat, Newyork cheese cake, Lemon cheese, Tiramissu, caramel cheese, Death by chocolate, Blueberry , strawberry cheese and much more flavors.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-1.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/specials/cake-1.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>Santorini Special Burger</h3>
+                    <p class="font-italic">Grilled Beef/Chicken topped with cheese mushroom, capsicum & onion.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-2.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/burgers/santorini-burger.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-3">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="font-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <h3>Grilled Chicken Panini Sandwich</h3>
+                    <p class="font-italic">Roasted beef strips topped with jalapeno and cheese, Caramelize onion, Mushroom, Jalapeno.</p>
+                    <p>A delicious & authentic option to have for sandwich lovers.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-3.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/sandwiches/panini-sandwich.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="font-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                    <h3>Santorini Special Steak</h3>
+                    <p class="font-italic">Grilled beef/chicken in spicy southwest marinade, served with spicy garlic herb butter.</p>
+                    <p>Presenting to you our delectable dish, Santorini Special Steak which is awesome and oh-so divinely filled with our special spices.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-4.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/steaks/santorini.jpeg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-5">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="font-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                    <h3>Tandoori Fish</h3>
+                    <p class="font-italic">Grilled Fish topped with tandoori spices.</p>
+                    <p>A blessing for all Fish lovers is surely our Tandoori Fish! This dish is perfect for Winter Times!</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-5.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/items/ocean-food/tandoori-fish.jpg') }}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -380,25 +378,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                  <img src="{{ asset('/img/building/event-breadchef-min.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Birthday Parties</h3>
                   <div class="price">
-                    <p><span>$189</span></p>
+                    <p><span> <button class="btn btn-success"><i class="bi bi-whatsapp"></i> Book Now</button> </span></p>
                   </div>
                   <p class="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    We provide:
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Decor</li>
+                    <li><i class="bi bi-check-circle"></i> Cakes</li>
+                    <li><i class="bi bi-check-circle"></i> Sound System</li>
                   </ul>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
+                    Make a phone call or WhatsApp us.
                   </p>
                 </div>
               </div>
@@ -407,25 +403,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+                  <img src="{{ asset('/img/building/event-3.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Private Parties</h3>
                   <div class="price">
-                    <p><span>$290</span></p>
+                    <p><span> <button class="btn btn-success"><i class="bi bi-whatsapp"></i> Book Now</button> </span></p>
                   </div>
                   <p class="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    We provide:
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Decor</li>
+                    <li><i class="bi bi-check-circle"></i> Cakes</li>
+                    <li><i class="bi bi-check-circle"></i> Sound System</li>
                   </ul>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
+                    Make a phone call or WhatsApp us.
                   </p>
                 </div>
               </div>
@@ -434,25 +428,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="{{ asset('img/event-custom.jpg') }}" class="img-fluid" alt="">
+                  <img src="{{ asset('img/building/event-1.jpg') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Custom Parties</h3>
                   <div class="price">
-                    <p><span>$99</span></p>
+                    <p><span> <button class="btn btn-success"><i class="bi bi-whatsapp"></i> Book Now</button>  </span></p>
                   </div>
                   <p class="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    We provide:
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Decor</li>
+                    <li><i class="bi bi-check-circle"></i> Cakes</li>
+                    <li><i class="bi bi-check-circle"></i> Sound System</li>
                   </ul>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
+                    Make a phone call or WhatsApp us.
                   </p>
                 </div>
               </div>
@@ -471,7 +463,7 @@
 
         <div class="section-title">
           <h2>Book a <span>Table</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <p>Delighful and Family-Friendly ambience.</p>
         </div>
 
         <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
@@ -522,71 +514,71 @@
 
         <div class="section-title">
           <h2>Some photos from <span>Our Restaurant</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
         </div>
 
         <div class="row no-gutters">
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-1.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-1.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/5.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/5.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-2.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-2.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/2.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/2.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-3.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/6.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/6.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-4.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-4.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/1.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/1.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-5.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/4.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/4.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-6.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-6.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/7.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/7.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-7.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-7.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/8.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/8.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="{{ asset('img/gallery/gallery-8.jpg') }}" class="gallery-lightbox">
-                <img src="{{ asset('img/gallery/gallery-8.jpg') }}" alt="" class="img-fluid">
+              <a href="{{ asset('img/building/Resize/9.jpg') }}" class="gallery-lightbox">
+                <img src="{{ asset('img/building/Resize/9.jpg') }}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
@@ -597,7 +589,7 @@
     </section><!-- End Gallery Section -->
 
     <!-- ======= Chefs Section ======= -->
-    <section id="chefs" class="chefs">
+    <!-- <section id="chefs" class="chefs">
       <div class="container">
 
         <div class="section-title">
@@ -658,7 +650,8 @@
         </div>
 
       </div>
-    </section><!-- End Chefs Section -->
+    </section> -->
+    <!-- End Chefs Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -669,90 +662,82 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{{ asset('img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <img src="{{ asset('img/testimonials/sadia-jan.jpg') }}" class="testimonial-img" alt="">
+                <h3>Sadia Jan</h3>
+                <h4>Customer Of The Month</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    Thank you so much for the beautiful and delicious cookies and cake you made for my cousin's Nikkah.
+                    The designs and colors were perfect.
+                    We got so many compliments from our guests. 
+                    I will recommend you to all of my friends. It will be my pleasure forward to order more from you in future.
+                    And last but not the least Mr. Waqar, you have God gifted abilities of customer handling.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{{ asset('img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <img src="{{ asset('img/testimonials/faiqa-haroon.jpg') }}" class="testimonial-img" alt="">
+                <h3>Faiqa Haroon</h3>
+                <h4>Housewife</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  One of the decent places in Peshawar with very kind staff and good service...their food is also very good quality and quantity both wise. Moreover their sweets,cakes and bakery items are cherry on top.
+                  Highly recomended!
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{{ asset('img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <img src="{{ asset('img/testimonials/wadan-khattak.jpg') }}" class="testimonial-img" alt="">
+                <h3>Wadan Khattak</h3>
+                <h4>Student</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  There steaks are stunning and delicious.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{{ asset('img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <img src="{{ asset('img/testimonials/purkha-orakzai.jpg') }}" class="testimonial-img" alt="">
+                <h3>Purkha Orakzai</h3>
+                <h4>Student</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  I think the best thing abt this place before food, quality or quantity is their staff. Very responsive and welcoming to criticism and always their attitude to cater to their customers for any inconvenience caused just wins your heart. Taste of food is really nice. 
+                  10/10 for their steaks and Chef special Pasta. 
+                  100/10 for the customer service.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ asset('img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
+            </div>
 
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section>
+    <!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -760,7 +745,7 @@
 
         <div class="section-title">
           <h2><span>Contact</span> Us</h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
         </div>
       </div>
 
@@ -772,28 +757,22 @@
 
         <div class="info-wrap">
           <div class="row">
-            <div class="col-lg-3 col-md-6 info">
+            <div class="col-lg-4 col-md-6 info">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
               <p>Sher Khan Rd, Bashirabad<br>Peshawar, Khyber Pakhtunkhwa</p>
             </div>
 
-            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+            <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-clock"></i>
               <h4>Open Hours:</h4>
               <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
             </div>
 
-            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>info@example.com<br>contact@example.com</p>
-            </div>
-
-            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+            <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+92 91 561 3666<br>+92 91 561 3666</p>
+              <p>+92 91 561 3666<br>+92 333 820 8261</p>
             </div>
           </div>
         </div>

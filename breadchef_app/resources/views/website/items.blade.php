@@ -31,13 +31,6 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Delicious - v4.0.1
-  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -45,8 +38,10 @@
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <i class="bi bi-phone d-flex align-items-center"><span>+92 91 561-3666</span></i>
-      <i class="bi bi-clock ms-4 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+      <div class="row">
+          <i class="bi bi-phone col-xs-12 ms-4 d-flex align-items-center"><span>+92 91 561-3666</span></i>
+          <i class="bi bi-clock col-xs-12 ms-4 mt-2 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
+      </div>
     </div>
   </section>
 
@@ -66,8 +61,8 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="{{ url('/home') }}">Home</a></li>
+          <li class="dropdown"><a class="active" href="#"><span>Items</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
               foreach($categories ?? '' as $category)
@@ -366,7 +361,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Bread Chef Cafe & Baker's</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>The Best Cafe & Restaurant in Peshawar</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="https://www.facebook.com/breadchefs/" class="facebook"><i class="bx bxl-facebook"></i></a>
