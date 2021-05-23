@@ -563,9 +563,9 @@ class ItemsSeeder extends Seeder
             ],
             [
                 'categoryid' =>  '14', // categoryid
-                'name' =>        'Double Scoop ', // name
-                'description' => '16 Flavours, Ask Flavours From Server', // description
-                'price' =>       '' // size
+                'name' =>        'Double Scoop', // name
+                'description' => '16 Flavours - Ask Flavours From Server', // description
+                'price' =>       '250' // size
             ],
 
         ];

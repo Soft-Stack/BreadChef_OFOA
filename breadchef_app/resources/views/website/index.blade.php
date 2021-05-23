@@ -162,108 +162,85 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
-              <li data-filter="*" class="filter-active">Show All</li>
-              <li data-filter=".filter-starters">Appetizers</li>
+              {{-- <li data-filter=".filter-1" class="filter-active"></li> --}}
+              
+              {{-- <li data-filter=".filter-starters">Appetizers</li>
               <li data-filter=".filter-salads">Salads</li>
-              <li data-filter=".filter-specialty">Soup</li>
-              <li data-filter=".filter-sandwiches">Sandwiches</li>
+              <li data-filter=".filter-specialty">Soup</li> --}}
+
             </ul>
           </div>
         </div>
 
-        <div class="row menu-container">
+        
 
-          <div class="col-lg-6 menu-item filter-starters">
-            <div class="menu-content">
-              <a href="#">Nachos</a><span>Rs.450</span>
-            </div>
-            <div class="menu-ingredients">
-              Description
-            </div>
-          </div>
+          <?php 
+            foreach ($categories as $category) 
+            {
+              // echo $category;
+              $itemsArray = array();
 
-            <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                    <a href="#">Buffalo Wings</a><span>Rs.430</span>
-                </div>
-                <div class="menu-ingredients">
-                    Description
-                </div>
-            </div>
+              foreach ($items as $item) {
+                if($category->id == $item->categoryid)
+                {
+                  array_push($itemsArray, $item);
+                }
+              }
 
-            <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                    <a href="#">Cheese Stick</a><span>Rs.350</span>
-                </div>
-                <div class="menu-ingredients">
-                    Lorem, deren, trataro, filede, nerada
-                </div>
-            </div>
+              if(sizeof($itemsArray) > 0)
+              {
+                ?>
+          <div class="row menu-container cat-{{$category->id}}">
+                {{-- <div class="" id="{{ $category->id }}"> --}}
 
-          <div class="col-lg-6 menu-item filter-specialty">
-            <div class="menu-content">
-              <a href="#">Bread barrel</a><span>Rs.695</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
+              <?php
+                foreach ($itemsArray as $item) {
+                  // print_r($item)
+                  ?>
+                  <div class="col-lg-6 menu-item ">
+                    <div class="menu-content">
+                      <a href="#">{{ $item->name }}</a>
+                      <?php 
+                        $varsArray = array();
+                        foreach ($variations as $variation) 
+                        {
+                          if($item->id == $variation->itemid)
+                          {
+                            array_push($varsArray, $variation);
+                          }
+                        }
+                        if(sizeof($varsArray) > 0)  // if variation exists
+                        {
+                          foreach ($varsArray as $variation) 
+                          {
+                            ?>
+                            <span>{{ $variation->name }} Rs.{{ $variation->price }}</span>
+                            <?php
+                          }
+                        }
+                        else  //  if variation doesn't exist
+                        { ?>
+                          <span>Rs.{{ $item->price }}</span>
+                          <?php 
+                        }
+                      ?>
+                    </div>
+                    <div class="menu-ingredients">
+                      {{ $item->description }}
+                    </div>
+                  </div>
+                  {{-- </div> --}}
+                  <?php
+                }
+              }
+                ?>
+              </div>
+                  <?php
 
-            <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                    <a href="#">Tuscan Grilled</a><span>Rs.995</span>
-                </div>
-                <div class="menu-ingredients">
-                    Grilled chicken with provolone, artichoke hearts, and roasted red pesto
-                </div>
-            </div>
-
-          <div class="col-lg-6 menu-item filter-sandwiches">
-            <div class="menu-content">
-              <a href="#">Triple Decker Club Sandwich</a><span>Rs.595</span>
-            </div>
-            <div class="menu-ingredients">
-              Grilled Chicken, Salami egg, cheese, lettuce, tomato onion, spicy garlic sauce & mayonnaise
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Grilled Chicken Salad</a><span>Rs.390</span>
-            </div>
-            <div class="menu-ingredients">
-              Description
-            </div>
-          </div>
-
-            <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                    <a href="#">Caesar Salad</a><span>Rs.450</span>
-                </div>
-                <div class="menu-ingredients">
-                    Description
-                </div>
-            </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Russian Salad</a><span>Rs.350</span>
-            </div>
-            <div class="menu-ingredients">
-              Description
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <div class="menu-content">
-              <a href="#">Lobster Roll</a><span>Rs.195</span>
-            </div>
-            <div class="menu-ingredients">
-              Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
-            </div>
-          </div>
-
+            }  
+          ?>
         </div>
+        {{-- </div> --}}
 
       </div>
     </section><!-- End Menu Section -->
@@ -588,70 +565,6 @@
       </div>
     </section><!-- End Gallery Section -->
 
-    <!-- ======= Chefs Section ======= -->
-    <!-- <section id="chefs" class="chefs">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Our Proffesional <span>Chefs</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="{{ asset('img/chefs/chefs-1.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Master Chef</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="{{ asset('img/chefs/chefs-2.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Patissier</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="{{ asset('img/chefs/chefs-3.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cook</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
-    <!-- End Chefs Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -805,4 +718,61 @@
 
   </main><!-- End #main -->
 
+@endsection
+
+
+@section('javascript')
+<script>
+
+
+  var categories = @json($categories);
+  var items = @json($items);
+  var variations = @json($variations);
+  var catdic = getCatById(categories); 
+
+  Object.values(catdic).forEach(c => {
+    if(c != '1') $(`.cat-${c}`).hide();
+  });
+
+  console.log(categories);
+  for(var i = 0; i < categories.length; i++) {
+    var menuItem = `<li class="" onclick="loadmenu(this, '${categories[i].name.toLowerCase().split(' ').join('')}')" data-filter=".filter-starters">${categories[i].name}</li>`;
+    if(i == 0) {
+      menuItem = `<li class="filter-active" onclick="loadmenu(this, '${categories[i].name.toLowerCase().split(' ').join('')}')" data-filter=".filter-starters">${categories[i].name}</li>`;
+    }
+    $('#menu-flters').append(menuItem);
+  }
+
+  // console.log(categories);
+  // console.log(variations);
+
+  function loadmenu(l, category) {
+    console.log(category);
+    console.log(l.parentNode.children);
+    var fellowLis = l.parentNode.children;
+
+    Array.from(fellowLis).forEach(i => {
+      i.classList.remove("filter-active");
+      if(i == l) {
+        i.classList.add("filter-active");
+      }
+    });
+    Object.values(catdic).forEach(c => {
+
+      $(`.cat-${c}`).hide();
+    });
+
+    $(`.cat-${catdic[category]}`).show();
+  } 
+
+  // helpers
+  function getCatById(c) {
+    var catdic = {};
+    for(var i = 0; i < c.length; i++) {
+      catdic[c[i].name.toLowerCase().split(' ').join('')] = c[i].id;
+    }
+    return catdic;
+  }
+
+</script>
 @endsection
