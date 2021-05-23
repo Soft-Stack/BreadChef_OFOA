@@ -12,6 +12,7 @@ use App\Order;
 use App\Category;
 use App\Item;
 use App\Variation;
+use App\Feedback;
 use App\Transformers\CartTransformer;
 use App\Transformers\CustomerTransformer;
 use App\Transformers\OrderTransformer;
@@ -106,5 +107,18 @@ class MainController extends Controller
     {
         $variations = Variation::all();
         return $variations;
+    }
+
+    public function feedback(Request $request)
+    {
+        $feedback['feedback'] = $request->input('feedback'); 
+        Feedback::create($feedback);
+        
+        $data = [
+            'categories' => $this->getAllCategories(),
+            'items' => $this->getAllItems(),
+            'variations' => $this->getAllVariations(),
+        ];
+        return view('website.items', $data);
     }
 }

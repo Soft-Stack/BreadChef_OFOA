@@ -122,13 +122,13 @@
             <!-- Feedback -->
             <p class="mb-0">How was your experience with our website ? Help us improve ourself for you</p>
             <div class="container col-md-6">
-                <form method="" action="">
+                <form method="POST" action="{{ '/feedback' }}">
                     @csrf
                     <div class="form-floating mt-2">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <textarea name="feedback" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                       <label for="floatingTextarea2">Comments</label>
                     </div>
-                    <a href="{{ url('/') }}"><button class="btn btn-primary w-100 mt-2">Submit</button></a>
+                    <button class="btn btn-primary w-100 mt-2">Submit</button>
                 </form>
             </div>
           <!-- End Feedback -->
