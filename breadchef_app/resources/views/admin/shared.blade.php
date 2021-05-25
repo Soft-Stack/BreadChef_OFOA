@@ -126,15 +126,6 @@
                                     href="{{ url('/breadchef-admin/orders')}}"><i class="fab fa-fw fa-wpforms"></i>
                                     Orders</a>
                             </li>
-                            <hr>
-
-                            <li class="nav-item ">
-                                <a class="nav-link" style="font-size: 15px; paddidng-right: 0%; margin-right: 0px;"
-                                    href="{{ url('/breadchef-admin/additems')}}"><i class="fab fa-fw fa-wpforms"></i>
-                                    Add Items</a>
-                            </li>
-                            <hr>
-
                         </ul>
                     </div>
                 </nav>
