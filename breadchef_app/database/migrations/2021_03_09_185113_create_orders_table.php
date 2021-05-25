@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('cartid')->unsigned();
             $table->datetime('datetime');
             $table->string('status');
+            //$table->string('total_amount');
             $table->timestamps();
         });
 

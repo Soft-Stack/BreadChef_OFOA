@@ -117,11 +117,11 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="exampleInputPassword1" class="form-label">Full Name</label>
-                            <input name="name" type="text" class="form-control" id="exampleInputPassword1" required>
+                            <input id="fullname" onkeyup = "name_validation()" name="name" type="text" class="form-control" id="exampleInputPassword1" required>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                            <input name="phone" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="03xx-" required>
+                            <label for="exampleInputEmail1" class="form-label" >Phone Number</label>
+                            <input name="phone" type="number" class="form-control" id="phone_number" onkeyup ="phone_number_validation()" aria-describedby="emailHelp" placeholder="03xx-" required>
                             <div id="emailHelp" class="form-text">This number will be used to confirm your order.</div>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -178,7 +178,7 @@
         <!-- Order Button -->
         <div class="row mt-2">
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
+                <button id="order-btn" disabled type="submit" class="btn btn-dark btn-lg col-md-4"><i class="bi bi-check-circle"></i> Place Order</button>
             </div>    
         </div>
       
@@ -223,7 +223,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/checkout.js') }}"></script>
-
+  <script src="{{ asset('js/checkout_validation.js') }}"></script>  
 </body>
 
 </html>

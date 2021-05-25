@@ -93,19 +93,28 @@ class MainController extends Controller
      */
     public function getAllCategories()
     {
-        $categories = Category::all();
+                                                     // for a month
+        $categories = cache()->remember('categories', 3600*24*30,  function () {
+            return Category::all();
+        });
         return $categories;
     }
 
     public function getAllItems()
     {
-        $items = Item::all();
+        $items = cache()->remember('items', 3600*24*30,  function () {
+            return Item::all();
+        });
+        log::debug($items);
         return $items;
     }
 
     public function getAllVariations()
     {
-        $variations = Variation::all();
+        $variations = cache()->remember('variations', 3600*24*30,  function () {
+            return Variation::all();
+        });
+        log::debug($variations);
         return $variations;
     }
 
