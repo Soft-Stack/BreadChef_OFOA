@@ -152,7 +152,7 @@ class OrdersSeeder extends Seeder
         ];
 
         foreach($payload as $order) {
-            DB::table('orders')->insert($order);
+            //DB::table('orders')->insert($order);
         }
     }
 }
