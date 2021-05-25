@@ -12,6 +12,7 @@ use App\Order;
 use App\Category;
 use App\Item;
 use App\Variation;
+use App\Feedback;
 use App\Transformers\CartTransformer;
 use App\Transformers\CustomerTransformer;
 use App\Transformers\OrderTransformer;
@@ -34,6 +35,16 @@ class MainController extends Controller
         ];
 
         return view('website.items', $data);
+    }
+
+    public function home()
+    {
+        $data = [
+            'categories' => $this->getAllCategories(),
+            'items' => $this->getAllItems(),
+            'variations' => $this->getAllVariations(),
+        ];
+        return view('website.index', $data);
     }
 
     public function placeOrder(Request $request) {
@@ -82,19 +93,41 @@ class MainController extends Controller
      */
     public function getAllCategories()
     {
-        $categories = Category::all();
+                                                     // for a month
+        $categories = cache()->remember('categories', 3600*24*30,  function () {
+            return Category::all();
+        });
         return $categories;
     }
 
     public function getAllItems()
     {
-        $items = Item::all();
+        $items = cache()->remember('items', 3600*24*30,  function () {
+            return Item::all();
+        });
+        log::debug($items);
         return $items;
     }
 
     public function getAllVariations()
     {
-        $variations = Variation::all();
+        $variations = cache()->remember('variations', 3600*24*30,  function () {
+            return Variation::all();
+        });
+        log::debug($variations);
         return $variations;
+    }
+
+    public function feedback(Request $request)
+    {
+        $feedback['feedback'] = $request->input('feedback'); 
+        Feedback::create($feedback);
+        
+        $data = [
+            'categories' => $this->getAllCategories(),
+            'items' => $this->getAllItems(),
+            'variations' => $this->getAllVariations(),
+        ];
+        return view('website.items', $data);
     }
 }

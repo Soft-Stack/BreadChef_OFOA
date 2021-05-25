@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link href="{{ asset('img/favicons/ms-icon-310x310.png') }}" rel="icon">
   <link href="{{ asset('img/favicons/apple-icon-180x180.png') }}" rel="apple-touch-icon">
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- Google Fonts -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet"> -->
@@ -36,11 +36,17 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <div class="row">
-          <i class="bi bi-phone col-xs-12 ms-4 d-flex align-items-center"><span>+92 91 561-3666</span></i>
-          <i class="bi bi-clock col-xs-12 ms-4 mt-2 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
+  <section id="topbar" class="align-items-center fixed-top">
+    <div class="container-fluid container-xl col-md-12 d-flex  justify-content-center">
+      <div class="row col-md-12 mt-2">
+
+        <div class="col-md-6" style="text-align: center">
+          <i class="bi bi-phone"><span><a href="tel://#" style="color: white"> +92 91 561-3666</a></span></i>
+        </div>
+        <div class="col-md-6" style="text-align: center">
+          <i class="bi bi-clock"><span> Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+        </div>   
+
       </div>
     </div>
   </section>
@@ -56,7 +62,7 @@
           </a>
         </h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid"></a>
+        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" width="65"  alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">

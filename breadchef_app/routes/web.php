@@ -23,9 +23,7 @@ use App\Http\Middleware\AdminAuthGuard;
  */
 Route::get('/', 'MainController@getItemsView');
 
-Route::get('/home', function(){
-    return view('website.index');
-});
+Route::get('/home', 'MainController@home');
 
 Route::get('/inner-page', function () {
     return view('inner-page');
@@ -48,6 +46,7 @@ Route::get('/checkout', function(){
 Route::get('/feedback', function(){
     return view('website.feedback');
 });
+Route::post('feedback', 'MainController@feedback');
 
 Route::get('/getall', 'MainController@getAllCategories');
 

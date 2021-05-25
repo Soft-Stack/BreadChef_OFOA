@@ -9,7 +9,7 @@
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
         <!-- Bootstrap Date-Picker Plugin -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     @endif
     <script src="{{ asset('js/app.js')}}"></script>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" /> --}}
@@ -417,10 +417,10 @@
         </script>
         
         @if (Request::is('breadchef-admin/orders'))
-            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
             <script src="{{ asset('js/admin-orders.js')}}"></script>      
-            <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
             <script>
   

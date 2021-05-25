@@ -42,11 +42,17 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <div class="row">
-        <i class="bi bi-phone col-xs-12 ms-4 d-flex align-items-center"><span>+92 91 561-3666</span></i>
-        <i class="bi bi-clock col-xs-12 ms-4 mt-2 d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>      
+  <section id="topbar" class="align-items-center fixed-top">
+    <div class="container-fluid container-xl col-md-12 d-flex  justify-content-center">
+      <div class="row col-md-12 mt-2">
+
+        <div class="col-md-6" style="text-align: center">
+          <i class="bi bi-phone"><span><a href="tel://#" style="color: white"> +92 91 561-3666</a></span></i>
+        </div>
+        <div class="col-md-6" style="text-align: center">
+          <i class="bi bi-clock"><span> Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+        </div>   
+
       </div>
     </div>
   </section>
@@ -58,7 +64,7 @@
       <div class="logo me-auto">
         <!-- <h1><a href="{{ url('/') }}">Bread Chef</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" class="img-fluid"></a>
+        <a href="{{ url('/') }}"><img src="{{ asset('img/breadchef-logo-trans.png') }}" alt="" width="65" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -199,10 +205,7 @@
         &copy; Copyright <strong><span>Bread Chef Cafe & Baker's</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        
         Designed by <a href="https://softstack.com.pk/">SoftStack Technologies</a>
       </div>
     </div>
