@@ -105,7 +105,7 @@
         <div class="row">
 
             <!-- Customer Information -->
-            <div class="col-md-7 border border-4 ms-4" >
+            <div class="col-md-7 border border-4" >
                 <h4 class="fw-bolder mt-2">Customer information</h4>
                 <hr>
                 
