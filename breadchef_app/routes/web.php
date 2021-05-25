@@ -46,6 +46,7 @@ Route::get('/checkout', function(){
 Route::get('/feedback', function(){
     return view('website.feedback');
 });
+Route::post('feedback', 'MainController@feedback');
 
 Route::get('/getall', 'MainController@getAllCategories');
 
