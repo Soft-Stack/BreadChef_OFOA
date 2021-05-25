@@ -679,13 +679,17 @@
             <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-clock"></i>
               <h4>Open Hours:</h4>
-              <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+              <p>Monday-Saturday:<br>11:00 AM - 11:00 PM</p>
             </div>
 
             <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+92 91 561 3666<br>+92 333 820 8261</p>
+              <p>
+                <a href="tel://#" style="color:#7a7368">+92 91 561 3666</a>
+                <br>
+                <a href="tel://#" style="color:#7a7368">+92 333 820 8261</a>
+              </p>
             </div>
           </div>
         </div>
