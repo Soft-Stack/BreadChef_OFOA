@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 
   <!-- =======================================================
   * Template Name: Delicious - v4.0.1
