@@ -75,7 +75,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          {{-- <li><a class="nav-link scrollto" href="#about">About</a></li> --}}
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="{{ url('/items') }}"><span>Items</span> </a></li>
           <li><a class="nav-link scrollto" href="#specials">Specials</a></li>

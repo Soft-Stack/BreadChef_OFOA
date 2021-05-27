@@ -70,7 +70,7 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
+    {{-- <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container-fluid">
 
@@ -108,7 +108,7 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End About Section --> --}}
 
     <!-- ======= Whu Us Section ======= -->
     <!-- <section id="why-us" class="why-us">

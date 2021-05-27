@@ -52,40 +52,47 @@ class MainController extends Controller
 
         //print_r($request->all());
        
-        Log::debug("[PlaceOrder] Got Request", $request->all());
-        // Log::debug("[PlaceOrder] Got Request", $request->input('name'));
-        $customerAsArray = CustomerTransformer::fromRequest($request);
-        $cartAsArray = CartTransformer::fromRequest($request);
-        $orderAsArray = OrderTransformer::fromRequest($request);
+        if($request->has('items'))
+        {
+            Log::debug("[PlaceOrder] Got Request", $request->all());
+            // Log::debug("[PlaceOrder] Got Request", $request->input('name'));
+            $customerAsArray = CustomerTransformer::fromRequest($request);
+            $cartAsArray = CartTransformer::fromRequest($request);
+            $orderAsArray = OrderTransformer::fromRequest($request);
 
-        Log::debug("[PlaceOrder] Customer as array ", $customerAsArray);
-        Log::debug("[PlaceOrder] Cart as array ", $cartAsArray);
-        Log::debug("[PlaceOrder] Order as array ", $orderAsArray);
+            Log::debug("[PlaceOrder] Customer as array ", $customerAsArray);
+            Log::debug("[PlaceOrder] Cart as array ", $cartAsArray);
+            Log::debug("[PlaceOrder] Order as array ", $orderAsArray);
 
-        $customer = Customer::checkAndAdd($customerAsArray);
-        $customer_id = $customer->id;
-        Log::debug('[PlaceOrder] CustomerId '. (string) $customer_id);
+            $customer = Customer::checkAndAdd($customerAsArray);
+            $customer_id = $customer->id;
+            Log::debug('[PlaceOrder] CustomerId '. (string) $customer_id);
 
-        $cart = Cart::create($cartAsArray);
-        Log::debug('[PlaceOrder] Cart '. $cart);
-        $cart_id = Cart::latest()->first()->id;
+            $cart = Cart::create($cartAsArray);
+            Log::debug('[PlaceOrder] Cart '. $cart);
+            $cart_id = Cart::latest()->first()->id;
 
-        // $datetime = explode(' ',Date('Y-m-d', strtotime('today')))[0];
-        // $datetime = Date("Y-m-d h:m:s", strtotime('today'));
+            // $datetime = explode(' ',Date('Y-m-d', strtotime('today')))[0];
+            // $datetime = Date("Y-m-d h:m:s", strtotime('today'));
 
-        $orderAsArray['customerid'] = $customer_id;        
-        $orderAsArray['cartid'] = $cart_id;
-        $orderAsArray['datetime'] = $request->input('datetime');
-        $orderAsArray['status'] = 'In Progress';
+            $orderAsArray['customerid'] = $customer_id;        
+            $orderAsArray['cartid'] = $cart_id;
+            $orderAsArray['datetime'] = $request->input('datetime');
+            $orderAsArray['status'] = 'In Progress';
 
-        Log::debug('[Place Order] creating order', $orderAsArray);
+            Log::debug('[Place Order] creating order', $orderAsArray);
 
-        $order = Order::create($orderAsArray);
+            $order = Order::create($orderAsArray);
 
-        OrderPosted::dispatch($order, $cart, $customer);
+            OrderPosted::dispatch($order, $cart, $customer);
 
-        // return response(['status' => 'success'], 200);
-        return redirect('/feedback');
+            // return response(['status' => 'success'], 200);
+            return redirect('/feedback');
+        }
+        else
+        {
+            return back()->with('status', 'Items not selected!');
+        }
     }
 
     /**

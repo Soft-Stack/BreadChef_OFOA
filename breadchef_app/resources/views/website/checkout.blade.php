@@ -105,7 +105,7 @@
         <div class="row">
 
             <!-- Customer Information -->
-            <div class="col-md-7 border border-4 ms-4" >
+            <div class="col-md-7 border border-4" >
                 <h4 class="fw-bolder mt-2">Customer information</h4>
                 <hr>
                 
@@ -165,11 +165,16 @@
                 <!-- End Order Window -->
             </div>
         </div>
+        @if (session('status'))
+          <div class="alert alert-danger col-md-4">
+              {{ session('status') }}
+          </div>
+        @endif
 
         <!-- Total Price -->
         <div class="row mt-3">
             <div class="col-md-12 text-center">
-                <h4 class="fw-bolder" id="subtotal">Total Rs.3200</h4>
+                <h4 class="fw-bolder" id="subtotal">Total Rs.100</h4>
                 <!-- hidden field -->
                 <input type="number" name="total-amount" value="" id="total" hidden>
             </div>

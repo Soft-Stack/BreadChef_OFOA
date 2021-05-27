@@ -641,7 +641,7 @@ class ItemsSeeder extends Seeder
                 'name' =>        'Double Scoop ', // name
                 'description' => '16 Flavours, Ask Flavours From Server', // description
                 'image' =>       'items/Gelato/doublescoop.jpeg',
-                'price' =>       '' // size
+                'price' =>       '250' // size
             ],
 
         ];
