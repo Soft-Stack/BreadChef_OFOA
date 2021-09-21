@@ -17,7 +17,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '1', // categoryid
                 'name' =>        'Nachos', // name
                 'description' => 'None', // description
-                'image'   =>     'items/appetizers/nachos.jpeg',//not updated
+                'image'   =>     'items/appetizers/Nachos.jpeg',//not updated
                 'price' =>       '450' // size
             ],
             [
@@ -52,14 +52,14 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '1', // categoryid
                 'name' =>        'Chicken Qresadillas', // name
                 'description' => 'None', // description
-                'image'   =>     'items/appetizers/chicken-quesadilla.jpeg',
+                'image'   =>     'items/appetizers/chicken_quesadilla.JPG',
                 'price' =>       '400' // size
             ],
             [
                 'categoryid' =>  '1', // categoryid
                 'name' =>        'Beef Chilli Fries', // name
                 'description' => 'None', // description
-                'image'   =>     'items/appetizers/beef_chilli_fries.jpeg',
+                'image'   =>     'items/appetizers/beef_chilli_fries.JPG',
                 'price' =>       '340' // size
             ],
             [
@@ -115,7 +115,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '2', // categoryid
                 'name' =>        'Chicken Cream of Mushroom Soup', // name
                 'description' => 'None', // description
-                'image' =>       'items/Soups/chicken-cream-mushroom-soup.jpeg',
+                'image' =>       'items/Soups/CREAM-OF-MUSHROOM.jpeg',
                 'price' =>       '250' // size
             ], 
             [
@@ -168,10 +168,31 @@ class ItemsSeeder extends Seeder
                 'price' =>       '595' // size
             ],
             [
+                'categoryid' =>  '4', // categoryid
+                'name' =>        'Club Sandwich', // name
+                'description' => 'None', // description
+                'image' =>       'items/Sandwiches/ClubSandwich.JPG',
+                'price' =>       '595' // size
+            ],
+            [
+                'categoryid' =>  '4', // categoryid
+                'name' =>        'Hunter Beef Sandwich', // name
+                'description' => 'None', // description
+                'image' =>       'items/Sandwiches/hunter-beef-sandwich.jpeg',
+                'price' =>       '595' // size
+            ],
+            [
+                'categoryid' =>  '4', // categoryid
+                'name' =>        'Panini Sandwich', // name
+                'description' => 'Grilled Chicken, Salami, Egg, Cheese, Lettuce, Tomato, Onion, Spicy Garlic Sauce, Mayonnaise', // description
+                'image' =>       'items/Sandwiches/',
+                'price' =>       '595' // size
+            ],
+            [
                 'categoryid' =>  '5',
                 'name' =>        'Santorini Special Burger',
                 'description' => 'Grilled Beef/Chicken topped with cheese mushroom capsicum onion',
-                'image' =>       'items/Burgers/Santorini-special-burger.jpeg',
+                'image' =>       'items/Burgers/Santorini-special-burger.JPG',
                 'price' =>       '595'
             ],
             [
@@ -192,14 +213,14 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '5', // categoryid
                 'name' =>        'Steak Burger', // name
                 'description' => 'Peri Grilled Steak, Choice of Flavour', // description
-                'image' =>       'items/Burgers/steakBurger.jpeg',
+                'image' =>       'items/Burgers/steakBurger.jpg',
                 'price' =>       '700' // size
             ],
             [
                 'categoryid' =>  '5', // categoryid
                 'name' =>        'Royal Burger', // name
                 'description' => 'Golden fried boneless chicken breast topped with spicy gralic sause and cheese', // description
-                'image' =>       'items/Burgers/royal_burger.jpeg',
+                'image' =>       'items/Burgers/Royal-burger.jpeg',
                 'price' =>       '595' // size
             ],
             [
@@ -269,7 +290,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Rigi Rigi Steak', // name
                 'description' => 'Grilled fillet with African spices', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/RegiRegiSpicySteak.JPG',
                 'price' =>       '899' // size
             ],
             [
@@ -290,7 +311,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Peppercorn Steak', // name
                 'description' => 'Grilled beef/chicken served with crack black papper sauce', // description
-                'image' =>       'items/Steaks/peppercorn-steak.jpeg',
+                'image' =>       'items/Steaks/pepper-steak.jpeg',
                 'price' =>       '899' // size
             ],
             [
@@ -311,21 +332,21 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Twin Steak', // name
                 'description' => 'Grilled beef/chicken half topped with mushroom cream sauce and half topped with black peppercorn sauce', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/twin_grill_steak.JPG',
                 'price' =>       '899' // size
             ],
             [
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Herb Steak', // name
                 'description' => 'Grilled beef/chicken topped with chilli herb creamy sauce with mushrooms', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/HerbSteak.JPG',
                 'price' =>       '899' // size
             ],
             [
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Hawaiin Steak', // name
                 'description' => 'Grilled beef/chicken topped with pineapple, cheese and creamy mushroom sauce', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/HawaiianSteak.JPG',
                 'price' =>       '899' // size
             ],
             [
@@ -339,14 +360,14 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Maxican Steak', // name
                 'description' => 'Grilled fillet topped wth spicy maxican salsa sauce', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/MexicanSteak.JPG',
                 'price' =>       '899' // size
             ],
             [
                 'categoryid' =>  '7', // categoryid
                 'name' =>        'Combo Steak', // name
                 'description' => 'Grilled beef and chicken half topped with mushroom cream sauce and half topped  with black peppercorn sauce', // description
-                'image' =>       'items/Steaks/.jpeg',
+                'image' =>       'items/Steaks/ComboSteak.JPG',
                 'price' =>       '990' // size
             ],
             [
@@ -367,14 +388,14 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '8', // categoryid
                 'name' =>        'Rolado do Polo', // name
                 'description' => 'Fried chicken stuffed with mushroom spinach, Alfredo pasta cooked in creamy sauce and cherry tomato', // description
-                'image' =>       'items/Pastas/Rolado-do-Polo.jpeg',
+                'image' =>       'items/Pastas/Rolado do Polo.jpeg',
                 'price' =>       '650' // size
             ],
             [
                 'categoryid' =>  '8', // categoryid
                 'name' =>        'Chicken Mushroom Lasagne', // name
                 'description' => 'None', // description
-                'image' =>       'items/Pastas/lasagne.jpeg',
+                'image' =>       'items/Pastas/MushroomLasagna.JPG',
                 'price' =>       '650' // size
             ],
             [
@@ -399,10 +420,31 @@ class ItemsSeeder extends Seeder
                 'price' =>       '700' // size
             ],
             [
+                'categoryid' =>  '8', // categoryid
+                'name' =>        'Lasagne', // name
+                'description' => 'None', // description
+                'image' =>       'items/Pastas/lasagne.jpeg',
+                'price' =>       'None' // size
+            ],
+            [
+                'categoryid' =>  '8', // categoryid
+                'name' =>        'Penny Chicken Pasta', // name
+                'description' => 'None', // description
+                'image' =>       'items/Pastas/penne-chicken.jpeg',
+                'price' =>       'None' // size
+            ],
+            [
+                'categoryid' =>  '8', // categoryid
+                'name' =>        'Spicy Gravy Pasta', // name
+                'description' => 'None', // description
+                'image' =>       'items/Pastas/Spicy_Gravy_Pasta.JPG',
+                'price' =>       'None' // size
+            ],
+            [
                 'categoryid' =>  '9', // categoryid
                 'name' =>        'Fajitas', // name
                 'description' => 'Marinated chocken/beef strips cooked in bell peppers onions, tomatos, served with flour tortillas and sour cream', // description
-                'image' =>       'items/Grand-mexico/Chicken-Fajitas.jpeg',
+                'image' =>       'items/Grand-mexico/chicken-fajita.jpeg',
                 'price' =>       '899' // size
             ],
             [
@@ -411,6 +453,20 @@ class ItemsSeeder extends Seeder
                 'description' => 'None', // description
                 'image' =>       'items/Grand-mexico/chicken-nacho-platter.jpeg',
                 'price' =>       '650' // size
+            ],
+            [
+                'categoryid' =>  '9', // categoryid
+                'name' =>        'Supreme Nachos', // name
+                'description' => 'None', // description
+                'image' =>       'items/Grand-mexico/supreme-nachos.jpeg',
+                'price' =>       '---' // size
+            ],
+            [
+                'categoryid' =>  '9', // categoryid
+                'name' =>        'Combo Fajita', // name
+                'description' => 'None', // description
+                'image' =>       'items/Grand-mexico/Combo_FajitaSetup.JPG',
+                'price' =>       '---' // size
             ],
             [
                 'categoryid' =>  '10', // categoryid
@@ -430,36 +486,50 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Chicken Chow mein', // name
                 'description' => 'None', // description
-                'image' =>       'items/wok-a-meal/chicken-chowmein.jpeg',
+                'image' =>       'items/wok-a-meal/ChickenChowmein.JPG',
                 'price' =>       '550' // size
             ],
             [
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Chicken Cashew Nut', // name
                 'description' => 'Served with egg fried rice', // description
-                'image' =>       'items/wok-a-meal/Chicken-Cashew-Nut.jpeg',
+                'image' =>       'items/wok-a-meal/Chicken Cashew Nut.jpeg',
                 'price' =>       '750' // size
             ],
             [
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Mongolian Chicken/Beef', // name
                 'description' => 'Sliced beef cooked in creamy capsicum and mushroom sauce served with rice', // description
-                'image' =>       'items/wok-a-meal/Mongolian-Chicken:Beef.jpeg',
+                'image' =>       'items/wok-a-meal/Mongolian Chicken:Beef.jpeg',
                 'price' =>       '750' // size
             ],
             [
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Egg Fried Rice', // name
                 'description' => 'None', // description
-                'image' =>       'items/wok-a-meal/Egg-Fried-Rice.jpeg',
+                'image' =>       'items/wok-a-meal/Egg Fried Rice.jpeg',
                 'price' =>       '430' // size
             ],
             [
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Chicken Shashlik', // name
                 'description' => 'None', // description
-                'image' =>       'items/wok-a-meal/Chicken-Shashlik.jpeg',
+                'image' =>       'items/wok-a-meal/Chicken Shashlik .jpeg',
                 'price' =>       '699' // size
+            ],
+            [
+                'categoryid' =>  '10', // categoryid
+                'name' =>        'Fried Rice', // name
+                'description' => 'None', // description
+                'image' =>       'items/wok-a-meal/fried-rice.jpeg',
+                'price' =>       'None' // size
+            ],
+            [
+                'categoryid' =>  '10', // categoryid
+                'name' =>        'Manchurian Rice', // name
+                'description' => 'None', // description
+                'image' =>       'items/wok-a-meal/ManchurianRice.JPG',
+                'price' =>       'None' // size
             ],
             [
                 'categoryid' =>  '11', // categoryid
@@ -495,6 +565,13 @@ class ItemsSeeder extends Seeder
                 'description' => 'Grilled Fish topped with tandoori spices', // description
                 'image' =>       'items/From-Ocean/tandoori-fish.jpeg',
                 'price' =>       '950' // size
+            ],
+            [
+                'categoryid' =>  '11', // categoryid
+                'name' =>        'Grilled Fish', // name
+                'description' => 'Grilled Fish topped with spices and vegetables', // description
+                'image' =>       'items/From-Ocean/grilled_fish.JPG',
+                'price' =>       'None' // size
             ],
             [
                 'categoryid' =>  '12', // categoryid
@@ -584,7 +661,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '13', // categoryid
                 'name' =>        'Molten Lava', // name
                 'description' => 'None', // description
-                'image' =>       'items/Dessert/Molten-Lava.jpeg',
+                'image' =>       'items/Dessert/Molten_Lava.jpeg',
                 'price' =>       '425' // size
             ],
             [
