@@ -26,7 +26,7 @@ class ItemsSeeder extends Seeder
                 'description' => 'None', // description
                 'image'   =>     'items/appetizers/buffalo_wings.jpeg',
                 'price' =>       '430' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '1', // categoryid
                 'name' =>        'Cheese Stick', // name
@@ -117,7 +117,7 @@ class ItemsSeeder extends Seeder
                 'description' => 'None', // description
                 'image' =>       'items/Soups/CREAM-OF-MUSHROOM.jpeg',
                 'price' =>       '250' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '2', // categoryid
                 'name' =>        "Hot 'n' Sour Soup", // name
@@ -131,35 +131,35 @@ class ItemsSeeder extends Seeder
                 'description' => 'None', // description
                 'image' =>       'items/Salad/Caesar-Salad.jpeg',
                 'price' =>       '450' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '3', // categoryid
                 'name' =>        'Russian Salad', // name
                 'description' => 'None', // description
                 'image' =>       'items/Salad/Russian-salad.jpeg',
                 'price' =>       '350' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '3', // categoryid
                 'name' =>        'Grilled Chicken Salad', // name
                 'description' => 'None', // description
                 'image' =>       'items/Salad/chicken-grilled-salad.jpeg',
                 'price' =>       '390' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '4', // categoryid
                 'name' =>        'Triple Decker Club Sandwich', // name
                 'description' => 'Grilled Chicken, Salami, Egg, Cheese, Lettuce, Tomato, Onion, Spicy Garlic Sauce, Mayonnaise', // description
                 'image' =>       'items/Sandwiches/triple-decker-club-sandwich.jpeg',
                 'price' =>       '595' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '4', // categoryid
                 'name' =>        'Crunch Sandwich', // name
                 'description' => 'Crispy fried chicken topped with cheese honey mustard and vegetables', // description
                 'image' =>       'items/Sandwiches/crunch-sandwich.jpeg',
                 'price' =>       '595' // size
-            ], 
+            ],
             [
                 'categoryid' =>  '4', // categoryid
                 'name' =>        'Grilled Chicken Panini Sandwich', // name
@@ -500,7 +500,7 @@ class ItemsSeeder extends Seeder
                 'categoryid' =>  '10', // categoryid
                 'name' =>        'Mongolian Chicken/Beef', // name
                 'description' => 'Sliced beef cooked in creamy capsicum and mushroom sauce served with rice', // description
-                'image' =>       'items/wok-a-meal/Mongolian Chicken:Beef.jpeg',
+                'image' =>       'items/wok-a-meal/Mongolian Chicken_Beef.jpeg',
                 'price' =>       '750' // size
             ],
             [
